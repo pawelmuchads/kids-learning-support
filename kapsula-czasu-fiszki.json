@@ -1,0 +1,3442 @@
+{
+  "tytul": "Kapsuła Czasu – fiszki z historii",
+  "wersja": 1,
+  "jezyk": "pl",
+  "opis": "Krótkie fiszki (przód = pytanie, tył = odpowiedź) z działów 1–6 podręcznika do historii. Odpowiedzi są zgodne z podręcznikiem; fiszki z \"ciekawostka\": true wykraczają poza podręcznik.",
+  "pola_fiszki": {
+    "id": "unikalny identyfikator, np. d3-012",
+    "dzial": "id działu (d1…d6)",
+    "temat": "temat w obrębie działu",
+    "typ": "pojecie | data | postac | fakt | liczenie | miejsce",
+    "przod": "pytanie",
+    "tyl": "odpowiedź",
+    "ciekawostka": "true = wiedza spoza podręcznika (dodatkowa)"
+  },
+  "typy": {
+    "pojecie": "pojęcie",
+    "data": "data",
+    "postac": "postać",
+    "fakt": "fakt",
+    "liczenie": "liczenie",
+    "miejsce": "miejsce"
+  },
+  "uwagi": [
+    "Odpowiedzi trzymają się podręcznika także tam, gdzie nauka poszła dalej, np. ok. 200 tysięcy lat dla człowieka rozumnego (nowsze znaleziska wskazują na ok. 300 tysięcy) i łuk wynaleziony „kilkanaście tysięcy lat temu”.",
+    "Celowo nie ma fiszki z końcem młodszej epoki kamiennej w dziale 1: podręcznik podaje tam ok. 3500 r. p.n.e., a w działach 2–3 ok. 2500 r. p.n.e. (wynalazek brązu).",
+    "O piramidzie Cheopsa nie piszemy, że to „najwyższa kamienna budowla na Ziemi” – to dziś nieprawda (wyższe są np. katedry w Ulm i w Kolonii).",
+    "O menorze nie piszemy „pierwsza menora” – Rzymianie w 70 r. n.e. zabrali menorę z drugiej, odbudowanej świątyni."
+  ],
+  "dzialy": [
+    {
+      "id": "d1",
+      "nr": 1,
+      "tytul": "Czas w historii",
+      "zakres": "podręcznik s. 6–9",
+      "tematy": [
+        "Chronologia",
+        "Wieki i tysiąclecia",
+        "Cyfry rzymskie",
+        "Prehistoria i historia",
+        "Epoki",
+        "Dzieje Ziemi"
+      ],
+      "liczba_fiszek": 71
+    },
+    {
+      "id": "d2",
+      "nr": 2,
+      "tytul": "Od myśliwych do rolników",
+      "zakres": "podręcznik s. 11–16",
+      "tematy": [
+        "Paleolit",
+        "Rewolucja neolityczna",
+        "Neolit",
+        "Liczenie"
+      ],
+      "liczba_fiszek": 58
+    },
+    {
+      "id": "d3",
+      "nr": 3,
+      "tytul": "Cywilizacje Sumerów, doliny Indusu i Chin",
+      "zakres": "podręcznik s. 17–21",
+      "tematy": [
+        "Społeczeństwo i cywilizacja",
+        "Sumerowie",
+        "Dolina Indusu",
+        "Chiny",
+        "Rzeki cywilizacji",
+        "Liczenie"
+      ],
+      "liczba_fiszek": 59
+    },
+    {
+      "id": "d4",
+      "nr": 4,
+      "tytul": "Starożytny Egipt",
+      "zakres": "podręcznik s. 22–27",
+      "tematy": [
+        "Dar Nilu",
+        "Państwo egipskie",
+        "Faraon i społeczeństwo",
+        "Pismo egipskie",
+        "Źródła i mapa",
+        "Liczenie"
+      ],
+      "liczba_fiszek": 62
+    },
+    {
+      "id": "d5",
+      "nr": 5,
+      "tytul": "Wierzenia starożytnych Egipcjan",
+      "zakres": "podręcznik s. 28–33",
+      "tematy": [
+        "Bogowie",
+        "Ozyrys",
+        "Piramidy i grobowce",
+        "Mumie",
+        "Sąd Ozyrysa"
+      ],
+      "liczba_fiszek": 59
+    },
+    {
+      "id": "d6",
+      "nr": 6,
+      "tytul": "Starożytny Izrael",
+      "zakres": "podręcznik s. 34–37",
+      "tematy": [
+        "Biblia",
+        "Ludy i nazwy",
+        "Dzieje Izraela",
+        "Judaizm",
+        "Symbole",
+        "Mapa"
+      ],
+      "liczba_fiszek": 60
+    }
+  ],
+  "fiszki": [
+    {
+      "id": "d1-001",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Czym zajmuje się chronologia?",
+      "tyl": "Mierzeniem czasu w przeszłości i ustalaniem, co wydarzyło się najpierw, a co potem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-002",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co znaczy „opowiedzieć coś chronologicznie”?",
+      "tyl": "Po kolei, zaczynając od tego, co wydarzyło się najwcześniej.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-003",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "fakt",
+      "przod": "Od jakiego wydarzenia liczymy lata naszej ery?",
+      "tyl": "Od narodzenia Jezusa Chrystusa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-004",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co oznacza skrót n.e.?",
+      "tyl": "Naszej ery.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-005",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co oznacza skrót p.n.e.?",
+      "tyl": "Przed naszą erą.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-006",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co oznaczają skróty „po Chr.” i „przed Chr.”?",
+      "tyl": "Po Chrystusie (= n.e.) i przed Chrystusem (= p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-007",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co oznaczają skróty „r.” i „w.”?",
+      "tyl": "r. – rok, w. – wiek.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-008",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "fakt",
+      "przod": "Czy był rok 0?",
+      "tyl": "Nie. Po 1 r. p.n.e. od razu nastąpił 1 r. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-009",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "fakt",
+      "przod": "Który rok był wcześniej: 87 r. p.n.e. czy 78 r. n.e.?",
+      "tyl": "87 r. p.n.e. – każdy rok p.n.e. był wcześniej niż każdy rok n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-010",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "liczenie",
+      "przod": "Ile lat minęło między 87 r. p.n.e. a 78 r. n.e.?",
+      "tyl": "164 lata (87 + 78 − 1, bo nie było roku 0).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-011",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "fakt",
+      "przod": "Dlaczego przy datach średniowiecza nie piszemy „n.e.”?",
+      "tyl": "Zaczęło się w naszej erze, więc nie mogło skończyć się przed nią.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-012",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "postac",
+      "przod": "Kto w VI w. wymyślił liczenie lat od narodzenia Chrystusa?",
+      "tyl": "Mnich Dionizy Mały.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-013",
+      "dzial": "d1",
+      "temat": "Chronologia",
+      "typ": "pojecie",
+      "przod": "Co znaczą angielskie skróty AD i BC?",
+      "tyl": "AD (Anno Domini) = n.e., BC (Before Christ) = p.n.e.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-014",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "pojecie",
+      "przod": "Co to jest wiek (stulecie)?",
+      "tyl": "Pełne 100 lat.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-015",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "pojecie",
+      "przod": "Co to jest tysiąclecie?",
+      "tyl": "Pełne 1000 lat.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-016",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje I wiek n.e.?",
+      "tyl": "Od 1 do 100 r. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-017",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje II wiek n.e.?",
+      "tyl": "101–200 r. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-018",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje II wiek p.n.e.?",
+      "tyl": "200–101 p.n.e. (wieki p.n.e. liczymy od końca).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-019",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje XX wiek?",
+      "tyl": "1901–2000.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-020",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "Jak obliczyć, w którym wieku był dany rok?",
+      "tyl": "Skreśl dwie ostatnie cyfry i dodaj 1 (1370 → 13 + 1 = XIV w.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-021",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "Kiedy przy liczeniu wieku NIE dodajemy 1?",
+      "tyl": "Gdy rok kończy się dwoma lub trzema zerami (1500 → XV w., 2000 → XX w.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-022",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 776 r. p.n.e.?",
+      "tyl": "VIII w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-023",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1370 r.?",
+      "tyl": "XIV w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-024",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1500 r.?",
+      "tyl": "XV w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-025",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1800 r. p.n.e.?",
+      "tyl": "XVIII w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-026",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 399 r. p.n.e.?",
+      "tyl": "IV w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-027",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 64 r. n.e.?",
+      "tyl": "I w. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-028",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1001 r.?",
+      "tyl": "XI w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-029",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1000 r.?",
+      "tyl": "X w. (trzy zera – nie dodajemy 1).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-030",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku był 1410 r.?",
+      "tyl": "XV w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-031",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "liczenie",
+      "przod": "W którym wieku jest 2026 r.?",
+      "tyl": "XXI w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-032",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Które lata to I połowa II w. n.e.?",
+      "tyl": "101–150.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-033",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Które lata to I połowa II w. p.n.e.?",
+      "tyl": "200–151 p.n.e. – przed naszą erą pierwsza połowa jest wcześniejsza.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-034",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Które lata to II połowa I w. p.n.e.?",
+      "tyl": "50–1 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-035",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Kiedy zaczęło się III tysiąclecie?",
+      "tyl": "1 stycznia 2001 r.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-036",
+      "dzial": "d1",
+      "temat": "Wieki i tysiąclecia",
+      "typ": "data",
+      "przod": "Kiedy skończy się III tysiąclecie?",
+      "tyl": "31 grudnia 3000 r.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-037",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Zapisz cyframi rzymskimi: 4 i 9.",
+      "tyl": "IV i IX.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-038",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Zapisz cyframi rzymskimi: 14 i 19.",
+      "tyl": "XIV i XIX.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-039",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Zapisz cyframi rzymskimi: 16 i 20.",
+      "tyl": "XVI i XX.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-040",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Jaką liczbę oznacza XVIII?",
+      "tyl": "18.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-041",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Kiedy w zapisie rzymskim odejmujemy?",
+      "tyl": "Gdy mniejsza cyfra stoi przed większą (IV = 5 − 1).",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-042",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "pojecie",
+      "przod": "Ile znaczą cyfry rzymskie L, C, D i M?",
+      "tyl": "L = 50, C = 100, D = 500, M = 1000.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-043",
+      "dzial": "d1",
+      "temat": "Cyfry rzymskie",
+      "typ": "liczenie",
+      "przod": "Jak zapisać rok 2026 cyframi rzymskimi?",
+      "tyl": "MMXXVI.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-044",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "fakt",
+      "przod": "Na jakie dwa okresy naukowcy podzielili dzieje ludzkości?",
+      "tyl": "Na prehistorię i historię.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-045",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "pojecie",
+      "przod": "Co to jest historia (jako okres dziejów)?",
+      "tyl": "Dzieje ludzkości od wynalezienia pisma, czyli od ok. 3500 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-046",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "pojecie",
+      "przod": "Co to jest prehistoria?",
+      "tyl": "Wszystko, co działo się w dziejach ludzkości przed wynalezieniem pisma.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-047",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "data",
+      "przod": "Kiedy kończy się prehistoria i zaczyna historia?",
+      "tyl": "Ok. 3500 r. p.n.e. – wraz z wynalezieniem pisma.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-048",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "miejsce",
+      "przod": "Gdzie są prehistoryczne malowidła pokazane w podręczniku?",
+      "tyl": "W jaskini Lascaux we Francji.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-049",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "fakt",
+      "przod": "Ile lat mają malowidła z jaskini Lascaux?",
+      "tyl": "Ok. 17 tysięcy lat.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-050",
+      "dzial": "d1",
+      "temat": "Prehistoria i historia",
+      "typ": "fakt",
+      "przod": "Czyje pismo jest najstarszym znanym pismem świata?",
+      "tyl": "Pismo Sumerów.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-051",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "pojecie",
+      "przod": "Co to jest epoka?",
+      "tyl": "Długi okres w historii lub prehistorii, który ma początek i koniec i różni się od innych epok.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-052",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Jakie są dwie epoki prehistoryczne?",
+      "tyl": "Starsza i młodsza epoka kamienna.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-053",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Skąd pochodzą nazwy epok prehistorycznych?",
+      "tyl": "Od kamiennych narzędzi, którymi posługiwali się ludzie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-054",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "data",
+      "przod": "Kiedy skończyła się starsza epoka kamienna?",
+      "tyl": "Ok. 8000 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-055",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Jaka była pierwsza epoka historyczna?",
+      "tyl": "Starożytność.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-056",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "data",
+      "przod": "Kiedy trwała starożytność?",
+      "tyl": "Od ok. 3500 r. p.n.e. do 476 r. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-057",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "data",
+      "przod": "Kiedy trwało średniowiecze?",
+      "tyl": "476–1492.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-058",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "data",
+      "przod": "Kiedy zaczęła się nowożytność?",
+      "tyl": "W 1492 r. – według podręcznika trwa do dziś.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-059",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Jakie wydarzenie z 1492 r. kończy średniowiecze?",
+      "tyl": "Odkrycie Ameryki.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-060",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Co znaczy, że podział na epoki jest umowny?",
+      "tyl": "Historycy umówili się co do dat granicznych, a niektórzy przyjmują inne przełomowe wydarzenia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-061",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Co według niektórych historyków rozpoczęło nowożytność zamiast odkrycia Ameryki?",
+      "tyl": "Wynalazek druku w połowie XV w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-062",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "postac",
+      "przod": "Kto wynalazł druk z ruchomych czcionek?",
+      "tyl": "Jan Gutenberg, ok. 1450 r.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-063",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "fakt",
+      "przod": "Co się stało w 476 r.?",
+      "tyl": "Upadło cesarstwo zachodniorzymskie – koniec starożytności.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-064",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "postac",
+      "przod": "Kto w 1492 r. dopłynął do Ameryki?",
+      "tyl": "Krzysztof Kolumb.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d1-065",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "liczenie",
+      "przod": "Ile lat trwało średniowiecze?",
+      "tyl": "1016 lat (1492 − 476).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-066",
+      "dzial": "d1",
+      "temat": "Epoki",
+      "typ": "liczenie",
+      "przod": "Ile mniej więcej trwała starożytność?",
+      "tyl": "Prawie 4000 lat (ok. 3500 p.n.e. – 476 n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-067",
+      "dzial": "d1",
+      "temat": "Dzieje Ziemi",
+      "typ": "liczenie",
+      "przod": "Ile lat ma Ziemia?",
+      "tyl": "Ok. 4 miliardy 600 milionów lat.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-068",
+      "dzial": "d1",
+      "temat": "Dzieje Ziemi",
+      "typ": "data",
+      "przod": "Kiedy pojawiły się pierwsze rośliny lądowe?",
+      "tyl": "Ok. 450 milionów lat temu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-069",
+      "dzial": "d1",
+      "temat": "Dzieje Ziemi",
+      "typ": "data",
+      "przod": "Kiedy pojawili się ludzie rozumni (według podręcznika)?",
+      "tyl": "Ok. 200 tysięcy lat temu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-070",
+      "dzial": "d1",
+      "temat": "Dzieje Ziemi",
+      "typ": "liczenie",
+      "przod": "Gdyby dzieje Ziemi trwały dobę, jak długo istniałby nasz gatunek (według podręcznika)?",
+      "tyl": "Ok. 2 sekundy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d1-071",
+      "dzial": "d1",
+      "temat": "Dzieje Ziemi",
+      "typ": "pojecie",
+      "przod": "Jak po łacinie nazywa się człowiek rozumny?",
+      "tyl": "Homo sapiens.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d2-001",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "data",
+      "przod": "Kiedy pojawił się człowiek rozumny (oś czasu)?",
+      "tyl": "Ok. 198 tys. p.n.e., czyli ok. 200 tysięcy lat temu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-002",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "data",
+      "przod": "Kiedy ludzie rozumni przybyli do Europy?",
+      "tyl": "Ok. 40 tysięcy lat temu (ok. 38 tys. p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-003",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Jaki był klimat Europy ok. 40 tysięcy lat temu?",
+      "tyl": "Zimny: na północy lądolód, na południu tundra, lasy nie rosły.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-004",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "liczenie",
+      "przod": "Jaka była średnia temperatura lipca na południu Europy 40 tysięcy lat temu?",
+      "tyl": "+5°C.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-005",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "liczenie",
+      "przod": "Jak gruby był lądolód na północy Europy?",
+      "tyl": "Do 3 km.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-006",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest lądolód?",
+      "tyl": "Ogromna i bardzo gruba pokrywa lodowa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-007",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest tundra?",
+      "tyl": "Obszar porośnięty jedynie trawami, krzewami i pojedynczymi drzewami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-008",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest Bliski Wschód?",
+      "tyl": "Południowo-zachodnia Azja i północno-wschodnia Afryka.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-009",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Jak inaczej nazywa się starsza epoka kamienna?",
+      "tyl": "Paleolit.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-010",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Jak inaczej nazywa się młodsza epoka kamienna?",
+      "tyl": "Neolit.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-011",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Dlaczego ludzie paleolitu nie uprawiali ziemi?",
+      "tyl": "Przez większą część roku była zmarznięta.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-012",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Dlaczego ludzie paleolitu nie budowali drewnianych domów?",
+      "tyl": "Brakowało budulca – lasy nie rosły.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-013",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Z czego żyli ludzie paleolitu?",
+      "tyl": "Z myślistwa i zbieractwa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-014",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest koczowniczy tryb życia?",
+      "tyl": "Wędrowny: ludzie nie budują trwałych domów, lecz wędrują w poszukiwaniu żywności.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-015",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Gdzie mieszkali ludzie paleolitu?",
+      "tyl": "W jaskiniach albo w namiotach z kości mamuta okrytych skórami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-016",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "liczenie",
+      "przod": "Ile osób liczyła gromada ludzi paleolitu?",
+      "tyl": "20–30 osób.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-017",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Dlaczego gromada nie była ani mniejsza, ani większa?",
+      "tyl": "Mniejsza nie upolowałaby mamuta, a w większej zabrakłoby jedzenia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-018",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Na jakie zwierzęta polowali myśliwi paleolitu?",
+      "tyl": "Na mamuty, niedźwiedzie, byki, konie i renifery.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-019",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Co zbierały kobiety i dzieci w paleolicie?",
+      "tyl": "Owoce, nasiona, jadalne korzenie i ptasie jaja.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-020",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest krzemień?",
+      "tyl": "Twarda skała, którą można łupać na kawałki o bardzo ostrych krawędziach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-021",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Jaką broń robili myśliwi paleolitu?",
+      "tyl": "Toporki i oszczepy z krzemiennymi ostrzami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-022",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Co to jest harpun?",
+      "tyl": "Oszczep z zadziorami na ostrzu i liną do przyciągnięcia zdobyczy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-023",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "pojecie",
+      "przod": "Do czego służył pięściak?",
+      "tyl": "Do rąbania, cięcia i kopania, a także jako broń.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-024",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "data",
+      "przod": "Kiedy ludzie wynaleźli łuk (według podręcznika)?",
+      "tyl": "Kilkanaście tysięcy lat temu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-025",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Co ułatwił wynalazek łuku?",
+      "tyl": "Polowanie na szybkie zwierzęta, np. renifery.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-026",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Jak ludzie paleolitu rozpalali ogień?",
+      "tyl": "Uderzali krzemieniem w piryt, a iskry podpalały suchą trawę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-027",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Jakie zwierzę udomowiono już w starszej epoce kamiennej?",
+      "tyl": "Psa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-028",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "fakt",
+      "przod": "Od jakiego dzikiego zwierzęcia pochodzi pies?",
+      "tyl": "Od wilka.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d2-029",
+      "dzial": "d2",
+      "temat": "Paleolit",
+      "typ": "miejsce",
+      "przod": "Gdzie w Polsce są pradawne kopalnie krzemienia (UNESCO)?",
+      "tyl": "W Krzemionkach koło Ostrowca Świętokrzyskiego.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d2-030",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "data",
+      "przod": "Kiedy klimat zaczął się ocieplać?",
+      "tyl": "Ok. 20 tysięcy lat temu (ok. 18 tys. p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-031",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "fakt",
+      "przod": "Co się stało, gdy klimat się ocieplił?",
+      "tyl": "Lądolód się cofnął, padały deszcze, wyrosły lasy, trawy i dzikie zboża.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-032",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "data",
+      "przod": "Kiedy nastał okres ciepły, w którym żyjemy?",
+      "tyl": "Ok. 10 tysięcy lat temu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-033",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "miejsce",
+      "przod": "Gdzie ludzie jako pierwsi w dziejach zaczęli uprawiać ziemię?",
+      "tyl": "Na Bliskim Wschodzie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-034",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "pojecie",
+      "przod": "Co to jest rolnictwo?",
+      "tyl": "Uprawa ziemi i hodowla zwierząt.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-035",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "pojecie",
+      "przod": "Co to jest rewolucja neolityczna?",
+      "tyl": "Przejście ludzi od myślistwa i zbieractwa do rolnictwa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-036",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "data",
+      "przod": "Kiedy trwała młodsza epoka kamienna na Bliskim Wschodzie?",
+      "tyl": "Ok. 8000 – ok. 2500 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-037",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "fakt",
+      "przod": "Czy neolit zaczął się wszędzie w tym samym czasie?",
+      "tyl": "Nie – w innych częściach świata zaczął się i skończył znacznie później.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-038",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "fakt",
+      "przod": "Skąd nazwa „młodsza epoka kamienna”?",
+      "tyl": "Ludzie nadal robili narzędzia z kamienia, a epoka nastała po starszej.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-039",
+      "dzial": "d2",
+      "temat": "Rewolucja neolityczna",
+      "typ": "pojecie",
+      "przod": "Co znaczy „karczować”?",
+      "tyl": "Usuwać drzewa z korzeniami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-040",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Wymień pięć skutków rewolucji neolitycznej.",
+      "tyl": "Osiadły tryb życia, lepsze narzędzia, udomowienie zwierząt, więcej ludzi, pierwsze rzemiosła.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-041",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Dlaczego rolnicy prowadzili osiadły tryb życia?",
+      "tyl": "Musieli doglądać pól.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-042",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Z czego rolnicy neolitu budowali domy?",
+      "tyl": "Z drewna albo z gliny zmieszanej z trzciną.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-043",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Jak ludzie neolitu udoskonalili kamienne narzędzia?",
+      "tyl": "Wygładzali je, przewiercali i osadzali na trzonkach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-044",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Jak przewiercano kamienne ostrze?",
+      "tyl": "Kijem; pomocnik sypał do otworu piasek, który zwiększał tarcie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-045",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Która siekiera była trwalsza?",
+      "tyl": "Ta z otworem wywierconym w ostrzu (z ostrzem w wydrążonym trzonku – mniej trwała).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-046",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Jakie zwierzęta udomowili ludzie neolitu?",
+      "tyl": "Kozy, owce, bydło i świnie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-047",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Co dawały zwierzęta hodowlane?",
+      "tyl": "Mięso, skóry, mleko i wełnę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-048",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Dlaczego na Bliskim Wschodzie przybywało ludzi?",
+      "tyl": "Rolnictwo pozwalało wyżywić więcej ludzi niż myślistwo i zbieractwo.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-049",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "pojecie",
+      "przod": "Co to jest rzemiosło?",
+      "tyl": "Wykonywanie przedmiotów codziennego użytku za pomocą prostych narzędzi.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-050",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Jakie były pierwsze gałęzie rzemiosła?",
+      "tyl": "Garncarstwo i tkactwo.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-051",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Do czego służyły gliniane naczynia?",
+      "tyl": "Do przechowywania ziarna i napojów oraz gotowania posiłków.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-052",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Dlaczego rozwinęło się tkactwo?",
+      "tyl": "W cieplejszym klimacie potrzebne były przewiewne stroje z wełny i lnu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-053",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Paleolit czy neolit: ubrania szyte ze skór?",
+      "tyl": "Paleolit (w neolicie – tkane z wełny i lnu).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-054",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Paleolit czy neolit: narzędzia z kamienia obłupywanego?",
+      "tyl": "Paleolit (w neolicie kamień wygładzano i przewiercano).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-055",
+      "dzial": "d2",
+      "temat": "Neolit",
+      "typ": "fakt",
+      "przod": "Paleolit czy neolit: trwałe domy z drewna lub gliny?",
+      "tyl": "Neolit (w paleolicie – jaskinie i namioty).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-056",
+      "dzial": "d2",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Jak zamienić „lat temu” na datę p.n.e.?",
+      "tyl": "Odjąć ok. 2000 lat (40 tys. lat temu ≈ 38 tys. p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-057",
+      "dzial": "d2",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Ile lat trwała młodsza epoka kamienna na Bliskim Wschodzie?",
+      "tyl": "Ok. 5500 lat (8000 − 2500).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d2-058",
+      "dzial": "d2",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Ile lat minęło od pojawienia się człowieka rozumnego do początku rolnictwa?",
+      "tyl": "Ok. 190 000 lat (198 000 − 8000).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-001",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "pojecie",
+      "przod": "Co to jest społeczeństwo?",
+      "tyl": "Duża grupa ludzi: wspólny teren, wspólna władza, poczucie łączności i odrębności od innych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-002",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "fakt",
+      "przod": "Jak powstały pierwsze społeczeństwa?",
+      "tyl": "Wsie rosły, ludzie nawiązywali kontakty i zgadzali się, by ktoś nimi kierował.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-003",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "fakt",
+      "przod": "Po co ludziom ktoś, kto nimi kieruje (przykład z podręcznika)?",
+      "tyl": "By np. jedna wieś nie wykopała kanału tak, że zabraknie wody drugiej wsi.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-004",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "pojecie",
+      "przod": "Co to jest cywilizacja?",
+      "tyl": "Poziom rozwoju społeczeństwa, które mieszka w osadach lub miastach, zna rolnictwo i rzemiosło oraz używa pisma.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-005",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "fakt",
+      "przod": "Czy każde społeczeństwo jest cywilizacją?",
+      "tyl": "Nie – cywilizacją jest dopiero, gdy m.in. używa pisma.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-006",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "miejsce",
+      "przod": "Gdzie powstały pierwsze cywilizacje?",
+      "tyl": "W Mezopotamii, Egipcie, Indiach i Chinach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-007",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "fakt",
+      "przod": "Jakie dwie cechy łączą najstarsze cywilizacje?",
+      "tyl": "Powstały nad rzekami nawadniającymi pola i wytwarzały nadwyżkę pożywienia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-008",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "pojecie",
+      "przod": "Co to jest nadwyżka pożywienia?",
+      "tyl": "Więcej pożywienia, niż ludzie potrzebują.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-009",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "pojecie",
+      "przod": "Co to jest Mezopotamia?",
+      "tyl": "Kraina na Bliskim Wschodzie między Tygrysem i Eufratem (Międzyrzecze).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-010",
+      "dzial": "d3",
+      "temat": "Społeczeństwo i cywilizacja",
+      "typ": "pojecie",
+      "przod": "Co to jest Żyzny Półksiężyc?",
+      "tyl": "Obszary uprawne w kształcie półksiężyca od Mezopotamii do Palestyny.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-011",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "data",
+      "przod": "Kiedy Sumerowie osiedlili się w Mezopotamii?",
+      "tyl": "Po 4000 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-012",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Dlaczego Sumerowie zbudowali system nawadniający?",
+      "tyl": "Bo deszcz padał tam bardzo rzadko.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-013",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "liczenie",
+      "przod": "Ile razy większe plony mieli Sumerowie dzięki nawadnianiu?",
+      "tyl": "6 razy większe niż inne ludy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-014",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Co dała Sumerom nadwyżka pożywienia?",
+      "tyl": "Podział pracy, powstanie miast i miast-państw.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-015",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "pojecie",
+      "przod": "Co to jest podział pracy?",
+      "tyl": "Jedni zajmują się rolnictwem, a inni rzemiosłem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-016",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Jak powstały pierwsze miasta?",
+      "tyl": "Rzemieślnicy osiedlali się blisko siebie, by łatwiej kupować surowce i sprzedawać wyroby.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-017",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "pojecie",
+      "przod": "Czym miasto różni się od wsi?",
+      "tyl": "W mieście ludzie żyją głównie z rzemiosła i usług, a nie z rolnictwa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-018",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "pojecie",
+      "przod": "Co to jest miasto-państwo?",
+      "tyl": "Starożytne państewko obejmujące miasto wraz z okolicą.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-019",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Kto rządził sumeryjskimi miastami-państwami?",
+      "tyl": "Królowie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-020",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "data",
+      "przod": "Kiedy Sumerowie wynaleźli pismo?",
+      "tyl": "Ok. 3500 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-021",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Jakie są cztery wynalazki Sumerów?",
+      "tyl": "Pismo, koło i pierwsze wozy, szkło, brąz.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-022",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Czy Sumerowie robili ze szkła szyby?",
+      "tyl": "Nie – wynaleźli szkło, ale nie znali szyb.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-023",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "pojecie",
+      "przod": "Co to jest brąz?",
+      "tyl": "Stop miedzi z cyną.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-024",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "data",
+      "przod": "Kiedy Sumerowie uzyskali brąz?",
+      "tyl": "Ok. 2500 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-025",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Co zakończył wynalazek brązu?",
+      "tyl": "Młodszą epokę kamienną.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-026",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Jak pisali Sumerowie?",
+      "tyl": "Ryli znaki trzciną na tabliczkach z miękkiej gliny, które potem wypalali.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-027",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "pojecie",
+      "przod": "Jak nazywa się pismo Sumerów?",
+      "tyl": "Pismo klinowe.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-028",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "data",
+      "przod": "Kiedy upadła cywilizacja Sumerów?",
+      "tyl": "Ok. 2000 r. p.n.e. – zniszczyły ją inne ludy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-029",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Co stało się z osiągnięciami Sumerów?",
+      "tyl": "Wykorzystały je następne cywilizacje.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-030",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "fakt",
+      "przod": "Jak byli ubrani i uzbrojeni żołnierze króla Eannatuma?",
+      "tyl": "Spódniczki z owczej skóry, miedziane hełmy, włócznie i topory.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-031",
+      "dzial": "d3",
+      "temat": "Sumerowie",
+      "typ": "miejsce",
+      "przod": "Jak nazywa się miasto Sumerów zaznaczone na mapie (s. 21)?",
+      "tyl": "Ur.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-032",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "data",
+      "przod": "Kiedy powstała cywilizacja doliny Indusu?",
+      "tyl": "W drugiej połowie IV tysiąclecia p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-033",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "miejsce",
+      "przod": "Na terenie jakich dzisiejszych państw rozwijała się cywilizacja doliny Indusu?",
+      "tyl": "Indii i Pakistanu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-034",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "data",
+      "przod": "Kiedy trwała świetność cywilizacji doliny Indusu?",
+      "tyl": "Ok. 2500 – ok. 1800 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-035",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "fakt",
+      "przod": "Z czego mieszkańcy doliny Indusu budowali domy?",
+      "tyl": "Z wypalanych cegieł.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-036",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "fakt",
+      "przod": "Jakie wygody mieli mieszkańcy doliny Indusu?",
+      "tyl": "Prywatne łazienki i rury kanalizacyjne.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-037",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "fakt",
+      "przod": "Czym zajmowali się mieszkańcy doliny Indusu?",
+      "tyl": "Rolnictwem, rzemiosłem i handlem (także z Mezopotamią).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-038",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "fakt",
+      "przod": "Czy uczeni odczytali pismo doliny Indusu?",
+      "tyl": "Nie, jeszcze się to nie udało.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-039",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "miejsce",
+      "przod": "Wymień dwa wielkie miasta doliny Indusu.",
+      "tyl": "Mohendżo Daro i Harappa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-040",
+      "dzial": "d3",
+      "temat": "Dolina Indusu",
+      "typ": "liczenie",
+      "przod": "Jak długo ludzie mieszkali w Mohendżo Daro?",
+      "tyl": "Ponad 600 lat.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-041",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "data",
+      "przod": "Kiedy powstała cywilizacja chińska?",
+      "tyl": "Ok. 1700 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-042",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "miejsce",
+      "przod": "Nad jaką rzeką powstała cywilizacja chińska?",
+      "tyl": "Nad Huang-ho, czyli Żółtą Rzeką.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-043",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Z czego słynęli najdawniejsi Chińczycy?",
+      "tyl": "Z przedmiotów z brązu i wyrobów ceramicznych bez równych na świecie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-044",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Jakie pismo wynaleźli Chińczycy?",
+      "tyl": "Pismo obrazkowe – po wielu zmianach używane do dziś.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-045",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "data",
+      "przod": "Kiedy zjednoczono Chiny?",
+      "tyl": "W III w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-046",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Dlaczego podręcznik nazywa Chiny najstarszym państwem świata?",
+      "tyl": "Bo państwo chińskie istnieje od zjednoczenia w III w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-047",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Co ze starożytnej cywilizacji chińskiej przetrwało do dziś?",
+      "tyl": "Pismo, język chiński i państwo chińskie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-048",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Do czego służył Wielki Mur Chiński?",
+      "tyl": "Bronił północnej granicy Chin.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-049",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "data",
+      "przod": "Kiedy budowano Wielki Mur Chiński?",
+      "tyl": "Od III w. p.n.e., a rozbudowywano aż do XVII w.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-050",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "liczenie",
+      "przod": "Jak długi jest Wielki Mur Chiński?",
+      "tyl": "Wszystkie umocnienia razem mają ponad 20 tysięcy km.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-051",
+      "dzial": "d3",
+      "temat": "Chiny",
+      "typ": "fakt",
+      "przod": "Czy Wielki Mur widać gołym okiem z Księżyca?",
+      "tyl": "Nie – to mit, mur jest na to za wąski.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d3-052",
+      "dzial": "d3",
+      "temat": "Rzeki cywilizacji",
+      "typ": "miejsce",
+      "przod": "Nad jakimi rzekami powstała cywilizacja Sumerów?",
+      "tyl": "Nad Tygrysem i Eufratem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-053",
+      "dzial": "d3",
+      "temat": "Rzeki cywilizacji",
+      "typ": "miejsce",
+      "przod": "Nad jaką rzeką powstała cywilizacja Egiptu?",
+      "tyl": "Nad Nilem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-054",
+      "dzial": "d3",
+      "temat": "Rzeki cywilizacji",
+      "typ": "miejsce",
+      "przod": "Nad jaką rzeką powstała cywilizacja doliny Indusu?",
+      "tyl": "Nad Indusem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-055",
+      "dzial": "d3",
+      "temat": "Liczenie",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje IV tysiąclecie p.n.e.?",
+      "tyl": "4000–3001 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-056",
+      "dzial": "d3",
+      "temat": "Liczenie",
+      "typ": "data",
+      "przod": "Jakie lata obejmuje druga połowa IV tysiąclecia p.n.e.?",
+      "tyl": "3500–3001 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-057",
+      "dzial": "d3",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Z którego tysiąclecia pochodzi tabliczka z XXIV–XXII w. p.n.e.?",
+      "tyl": "Z III tysiąclecia p.n.e. (3000–2001 p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-058",
+      "dzial": "d3",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Ile mniej więcej lat istniała cywilizacja Sumerów?",
+      "tyl": "Ok. 2000 lat (ok. 4000 – ok. 2000 p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d3-059",
+      "dzial": "d3",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "Ile lat trwała świetność cywilizacji doliny Indusu?",
+      "tyl": "Ok. 700 lat (2500 − 1800).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-001",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "miejsce",
+      "przod": "Gdzie leży Egipt?",
+      "tyl": "W północno-wschodniej Afryce.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-002",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "data",
+      "przod": "Kiedy powstała cywilizacja Egiptu?",
+      "tyl": "W IV tysiącleciu p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-003",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Dlaczego Egipt nazwano darem Nilu?",
+      "tyl": "Wylewy Nilu nawadniały ziemię i nanosiły żyzny muł.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-004",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "data",
+      "przod": "Kiedy zaczynał się i kończył wylew Nilu?",
+      "tyl": "Zaczynał się w lipcu, woda opadała we wrześniu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-005",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Co zostawało na polach po wylewie Nilu?",
+      "tyl": "Muł, który użyźniał pola.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-006",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Czym byłby Egipt bez Nilu?",
+      "tyl": "Jedną wielką pustynią – deszcz prawie tam nie pada.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-007",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Dlaczego Egipcjanie zbudowali system nawadniający?",
+      "tyl": "Bo po wylewie ziemia szybko wysychała.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-008",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Z czego składał się egipski system nawadniający?",
+      "tyl": "Z tysięcy kanałów i niewielkich zbiorników wodnych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-009",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Dlaczego kanały trzeba było ciągle pogłębiać?",
+      "tyl": "Inaczej zasypałby je piasek pustyni.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-010",
+      "dzial": "d4",
+      "temat": "Dar Nilu",
+      "typ": "fakt",
+      "przod": "Jak Egipcjanie nazywali swój kraj?",
+      "tyl": "Kemet – „Czarna Ziemia”, od ciemnego mułu.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d4-011",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "data",
+      "przod": "Kiedy Egipcjanie utworzyli państwo?",
+      "tyl": "Ok. 3100 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-012",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "fakt",
+      "przod": "Dlaczego Egipcjanie utworzyli państwo?",
+      "tyl": "Ktoś musiał kierować budową i utrzymaniem systemu nawadniającego.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-013",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "pojecie",
+      "przod": "Co to jest państwo?",
+      "tyl": "Organizacja społeczeństwa na jakimś terytorium, z własnymi prawami i władzą.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-014",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "pojecie",
+      "przod": "Co to jest ustrój?",
+      "tyl": "Sposób zorganizowania władzy w państwie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-015",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "pojecie",
+      "przod": "Co to jest monarchia?",
+      "tyl": "Państwo rządzone przez koronowanego władcę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-016",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "pojecie",
+      "przod": "Kim był faraon?",
+      "tyl": "Królem Egiptu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-017",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "fakt",
+      "przod": "Jakie trzy zadania mieli faraon i jego urzędnicy?",
+      "tyl": "Organizowali pracę, zapewniali bezpieczeństwo, rozsądzali spory.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-018",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "pojecie",
+      "przod": "Co to jest danina?",
+      "tyl": "To, co poddani oddawali władcy: zboże, zwierzęta, wyroby rzemieślnicze itp.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-019",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "fakt",
+      "przod": "Na co faraon przeznaczał daniny?",
+      "tyl": "Na utrzymanie siebie, urzędników i żołnierzy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-020",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "fakt",
+      "przod": "Czym i kiedy zastąpiono daniny?",
+      "tyl": "Podatkami – gdy na Bliskim Wschodzie wynaleziono pieniądze (VII w. p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-021",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "liczenie",
+      "przod": "Ile lat przetrwało państwo egipskie?",
+      "tyl": "Ponad 3 tysiące lat (ok. 3100–30 p.n.e.).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-022",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "data",
+      "przod": "Kiedy Egipt stał się częścią Rzymu?",
+      "tyl": "W 30 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-023",
+      "dzial": "d4",
+      "temat": "Państwo egipskie",
+      "typ": "postac",
+      "przod": "Kto był ostatnią władczynią Egiptu przed podbojem rzymskim?",
+      "tyl": "Kleopatra.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d4-024",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Jaką władzę miał faraon?",
+      "tyl": "Nieograniczoną – miał prawo życia i śmierci nad wszystkimi Egipcjanami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-025",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Do kogo należała ziemia w Egipcie?",
+      "tyl": "Do faraona – chłopi ją tylko uprawiali.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-026",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Za kogo Egipcjanie uważali faraona?",
+      "tyl": "Za syna boga słońca Ra.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-027",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "W co Egipcjanie wierzyli o faraonie po jego śmierci?",
+      "tyl": "Że staje się bogiem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-028",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Jakie trzy najwyższe funkcje pełnił faraon?",
+      "tyl": "Najwyższy dowódca wojskowy, najwyższy sędzia i najwyższy kapłan.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-029",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Dlaczego nie wiemy, czy bóg słońca nazywał się Ra, czy Re?",
+      "tyl": "Egipcjanie nie zapisywali samogłosek.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-030",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "pojecie",
+      "przod": "Kim był wezyr?",
+      "tyl": "Najwyższym urzędnikiem; rządził państwem w imieniu faraona.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-031",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Czym zajmowali się egipscy kapłani?",
+      "tyl": "Nauką (astronomią, medycyną), prowadzili szkoły przy świątyniach, wpływali na rządy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-032",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Czym zajmowali się urzędnicy?",
+      "tyl": "Zarządzali prowincjami, dbali o kanały i zaopatrzenie dla armii.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-033",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Co urzędnicy dostawali jako wynagrodzenie?",
+      "tyl": "Ziemię i żywność.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-034",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "pojecie",
+      "przod": "Co to jest prowincja?",
+      "tyl": "Część państwa rządzona przez urzędnika wyznaczonego przez władcę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-035",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Co robili egipscy rzemieślnicy?",
+      "tyl": "Wytwarzali narzędzia i przedmioty codziennego użytku.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-036",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Kto zostawał żołnierzem w Egipcie?",
+      "tyl": "Chłopi, rzemieślnicy i cudzoziemscy najemnicy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-037",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "pojecie",
+      "przod": "Kto to jest najemnik?",
+      "tyl": "Żołnierz walczący w obcym wojsku za pieniądze.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-038",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Jakie obowiązki mieli egipscy chłopi?",
+      "tyl": "Uprawiali ziemię faraona, oddawali daninę, w czasie wylewu budowali grobowce i świątynie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-039",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Która grupa była najliczniejsza w Egipcie?",
+      "tyl": "Chłopi.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-040",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Kim byli niewolnicy w Egipcie?",
+      "tyl": "Jeńcami wojennymi lub osobami kupionymi na targu; nie mieli praw. Było ich niewielu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-041",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Ułóż piramidę społeczną Egiptu od góry.",
+      "tyl": "Faraon, wezyr, kapłani, urzędnicy, rzemieślnicy, żołnierze, chłopi, niewolnicy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-042",
+      "dzial": "d4",
+      "temat": "Faraon i społeczeństwo",
+      "typ": "fakt",
+      "przod": "Co oznaczało miejsce w piramidzie społecznej?",
+      "tyl": "Im wyżej ktoś stał, tym więcej ludzi musiało wypełniać jego polecenia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-043",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Czym zajmowali się egipscy pisarze?",
+      "tyl": "Sporządzali dokumenty i zapisywali informacje potrzebne do rządzenia państwem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-044",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "data",
+      "przod": "Kiedy powstało pismo egipskie?",
+      "tyl": "Ok. 3000 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-045",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "pojecie",
+      "przod": "Co znaczy słowo „hieroglify”?",
+      "tyl": "„Święte znaki”.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-046",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Dlaczego Grecy nazwali egipskie pismo „świętymi znakami”?",
+      "tyl": "Zetknęli się z nim w świątyniach Egiptu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-047",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "liczenie",
+      "przod": "Ile znaków liczyło pismo hieroglificzne?",
+      "tyl": "Ok. 800.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-048",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Gdzie Egipcjanie wykuwali hieroglify?",
+      "tyl": "W skałach, na kamiennych ścianach, posągach i obeliskach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-049",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "pojecie",
+      "przod": "Co to jest obelisk?",
+      "tyl": "Pomnik w formie wysokiego słupa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-050",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Jakiego pisma pisarze używali na co dzień?",
+      "tyl": "Uproszczonego pisma kapłańskiego.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-051",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Czym i na czym pisali egipscy pisarze?",
+      "tyl": "Pędzelkiem na papirusie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-052",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "pojecie",
+      "przod": "Z czego robiono papirus?",
+      "tyl": "Z łodyg trzciny papirusowej rosnącej nad Nilem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-053",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "fakt",
+      "przod": "Jaki zabytek pomógł odczytać hieroglify?",
+      "tyl": "Kamień z Rosetty.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d4-054",
+      "dzial": "d4",
+      "temat": "Pismo egipskie",
+      "typ": "postac",
+      "przod": "Kto i kiedy odczytał hieroglify?",
+      "tyl": "Jean-François Champollion, w 1822 r.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d4-055",
+      "dzial": "d4",
+      "temat": "Źródła i mapa",
+      "typ": "fakt",
+      "przod": "Dlaczego według Herodota Egipcjanie mniej pracowali przy uprawie roli?",
+      "tyl": "Rzeka sama nawadniała pola, więc nie musieli orać ani kopać przed siewem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-056",
+      "dzial": "d4",
+      "temat": "Źródła i mapa",
+      "typ": "postac",
+      "przod": "Kim był Herodot?",
+      "tyl": "Greckim historykiem z V w. p.n.e., zwanym „ojcem historii”.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-057",
+      "dzial": "d4",
+      "temat": "Źródła i mapa",
+      "typ": "miejsce",
+      "przod": "Nad jakimi morzami leży Egipt?",
+      "tyl": "Nad Morzem Śródziemnym i Morzem Czerwonym.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-058",
+      "dzial": "d4",
+      "temat": "Źródła i mapa",
+      "typ": "miejsce",
+      "przod": "Gdzie w Egipcie były tereny uprawne?",
+      "tyl": "W wąskim pasie wzdłuż Nilu i w delcie przy jego ujściu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-059",
+      "dzial": "d4",
+      "temat": "Źródła i mapa",
+      "typ": "postac",
+      "przod": "Kogo przedstawia malowidło z XIII w. p.n.e. z rydwanem?",
+      "tyl": "Faraona Ramzesa II prowadzącego atak na twierdzę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-060",
+      "dzial": "d4",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "W którym wieku powstało państwo egipskie (ok. 3100 p.n.e.)?",
+      "tyl": "W XXXII w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-061",
+      "dzial": "d4",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "W którym tysiącleciu powstało pismo egipskie (ok. 3000 p.n.e.)?",
+      "tyl": "W III tysiącleciu p.n.e. (trzy zera – nie dodajemy 1).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d4-062",
+      "dzial": "d4",
+      "temat": "Liczenie",
+      "typ": "liczenie",
+      "przod": "O ile lat pismo egipskie jest młodsze od sumeryjskiego?",
+      "tyl": "O ok. 500 lat (3500 − 3000).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-001",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "pojecie",
+      "przod": "Co to jest politeizm?",
+      "tyl": "Wielobóstwo – wiara w wielu bogów.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-002",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jakie kształty mieli bogowie egipscy?",
+      "tyl": "Zwierząt, ludzi albo ludzi z głowami zwierząt.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-003",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "postac",
+      "przod": "Kim był Ra?",
+      "tyl": "Bogiem słońca, najważniejszym z bogów, stwórcą świata.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-004",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak przedstawiano boga Ra?",
+      "tyl": "Jako mężczyznę z głową sokoła, na której jest tarcza słoneczna.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-005",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Co według Egipcjan Ra robił codziennie?",
+      "tyl": "Żeglował łodzią po niebie wraz ze słońcem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-006",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "postac",
+      "przod": "Kim był Tot (Thot)?",
+      "tyl": "Patronem mądrości, bogiem pisarzy i uczonych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-007",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak przedstawiano Tota?",
+      "tyl": "Jako mężczyznę z głową ptaka ibisa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-008",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "postac",
+      "przod": "Kim był Anubis?",
+      "tyl": "Bogiem zmarłych i opiekunem grobów.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-009",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak przedstawiano Anubisa?",
+      "tyl": "Jako mężczyznę z głową szakala.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-010",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "postac",
+      "przod": "Kim był Ozyrys?",
+      "tyl": "Sędzią umarłych i władcą ich krainy, bogiem życia po śmierci.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-011",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak przedstawiano Ozyrysa?",
+      "tyl": "Jako mężczyznę owiniętego bandażami jak mumia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-012",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "postac",
+      "przod": "Kim była Izyda?",
+      "tyl": "Opiekunką rodzin, boginią magii i uzdrowicielką chorych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-013",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak często przedstawiano Izydę?",
+      "tyl": "Z tronem na głowie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-014",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "pojecie",
+      "przod": "Co oznaczał krzyż ankh?",
+      "tyl": "Życie i nieśmiertelność.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-015",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "pojecie",
+      "przod": "Co oznaczało berło uas?",
+      "tyl": "Boską władzę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-016",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Jak Egipcjanie zapewniali sobie przychylność bogów?",
+      "tyl": "Budowali im kamienne świątynie i składali ofiary.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-017",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Co Egipcjanie ofiarowywali bogom?",
+      "tyl": "Żywność, wyroby rzemieślnicze i kosztowności.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-018",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Czego Egipcjanie oczekiwali od zadowolonych bogów?",
+      "tyl": "Np. obfitego wylewu Nilu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-019",
+      "dzial": "d5",
+      "temat": "Bogowie",
+      "typ": "fakt",
+      "przod": "Dlaczego faraonowie nosili sztuczne brody?",
+      "tyl": "Na znak władzy i mocy – nosiła ją nawet kobieta-faraon.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-020",
+      "dzial": "d5",
+      "temat": "Ozyrys",
+      "typ": "postac",
+      "przod": "Kto według mitu zabił Ozyrysa?",
+      "tyl": "Jego zły brat Set.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-021",
+      "dzial": "d5",
+      "temat": "Ozyrys",
+      "typ": "postac",
+      "przod": "Kto pozbierał szczątki Ozyrysa?",
+      "tyl": "Jego siostra Izyda.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-022",
+      "dzial": "d5",
+      "temat": "Ozyrys",
+      "typ": "fakt",
+      "przod": "Jak powstała pierwsza mumia (według mitu)?",
+      "tyl": "Anubis skleił szczątki Ozyrysa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-023",
+      "dzial": "d5",
+      "temat": "Ozyrys",
+      "typ": "fakt",
+      "przod": "Jak Ozyrys został władcą krainy umarłych?",
+      "tyl": "Inni bogowie przywrócili go do życia i odtąd władał krainą umarłych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-024",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Gdzie Egipcjanie grzebali zmarłych?",
+      "tyl": "Na pustyni, którą uważali za królestwo demonów i śmierci.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-025",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "pojecie",
+      "przod": "Co to są „domy wieczności”?",
+      "tyl": "Grobowce, które faraonowie budowali sobie już za życia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-026",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Czemu miały służyć grobowce faraonów?",
+      "tyl": "Ukazać potęgę władcy i pomieścić rzeczy potrzebne na tamtym świecie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-027",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Co umieszczano w grobowcach faraonów?",
+      "tyl": "Łoża pokryte złotem, rydwany, tron, ubrania, klejnoty.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-028",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Przed kim faraonowie chronili swoje groby?",
+      "tyl": "Przed złodziejami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-029",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Jak faraonowie chronili swoje groby?",
+      "tyl": "Budowali piramidy albo kuli grobowce w niedostępnych skałach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-030",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "data",
+      "przod": "Kiedy powstała piramida Cheopsa?",
+      "tyl": "W XXVI w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-031",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "liczenie",
+      "przod": "Jak wysoka jest piramida Cheopsa?",
+      "tyl": "138 m.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-032",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "liczenie",
+      "przod": "Ile kamiennych bloków zużyto do budowy piramidy Cheopsa?",
+      "tyl": "2 300 000.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-033",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Gdzie w piramidzie Cheopsa ukryto komorę grobową?",
+      "tyl": "Wewnątrz budowli, a wejście zawalono kamieniami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-034",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "miejsce",
+      "przod": "Wymień trzy wielkie piramidy egipskie.",
+      "tyl": "Cheopsa, Chefrena i Mykerinosa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-035",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "data",
+      "przod": "Kiedy odkryto grobowiec Tutanchamona?",
+      "tyl": "W 1922 r.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-036",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Dlaczego grobowiec Tutanchamona jest wyjątkowy?",
+      "tyl": "Jako jedyny znany grobowiec faraona przetrwał z niemal wszystkimi skarbami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-037",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "fakt",
+      "przod": "Z czego wykonano maskę Tutanchamona?",
+      "tyl": "Ze złota i kamieni szlachetnych.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-038",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "data",
+      "przod": "Z którego wieku pochodzi maska Tutanchamona?",
+      "tyl": "Z XIV w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-039",
+      "dzial": "d5",
+      "temat": "Piramidy i grobowce",
+      "typ": "postac",
+      "przod": "Kto odkrył grobowiec Tutanchamona?",
+      "tyl": "Howard Carter.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d5-040",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "fakt",
+      "przod": "Jakie dwa warunki musiała spełnić dusza, by trafić do krainy umarłych?",
+      "tyl": "Przejść sąd Ozyrysa; ciało zmarłego nie mogło ulec rozkładowi.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-041",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "fakt",
+      "przod": "Czym według Egipcjan była kraina umarłych?",
+      "tyl": "Miejscem wiecznego szczęścia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-042",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "pojecie",
+      "przod": "Co to jest mumia?",
+      "tyl": "Ciało zmarłego zabezpieczone przed rozkładem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-043",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "pojecie",
+      "przod": "Co to jest balsamowanie?",
+      "tyl": "Zabezpieczanie ciała przed rozkładem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-044",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "fakt",
+      "przod": "Jakie są etapy robienia mumii?",
+      "tyl": "Usunięcie wnętrzności, suszenie ciała, bandażowanie, pokrycie żywicą.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-045",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "fakt",
+      "przod": "Gdzie wkładano gotową mumię?",
+      "tyl": "Do drewnianej trumny w kształcie człowieka, a ją do sarkofagu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-046",
+      "dzial": "d5",
+      "temat": "Mumie",
+      "typ": "pojecie",
+      "przod": "Co to jest sarkofag?",
+      "tyl": "Kamienna skrzynia w kształcie trumny.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-047",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "fakt",
+      "przod": "Co mogło spotkać duszę po sądzie Ozyrysa?",
+      "tyl": "Szczęśliwa kraina umarłych – albo przestawała istnieć lub cierpiała wieczne męki.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-048",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "pojecie",
+      "przod": "Co to jest Księga Umarłych?",
+      "tyl": "Spisane na papirusie mowy i modlitwy, które zmarły miał wygłosić przed bogami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-049",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "fakt",
+      "przod": "Po co wkładano do grobu Księgę Umarłych?",
+      "tyl": "By pomogła zmarłemu podczas sądu Ozyrysa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-050",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "fakt",
+      "przod": "Co ważono podczas sądu Ozyrysa?",
+      "tyl": "Serce zmarłego; na drugiej szali leżało strusie pióro.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-051",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "fakt",
+      "przod": "Co oznaczało serce lżejsze od pióra?",
+      "tyl": "Że nie jest obciążone grzechami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-052",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "Kto pożerał serca cięższe od pióra?",
+      "tyl": "Ammit, „Pożeraczka Zmarłych”.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-053",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "Kto prowadził zmarłego na sąd?",
+      "tyl": "Anubis.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-054",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "Kto zapisywał wynik sądu Ozyrysa?",
+      "tyl": "Tot.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-055",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "Kto prowadził zmarłego przed tron Ozyrysa?",
+      "tyl": "Horus.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-056",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "liczenie",
+      "przod": "Ilu bogów wraz z Ozyrysem wydawało wyrok?",
+      "tyl": "14 bogów.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-057",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "Które boginie stoją za Ozyrysem na ilustracji sądu?",
+      "tyl": "Izyda i Neftyda.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-058",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "postac",
+      "przod": "W czyim grobie znaleziono Księgę Umarłych z ilustracją sądu?",
+      "tyl": "W grobie pisarza Hunefera.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d5-059",
+      "dzial": "d5",
+      "temat": "Sąd Ozyrysa",
+      "typ": "fakt",
+      "przod": "Czy egipska ocena dobra i zła była podobna do naszej?",
+      "tyl": "W dużej części tak: złem było m.in. zabijanie, krzywdzenie biednych, zadawanie cierpienia.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-001",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "pojecie",
+      "przod": "Czym jest Biblia?",
+      "tyl": "Świętą księgą żydów i chrześcijan.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-002",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "Z czego składa się Biblia?",
+      "tyl": "Z kilkudziesięciu części zwanych księgami (np. Księga Rodzaju).",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-003",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "Co znaczy, że według wyznawców Biblia powstała pod natchnieniem Boga?",
+      "tyl": "Że jej autorzy napisali to, co Stwórca chciał powiedzieć ludziom.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-004",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "data",
+      "przod": "Kiedy pisano Biblię hebrajską?",
+      "tyl": "Prawdopodobnie od XIII do II w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-005",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "pojecie",
+      "przod": "Jak chrześcijanie nazywają Biblię hebrajską?",
+      "tyl": "Starym Testamentem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-006",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "data",
+      "przod": "Kiedy powstał Nowy Testament?",
+      "tyl": "W I w. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-007",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "O czym opowiada Nowy Testament?",
+      "tyl": "O życiu i nauce Jezusa Chrystusa.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-008",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "Dla kogo Nowy Testament jest częścią Biblii?",
+      "tyl": "Dla chrześcijan – dla żydów nie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-009",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "Dlaczego historycy ostrożnie podchodzą do informacji z Biblii?",
+      "tyl": "To dzieło religijne, a nie naukowe; opisuje sprawy wiary.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-010",
+      "dzial": "d6",
+      "temat": "Biblia",
+      "typ": "fakt",
+      "przod": "Co historyk odpowie na pytanie, czy istniał Abraham?",
+      "tyl": "Na pewno istniało jego plemię, a sam Abraham być może – pewności nie ma.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-011",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "pojecie",
+      "przod": "Kim byli koczownicy na starożytnym Bliskim Wschodzie?",
+      "tyl": "Plemionami pasterzy wędrującymi w poszukiwaniu pastwisk dla bydła.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-012",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "fakt",
+      "przod": "Podaj przykład plemienia koczowników z Biblii.",
+      "tyl": "Plemię Abrahama.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-013",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "pojecie",
+      "przod": "Kim są żydzi (pisani małą literą)?",
+      "tyl": "Wyznawcami judaizmu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-014",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "pojecie",
+      "przod": "Kim są Żydzi (pisani wielką literą)?",
+      "tyl": "Członkami narodu żydowskiego.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-015",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "fakt",
+      "przod": "Jak dawniej nazywano Żydów?",
+      "tyl": "Izraelitami lub Hebrajczykami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-016",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "pojecie",
+      "przod": "Co to jest Ziemia Obiecana?",
+      "tyl": "Według Biblii kraj, do którego wyruszyło plemię Abrahama – tam, gdzie dziś Izrael.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-017",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "miejsce",
+      "przod": "Skąd według Biblii wyruszyło plemię Abrahama?",
+      "tyl": "Z Mezopotamii.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-018",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "fakt",
+      "przod": "Jak w starożytności nazywano kraj potomków Abrahama?",
+      "tyl": "Palestyną albo Izraelem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-019",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "fakt",
+      "przod": "Od czego pochodzi nazwa Izrael?",
+      "tyl": "Od imienia jednego z wnuków Abrahama.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-020",
+      "dzial": "d6",
+      "temat": "Ludy i nazwy",
+      "typ": "postac",
+      "przod": "Który wnuk Abrahama według Biblii otrzymał imię Izrael?",
+      "tyl": "Jakub.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d6-021",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy powstało królestwo Izraela?",
+      "tyl": "Na przełomie XI i X w. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-022",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy panował król Dawid?",
+      "tyl": "Ok. 1010 – ok. 970 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-023",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy panował król Salomon?",
+      "tyl": "Ok. 970 – ok. 931 p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-024",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "postac",
+      "przod": "Kim był Salomon dla Dawida?",
+      "tyl": "Jego synem.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-025",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Czego dokonali Dawid i Salomon?",
+      "tyl": "Doprowadzili królestwo Izraela do rozkwitu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-026",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Co zbudował Salomon?",
+      "tyl": "Wspaniałą świątynię w Jerozolimie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-027",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "miejsce",
+      "przod": "Jakie miasto było stolicą Izraela za Dawida i Salomona?",
+      "tyl": "Jerozolima.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-028",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Co stało się z królestwem po śmierci Salomona?",
+      "tyl": "Podzieliło się na dwa słabe i skłócone państwa: Izrael i Judę.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-029",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy Izrael podzielił się na dwa państwa?",
+      "tyl": "Ok. 931 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-030",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "miejsce",
+      "przod": "Jaka była stolica królestwa Judy?",
+      "tyl": "Jerozolima.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-031",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy Babilończycy zdobyli Jerozolimę i zniszczyli świątynię?",
+      "tyl": "W 586 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-032",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "postac",
+      "przod": "Który król Babilonii kazał zniszczyć świątynię jerozolimską?",
+      "tyl": "Nabuchodonozor.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-033",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "pojecie",
+      "przod": "Co to jest tzw. niewola babilońska?",
+      "tyl": "Przesiedlenie kilkunastu tysięcy Żydów na wschód, do Babilonii.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-034",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Dlaczego mówimy „tak zwana” niewola babilońska?",
+      "tyl": "Żydzi byli przesiedleńcami, a nie niewolnikami.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-035",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "data",
+      "przod": "Kiedy Persowie podbili Babilonię?",
+      "tyl": "W 539 r. p.n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-036",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Kto pozwolił Żydom wrócić do Palestyny?",
+      "tyl": "Król Persów.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-037",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "postac",
+      "przod": "Jak miał na imię perski król, który pozwolił Żydom wrócić?",
+      "tyl": "Cyrus Wielki.",
+      "ciekawostka": true
+    },
+    {
+      "id": "d6-038",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "miejsce",
+      "przod": "Jak dziś nazywa się Persja?",
+      "tyl": "Iran.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-039",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "fakt",
+      "przod": "Co zrobili Żydzi po powrocie z niewoli?",
+      "tyl": "Odbudowali świątynię w Jerozolimie.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-040",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "pojecie",
+      "przod": "Kim według wierzeń Żydów jest Mesjasz?",
+      "tyl": "Człowiekiem posłanym przez Boga, który przywróci im własne państwo.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-041",
+      "dzial": "d6",
+      "temat": "Dzieje Izraela",
+      "typ": "liczenie",
+      "przod": "Ile lat minęło od 586 do 539 r. p.n.e.?",
+      "tyl": "47 lat.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-042",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "pojecie",
+      "przod": "Co to jest monoteizm?",
+      "tyl": "Jedynobóstwo – wiara w jednego Boga.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-043",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "fakt",
+      "przod": "Czym Izraelici różnili się od innych ludów starożytnych?",
+      "tyl": "Wierzyli w jednego Boga – Jahwe.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-044",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "pojecie",
+      "przod": "Co to jest judaizm?",
+      "tyl": "Religia żydowska – monoteistyczna, istniejąca do dziś.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-045",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "fakt",
+      "przod": "Jakie religie wywodzą się z judaizmu?",
+      "tyl": "Chrześcijaństwo i islam.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-046",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "fakt",
+      "przod": "Co według judaizmu Bóg stworzył?",
+      "tyl": "Świat i człowieka.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-047",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "fakt",
+      "przod": "Dlaczego Izraelici są według judaizmu narodem wybranym?",
+      "tyl": "Bo za ich pośrednictwem Bóg da się poznać całemu światu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-048",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "pojecie",
+      "przod": "Co to jest Dekalog?",
+      "tyl": "Dziesięcioro przykazań zawartych w Biblii.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-049",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "postac",
+      "przod": "Kto według Biblii otrzymał Dekalog od Boga?",
+      "tyl": "Mojżesz – wyryty na kamiennych tablicach.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-050",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "pojecie",
+      "przod": "Co to jest Tora?",
+      "tyl": "Pięć pierwszych ksiąg Biblii – dla wyznawców judaizmu jej najważniejsza część.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-051",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "fakt",
+      "przod": "Co zawiera Tora?",
+      "tyl": "Nakazy i zakazy, opis stworzenia świata oraz dzieje Abrahama i jego potomków.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-052",
+      "dzial": "d6",
+      "temat": "Judaizm",
+      "typ": "pojecie",
+      "przod": "Co to jest synagoga?",
+      "tyl": "Żydowski dom modlitwy.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-053",
+      "dzial": "d6",
+      "temat": "Symbole",
+      "typ": "fakt",
+      "przod": "Na czym spisany jest zwój Tory?",
+      "tyl": "Ręcznie, na pergaminie z jagnięcej skóry.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-054",
+      "dzial": "d6",
+      "temat": "Symbole",
+      "typ": "pojecie",
+      "przod": "Co to jest menora?",
+      "tyl": "Siedmioramienny złoty świecznik używany w religii żydowskiej.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-055",
+      "dzial": "d6",
+      "temat": "Symbole",
+      "typ": "fakt",
+      "przod": "Kiedy menora ze świątyni jerozolimskiej zaginęła?",
+      "tyl": "Po złupieniu Jerozolimy przez Rzymian w 70 r. n.e.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-056",
+      "dzial": "d6",
+      "temat": "Symbole",
+      "typ": "pojecie",
+      "przod": "Co to jest Gwiazda Dawida?",
+      "tyl": "Symbol religii żydowskiej i dzisiejszego państwa Izrael.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-057",
+      "dzial": "d6",
+      "temat": "Symbole",
+      "typ": "data",
+      "przod": "Kiedy powstała Gwiazda Dawida jako symbol?",
+      "tyl": "Dopiero w średniowieczu.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-058",
+      "dzial": "d6",
+      "temat": "Mapa",
+      "typ": "miejsce",
+      "przod": "Nad jakim morzem leży Palestyna?",
+      "tyl": "Nad Morzem Śródziemnym.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-059",
+      "dzial": "d6",
+      "temat": "Mapa",
+      "typ": "miejsce",
+      "przod": "Jaka rzeka płynie przez Palestynę i dokąd wpada?",
+      "tyl": "Jordan – z Jeziora Genezaret do Morza Martwego.",
+      "ciekawostka": false
+    },
+    {
+      "id": "d6-060",
+      "dzial": "d6",
+      "temat": "Mapa",
+      "typ": "miejsce",
+      "przod": "Gdzie leżały królestwa Izraela i Judy po podziale?",
+      "tyl": "Izrael na północy, Juda (ze stolicą w Jerozolimie) na południu.",
+      "ciekawostka": false
+    }
+  ],
+  "liczba_fiszek": 369
+}

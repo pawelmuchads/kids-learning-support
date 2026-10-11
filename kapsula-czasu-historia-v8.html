@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Powtórka z historii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1EFFA;
+  --ink:#1D2347;
+  --muted:#5A6085;
+  --line:#DEDAF0;
+  --paper:#F8F7FD;
+  --sand:#FFB938;
+  --night:#1D2350;
+  --good:#16A063;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:160px}
+body{
+  margin:0;color:var(--ink);background-color:var(--bg);
+  background-image:radial-gradient(rgba(29,35,71,.07) 1px,transparent 1.3px);background-size:22px 22px;
+  font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Baloo 2','Lexend',system-ui,sans-serif;letter-spacing:-.005em}
+b,strong{font-weight:700}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #7C5CFF;outline-offset:2px;border-radius:10px}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px}
+.hide{display:none!important}
+
+/* ---------- HERO: nocne niebo ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;padding-top:30px;
+  background:linear-gradient(160deg,#1D2350 0%,#2E2A66 58%,#45306E 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:
+  radial-gradient(1.6px 1.6px at 7% 24%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 17% 72%,#FFE3A3 50%,transparent 52%),
+  radial-gradient(2px 2px at 29% 13%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 44% 58%,#fff 50%,transparent 52%),
+  radial-gradient(1.8px 1.8px at 55% 20%,#FFE3A3 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 63% 80%,#fff 50%,transparent 52%),
+  radial-gradient(1.5px 1.5px at 79% 9%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 90% 66%,#FFE3A3 50%,transparent 52%);opacity:.85}
+.hero-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.hero-text{flex:1 1 360px}
+.hero .sub{margin:0;color:#FFD27A;font-weight:600;font-size:15px}
+.hero h1{font-size:clamp(46px,8vw,76px);line-height:.95;margin:8px 0 12px;font-weight:800;color:#FFF6E3}
+.hero .lead{margin:0;max-width:430px;color:#DCDFF4;font-size:16.5px}
+/* ---------- STAŁE MENU NA GÓRZE ---------- */
+.topmenu{position:sticky;top:0;z-index:60;background:#1D2350;border-bottom:2px solid #34306B;padding:8px 0 0}
+.tm-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 18px 8px}
+.tm-row::-webkit-scrollbar{display:none}
+.tm-sub{border:0;cursor:pointer;white-space:nowrap;font-weight:700;font-size:15px;padding:10px 18px;border-radius:14px;background:rgba(255,255,255,.1);color:#CDD1F0}
+.tm-sub:hover{background:rgba(255,255,255,.18)}
+.tm-sub.active{background:var(--sand);color:#1D2350}
+#tm-dzialy{padding-bottom:10px}
+#tm-dzialy:empty{display:none}
+.tab{border:0;cursor:pointer;white-space:nowrap;font-weight:600;font-size:14px;padding:9px 15px;border-radius:12px;background:rgba(255,255,255,.1);color:#CDD1F0}
+.tab .tnr{opacity:.65;margin-right:6px;font-weight:500}
+.tab.active{background:var(--bg);color:var(--ink)}
+
+/* ---------- W TRAKCIE PRAC ---------- */
+.soon{background:#fff;border:2px solid var(--line);border-radius:26px;padding:34px 28px;margin:26px 0 6px;box-shadow:0 5px 0 var(--line);text-align:center}
+.soon .soon-ico{font-size:54px}
+.soon h2{margin:10px 0 6px;font-size:30px}
+.soon p{margin:0;color:var(--muted);font-weight:600}
+
+/* ---------- WYBÓR: klasy, podręczniki, rozdziały ---------- */
+.pick{display:grid;gap:14px;margin:26px 0 6px}
+.pick-btn{cursor:pointer;display:flex;align-items:center;gap:16px;background:#fff;border:2px solid var(--line);border-radius:22px;padding:16px 20px;box-shadow:0 5px 0 var(--line);font-weight:700;font-size:19px;text-align:left;width:100%;color:var(--ink)}
+.pick-btn:hover{border-color:#C9C2E6}
+.pick-btn .pk-ico{font-size:30px;flex-shrink:0}
+.pick-btn small{display:block;font-weight:600;color:var(--muted);font-size:14px}
+.pick-btn .go{margin-left:auto;color:var(--muted);flex-shrink:0}
+.badge{font-size:12.5px;font-weight:700;background:#E2F6EB;color:#11774A;border-radius:99px;padding:3px 10px;white-space:nowrap}
+.badge.soon-b{background:#FFF0D1;color:#935600}
+.book-cover{width:84px;height:auto;border-radius:10px;box-shadow:0 6px 14px -6px rgba(0,0,0,.4);flex-shrink:0}
+.back{cursor:pointer;background:none;border:0;color:var(--muted);font-weight:700;font-size:14.5px;padding:0;margin:20px 0 0;text-decoration:underline}
+
+/* ---------- INTRO DZIAŁU ---------- */
+.intro{display:flex;gap:22px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:26px;padding:22px 24px;margin:26px 0 6px;box-shadow:0 5px 0 var(--line)}
+.bignr{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:104px;line-height:.75;color:var(--sand);text-shadow:5px 5px 0 #FFE2A0;padding-top:10px}
+.intro h2{margin:0;font-size:32px;line-height:1.1}
+.intro .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px;padding:0;list-style:none}
+.intro .meta li{font-size:13.5px;font-weight:600;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:2px 10px}
+.howto{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none;counter-reset:s}
+.howto li{counter-increment:s;background:#FFF6E0;border:1px solid #F6DFA6;border-radius:99px;padding:5px 12px 5px 6px;font-size:14px;font-weight:600}
+.howto li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;margin-right:7px}
+
+/* ---------- PASEK POSTĘPU ---------- */
+.status{position:sticky;top:0;z-index:30;background:rgba(241,239,250,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 0 8px}
+.srow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.prog{flex:1 1 250px}
+.ptop{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:600}
+.rank{color:#5638D8}
+.bar{height:12px;border-radius:99px;background:#E1DCF2;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#FFD36B,var(--sand) 60%,#F59E0B);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{cursor:pointer;border:2px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-weight:600;font-size:13.5px}
+.tool:hover{border-color:#C9C2E6}
+.tool[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:9px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;text-decoration:none;color:var(--dark);background:var(--soft);font-weight:600;font-size:13px;padding:5px 11px;border-radius:99px;border:1.5px solid transparent}
+.chip small{opacity:.75;margin-left:5px;font-size:12px}
+.chip.done{background:var(--dark);color:#fff}
+
+/* ---------- KATEGORIE ---------- */
+.cat{margin:40px 0 8px}
+.cat-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.cat-ico{flex-shrink:0;width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:27px;background:var(--soft);box-shadow:inset 0 -4px 0 rgba(0,0,0,.06)}
+.cat-head h2{margin:0;font-size:27px;line-height:1.1}
+.cat-head p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.cat-cnt{margin-left:auto;flex-shrink:0;font-weight:600;font-size:13px;color:var(--dark);background:var(--soft);padding:5px 11px;border-radius:99px}
+.cards{display:grid;gap:18px}
+
+/* ---------- KARTA PYTANIA ---------- */
+.card{position:relative;background:#fff;border:2px solid var(--line);border-top:7px solid var(--c);border-radius:22px;padding:16px 22px 20px;box-shadow:0 5px 0 var(--soft)}
+.ctop{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.qnr{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--dark);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:18px;padding-top:2px}
+.qtype{font-size:13px;font-weight:600;color:var(--dark);background:var(--soft);padding:4px 10px;border-radius:99px}
+.qmark{margin-left:auto;font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px;display:none}
+.card.is-ok{border-color:#A7E3C4;box-shadow:0 5px 0 #C9EFDA}
+.card.is-ok .qmark{display:inline-block;background:#E2F6EB;color:#11774A}
+.card.is-rep .qmark{display:inline-block;background:#FFF0D1;color:#935600}
+.qtext{font-family:'Lexend',sans-serif;font-weight:600;font-size:18.5px;line-height:1.45;margin:8px 0 12px}
+.qbody{margin-bottom:16px}
+.btn{cursor:pointer;border:0;border-radius:14px;padding:11px 18px;font-weight:600;font-size:15.5px;box-shadow:0 4px 0 rgba(0,0,0,.22);transition:transform .08s,box-shadow .08s,filter .15s}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.22)}
+.btn-reveal{background:var(--dark);color:#fff}
+.answer{display:grid;gap:12px;margin-top:16px}
+.answer[hidden]{display:none}
+.answer:not([hidden]){animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.985)}to{opacity:1;transform:none}}
+.abox{background:#EAF8F0;border:2px solid #BEE8D1;border-radius:16px;padding:12px 16px}
+.xbox{background:#FFF6DD;border:2px dashed #F0C65C;border-radius:16px;padding:12px 16px}
+.lbl{display:block;font-size:14px;font-weight:700;margin-bottom:4px}
+.abox .lbl{color:#11774A}
+.xbox .lbl{color:#935600}
+.abox ul,.abox ol,.xbox ul{margin:4px 0 0;padding-left:20px}
+.abox li,.xbox li{margin:3px 0}
+.abox p,.xbox p{margin:0 0 6px}
+.abox p:last-child,.xbox p:last-child{margin-bottom:0}
+.score{font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
+.selfcheck{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:2px}
+.selfcheck span{font-weight:600;color:var(--muted);font-size:14.5px}
+.btn-ok{background:var(--good);color:#fff}
+.btn-rep{background:#fff;color:var(--ink);border:2px solid #E6D3A8;box-shadow:0 4px 0 #E6D3A8;padding:9px 16px}
+.btn-ok.on{box-shadow:0 0 0 3px #A7E3C4,0 4px 0 rgba(0,0,0,.22)}
+.btn-rep.on{background:#FFF0D1}
+.card.pulse{animation:pulse 1s ease 2}
+@keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.012);box-shadow:0 0 0 7px var(--soft)}}
+
+/* elementy w treści pytań */
+.dates{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.dates li{background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:6px 13px;font-weight:600}
+.hint{font-size:14px;color:var(--muted);margin:0 0 9px}
+
+/* dopasowanie */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mcol{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:start}
+.mcol li{display:flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:8px 10px;font-size:15px;line-height:1.35}
+.ix{flex-shrink:0;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-size:14px}
+.ix-n{background:var(--soft);color:var(--dark)}
+.ix-l{background:var(--ink);color:#fff}
+.mcol select{margin-left:auto;flex-shrink:0;font:inherit;font-weight:700;font-size:15px;border:2px solid #D8D2EC;border-radius:10px;padding:3px 6px;background:#fff;cursor:pointer}
+li.right{background:#E3F6EC!important;border-color:#8ED6B1!important}
+li.wrong{background:#FFECE9!important;border-color:#F2A398!important}
+
+/* prawda / fałsz */
+.pf{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pf li{display:flex;align-items:center;gap:12px;background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:9px 12px}
+.pf .t{flex:1}
+.pfb{display:flex;gap:6px;flex-shrink:0}
+.pfb button{cursor:pointer;width:42px;height:38px;border-radius:10px;border:2px solid #D8D2EC;background:#fff;font-weight:700}
+.pfb button.sel[data-v="P"]{background:var(--good);border-color:var(--good);color:#fff}
+.pfb button.sel[data-v="F"]{background:#EE5A47;border-color:#EE5A47;color:#fff}
+
+/* sortowanie: paleolit czy neolit */
+.sort{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sort li{display:flex;align-items:center;gap:12px;background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:9px 12px}
+.sort .t{flex:1}
+.sortb{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap}
+.sortb button{cursor:pointer;border-radius:10px;border:2px solid #D8D2EC;background:#fff;font-weight:700;padding:8px 12px;font-size:14px}
+.sortb button.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* kolejność */
+.opool{display:flex;flex-wrap:wrap;gap:8px}
+.ochip{cursor:pointer;border:2px solid var(--c);background:#fff;border-radius:12px;padding:7px 13px;font-weight:600;font-size:15px;box-shadow:0 3px 0 var(--soft)}
+.ochip:disabled{opacity:.28;cursor:default;box-shadow:none}
+.oseq{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;align-items:center;margin-top:10px;padding:8px;border:2px dashed #D8D2EC;border-radius:14px;background:var(--paper)}
+.oseq:empty::before{content:"Klikaj po kolei, a pojawi się tutaj twoja kolejność";color:var(--muted);font-size:14px;padding:0 6px}
+.oseq span{background:var(--dark);color:#fff;border-radius:10px;padding:6px 10px;font-weight:600;font-size:14.5px}
+.oseq span em{font-style:normal;opacity:.7;margin-right:5px;font-size:12px}
+.oclear{margin-top:6px;cursor:pointer;background:none;border:0;padding:4px 0;color:var(--muted);font-weight:600;font-size:13.5px;text-decoration:underline}
+
+/* ---------- ŚCIĄGAWKA ---------- */
+.cheat{margin:48px 0 18px;background:#fff;border:2px solid var(--line);border-radius:26px;box-shadow:0 5px 0 var(--line);overflow:hidden}
+.cheat summary{cursor:pointer;list-style:none;padding:16px 22px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;gap:10px}
+.cheat summary::-webkit-details-marker{display:none}
+.cheat summary::after{content:"+";margin-left:auto;font-size:26px;line-height:1;color:var(--muted)}
+.cheat[open] summary::after{content:"–"}
+.cheat-body{padding:0 22px 22px;display:grid;gap:16px}
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.tl .seg{padding:12px 6px;text-align:center;font-weight:700;font-size:13.5px;line-height:1.2;border-radius:10px;color:#4A2C00}
+.tl .seg small{display:block;font-weight:500;font-size:11.5px;margin-top:4px;opacity:.85}
+.tl .era{text-align:center;font-weight:600;font-size:13px;color:var(--muted);border-top:3px solid #E5DDC6;padding-top:5px}
+.tl .era.h{border-color:#F2A05A;color:#A4520E}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.rule h4{margin:0 0 4px;font-size:18px;font-weight:700}
+.rule p{margin:0;font-size:14.5px}
+.roman{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-size:13px}
+.roman span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 0;text-align:center}
+.roman b{color:#5638D8}
+
+footer{color:var(--muted);font-size:13.5px;text-align:center;padding:6px 18px 44px}
+
+/* ---------- POWIADOMIENIA I KONFETTI ---------- */
+.tool .sm{display:none}
+.toast{opacity:0;visibility:hidden}
+.toast.show{opacity:1;visibility:visible}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140px);background:var(--ink);color:#fff;font-weight:600;padding:12px 18px;border-radius:14px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);z-index:100;transition:transform .35s cubic-bezier(.2,.9,.3,1.2),opacity .25s,visibility .35s;max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;top:-20px;width:10px;height:14px;border-radius:3px;z-index:99;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),112vh,0) rotate(var(--rot))}}
+
+@media (max-width:680px){
+  body{font-size:16px}
+  html{scroll-padding-top:150px}
+  .status{padding:8px 0 6px}
+  .srow{gap:8px}
+  .tools{width:100%;flex-wrap:nowrap}
+  .tool{flex:1;font-size:13px;padding:6px 8px;white-space:nowrap}
+  .tool .lg{display:none}
+  .tool .sm{display:inline}
+  .match,.rules{grid-template-columns:1fr}
+  .sort li{flex-direction:column;align-items:stretch}
+  .sortb{width:100%}
+  .sortb button{flex:1}
+  .roman{grid-template-columns:repeat(4,1fr)}
+  .tl{grid-template-columns:1fr}
+  .tl .era{display:none}
+  .intro{gap:14px;padding:18px}
+  .intro h2{font-size:26px}
+  .bignr{font-size:68px}
+  .card{padding:14px 16px 18px}
+  .qtext{font-size:17px}
+  .cat-head h2{font-size:23px}
+  .cat-cnt{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="topmenu" id="topmenu" aria-label="Przedmioty">
+  <div class="tm-row" id="tm-subjects"></div>
+  <div class="tm-row" id="tm-dzialy"></div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="sub" id="hero-sub">Historia – pytania do powtórki</p>
+        <h1 id="hero-h1">Powtórka z historii</h1>
+        <p class="lead" id="hero-lead">Przeczytaj pytanie, odpowiedz na głos albo na kartce i dopiero wtedy zajrzyj do odpowiedzi. Uczciwie! 😉</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="status">
+  <div class="wrap">
+    <div class="srow">
+      <div class="prog">
+        <div class="ptop"><span id="pcount"></span><span class="rank" id="rank"></span></div>
+        <div class="bar" id="bar" role="progressbar" aria-label="Pytania, które umiesz" aria-valuemin="0"><i id="barfill"></i></div>
+      </div>
+      <div class="tools">
+        <button type="button" class="tool" id="t-random">🎲 Losuj<span class="lg"> pytanie</span></button>
+        <button type="button" class="tool" id="t-rep" aria-pressed="false">🔁 <span class="lg">Tylko do powtórki</span><span class="sm">Powtórki</span></button>
+        <button type="button" class="tool" id="t-reset">↺ <span class="lg">Zacznij od nowa</span><span class="sm">Od nowa</span></button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Rodzaje pytań"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer id="footer"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   DANE. Każdy dział to jeden obiekt w tablicy DZIALY.
+   Kolejny dział = dopisanie obiektu (bez "locked") z kategoriami i pytaniami.
+   Typy pytań: opis, regula, krotka, policz, daty, kolejnosc, dopasuj, wymien, pf
+   ===================================================================== */
+
+function rzym(n){var m=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']],s='';m.forEach(function(p){while(n>=p[0]){s+=p[1];n-=p[0];}});return s;}
+function siatkaRzymska(){var h='';for(var i=1;i<=20;i++)h+='<span>'+i+' = <b>'+rzym(i)+'</b></span>';return h;}
+
+var TYPY={
+  opis:'🗣️ Opisz słowami', regula:'📐 Podaj regułę', krotka:'✏️ Krótka odpowiedź',
+  policz:'🧮 Policz', daty:'📅 Daty i liczby', kolejnosc:'🔢 Ułóż w kolejności',
+  dopasuj:'🔗 Dopasuj w pary', wymien:'📋 Wymień po kolei', pf:'⚖️ Prawda czy fałsz',
+  pojecie:'📖 Wyjaśnij pojęcie', mapa:'🗺️ Praca z mapą',
+  obraz:'🖼️ Praca z ilustracją', sortuj:'🗂️ Przyporządkuj', zrodlo:'📜 Tekst źródłowy'
+};
+
+var DZIALY=[
+{
+  id:'d1', nr:1, tytul:'Czas w historii', zakres:'podręcznik s. 6–9',
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Tu nie wystarczy jedna data. Opowiedz pełnym zdaniem, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'Czym zajmuje się chronologia?',
+      odp:'<p>Chronologia to nauka, która zajmuje się dwiema rzeczami:</p><ol><li><b>mierzeniem czasu w przeszłości</b>,</li><li><b>ustalaniem, co wydarzyło się najpierw, a co potem</b>.</li></ol>',
+      extra:'<p>Słowo pochodzi z greki: <i>chronos</i> to „czas”, a <i>logos</i> to „nauka, słowo”. Ten sam „chronos” siedzi w słowie <b>chronometr</b>. Tak nazywa się bardzo dokładny zegar, który dawniej żeglarze zabierali na statki, żeby ustalić, gdzie są na morzu.</p><p>Gdy nauczyciel prosi: „opowiedz chronologicznie”, chodzi o to, żeby zacząć od tego, co wydarzyło się najwcześniej.</p>' },
+    { typ:'opis', q:'Czym różni się historia od prehistorii?',
+      odp:'<p>Granicą jest <b>wynalezienie pisma, ok. 3500 r. p.n.e.</b></p><ul><li><b>Historia</b> to dzieje ludzkości od wynalezienia pisma.</li><li><b>Prehistoria</b> to wszystko, co wydarzyło się w dziejach ludzkości wcześniej, zanim ludzie zaczęli pisać.</li></ul>',
+      extra:'<p>O prehistorii nie przeczytamy w żadnym dokumencie. Wiemy o niej z tego, co ludzie po sobie zostawili: z narzędzi, kości, ozdób i malowideł. Bada je <b>archeologia</b>.</p><p>Słynne malowidła w jaskini <b>Lascaux</b> (czytaj: lasko) we Francji mają ok. 17 tysięcy lat. Odkryli je przypadkiem w 1940 r. francuscy nastolatkowie. Ludzie malowali na ścianach to, co było dla nich ważne, np. zwierzęta, na które polowali.</p>' },
+    { typ:'opis', q:'Czym jest epoka?',
+      odp:'<p>Epoka to <b>długi okres w historii lub prehistorii</b>. Każda epoka ma swój <b>początek i koniec</b> oraz <b>różni się od innych epok</b>.</p>',
+      extra:'<p>Słowo pochodzi od greckiego <i>epoché</i>, czyli „zatrzymanie”, „punkt zwrotny”. Stąd powiedzenie <b>„epokowe wydarzenie”</b>: coś tak ważnego, że zmienia bieg dziejów i od tego momentu zaczyna się coś nowego. Takim wydarzeniem było np. wynalezienie pisma.</p>' },
+    { typ:'opis', q:'Co to znaczy, że podział na epoki jest umowny? Podaj przykład.',
+      odp:'<p>Historycy musieli przyjąć jakieś <b>daty graniczne</b>, więc <b>umówili się</b> co do nich. Za koniec jednej epoki i początek następnej uważa się jakieś <b>przełomowe wydarzenie</b>. Nie wszyscy jednak zgadzają się, które wydarzenie było najważniejsze, dlatego w różnych książkach można spotkać różne daty epok.</p><p><b>Przykład:</b> zwykle przyjmuje się, że nowożytność zaczęła się w 1492 r. od odkrycia Ameryki. Niektórzy historycy uważają jednak, że ważniejszy był <b>wynalazek druku w połowie XV w.</b> i to od niego należy liczyć epokę nowożytną.</p>',
+      extra:'<p>Druk z ruchomych czcionek wynalazł <b>Jan Gutenberg</b> w Moguncji (Niemcy) ok. 1450 r. Wcześniej każdą książkę trzeba było przepisywać ręcznie, więc książki były bardzo drogie i rzadkie.</p><p>Ludzie żyjący w 1492 r. nie obudzili się z myślą „hurra, od dziś nowożytność!”. Epoki są jak szuflady, które historycy wymyślili dużo później, żeby łatwiej porządkować wiedzę o przeszłości.</p>' },
+    { typ:'opis', q:'Czy był rok 0? Wyjaśnij.',
+      odp:'<p><b>Nie, roku 0 nie było w ogóle.</b> Po 2 r. p.n.e. był 1 r. p.n.e., a zaraz po nim <b>1 r. n.e.</b></p>',
+      extra:'<p>Nasz sposób liczenia lat wymyślił w VI w. mnich <b>Dionizy Mały</b>. W jego czasach Europejczycy nie używali zera. Zobacz: cyfry rzymskie w ogóle go nie mają! Zero przywędrowało do Europy z Indii, przez kraje arabskie, dopiero kilkaset lat później.</p><p>Ciekawostka dla wytrwałych: dzisiejsi historycy uważają, że Dionizy pomylił się o kilka lat i Jezus urodził się prawdopodobnie ok. 6–4 r. p.n.e.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'skroty', ikona:'🔤', nazwa:'Skróty i cyfry rzymskie', krotko:'Skróty i cyfry',
+    opis:'Rozszyfruj, jak historycy zapisują czas.',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'krotka', q:'Co oznaczają te skróty?',
+      body:'<ul class="dates"><li>r.</li><li>w.</li><li>n.e.</li><li>p.n.e.</li><li>po Chr.</li><li>przed Chr.</li></ul>',
+      odp:'<ul><li><b>r.</b> – rok</li><li><b>w.</b> – wiek</li><li><b>n.e.</b> – naszej ery</li><li><b>p.n.e.</b> – przed naszą erą</li><li><b>po Chr.</b> – po Chrystusie (to samo co n.e.)</li><li><b>przed Chr.</b> – przed Chrystusem (to samo co p.n.e.)</li></ul>',
+      extra:'<p>Lata liczymy od narodzenia Jezusa Chrystusa. Po angielsku zobaczysz skróty <b>AD</b> (łac. <i>Anno Domini</i>, „roku Pańskiego”, czyli n.e.) i <b>BC</b> (<i>Before Christ</i>, czyli p.n.e.).</p><p>Na starych budynkach i pomnikach bywa napisane np. „A.D. 1750”. Teraz już wiesz, co to znaczy!</p>' },
+    { typ:'opis', q:'Dlaczego przy datach średniowiecza (476–1492) nie trzeba dopisywać „n.e.”?',
+      odp:'<p>Bo średniowiecze <b>zaczęło się w naszej erze</b>. A skoro zaczęło się w naszej erze, to <b>nie mogło się skończyć przed naszą erą</b>. Wiadomo więc, że obie daty są n.e.</p>',
+      extra:'<p>Tak samo jest na co dzień: piszemy po prostu „1410 r.” (bitwa pod Grunwaldem) albo „2026 r.”, bez „n.e.”, bo nie ma wątpliwości.</p><p>Za to dopisek <b>p.n.e. jest zawsze obowiązkowy</b>! Bez niego „776 r.” oznaczałoby zupełnie inny rok niż 776 r. p.n.e. Różnica to ponad 1500 lat.</p>' },
+    { typ:'krotka', q:'Zapisz cyframi rzymskimi liczby: 4, 9, 14, 16, 19 i 20. A jaką liczbę oznacza XVIII?',
+      odp:'<ul><li>4 = <b>IV</b>, 9 = <b>IX</b>, 14 = <b>XIV</b></li><li>16 = <b>XVI</b>, 19 = <b>XIX</b>, 20 = <b>XX</b></li><li>XVIII = <b>18</b></li></ul>',
+      extra:'<p>Sekret cyfr rzymskich: I = 1, V = 5, X = 10. Gdy mniejsza cyfra stoi <b>przed</b> większą, odejmujemy (IV = 5 − 1 = 4). Gdy stoi <b>za</b> nią, dodajemy (VI = 5 + 1 = 6).</p><p>Są też większe cyfry: <b>L = 50, C = 100, D = 500, M = 1000</b>. Rok 2026 zapiszesz jako <b>MMXXVI</b>, a nasz wiek to <b>XXI</b>.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'wieki', ikona:'🧮', nazwa:'Liczymy wieki', krotko:'Wieki',
+    opis:'Trochę matematyki w służbie historii. Licz krok po kroku.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'regula', q:'Jak obliczyć, w którym wieku był dany rok? Podaj regułę i wyjątek od niej.',
+      odp:'<p><b>Reguła:</b> skreślamy dwie ostatnie cyfry roku i do tego, co zostało, dodajemy 1. Wynik zapisujemy cyframi rzymskimi.</p><ul><li>776 r. p.n.e. → 7 + 1 = 8 → <b>VIII w. p.n.e.</b></li><li>1370 r. n.e. → 13 + 1 = 14 → <b>XIV w. n.e.</b></li></ul><p><b>Wyjątek:</b> lata, które mają na końcu <b>dwa lub trzy zera</b>. Wtedy nie dodajemy jedynki: 1500 r. → <b>XV w.</b>, 2000 r. → <b>XX w.</b></p>',
+      extra:'<p>Skąd ten wyjątek? Pierwszy wiek trwał od roku 1 do roku <b>100</b>. Rok 100 to więc <b>ostatni</b> rok I wieku, a nie pierwszy rok II wieku. Tak samo rok 1500 zamyka XV wiek, a rok 2000 zamyka XX wiek.</p><p>Daty z przykładów są prawdziwe: w 776 r. p.n.e. odbyły się pierwsze znane igrzyska olimpijskie w Olimpii, a w 1370 r. zmarł król Kazimierz Wielki.</p>' },
+    { typ:'policz', q:'Który to wiek? Zapisz go cyframi rzymskimi.',
+      body:'<ul class="dates"><li>1800 r. p.n.e.</li><li>399 r. p.n.e.</li><li>64 r. n.e.</li><li>1001 r. n.e.</li></ul>',
+      odp:'<ul><li>1800 r. p.n.e. → <b>XVIII w. p.n.e.</b> (dwa zera na końcu, więc nie dodajemy 1)</li><li>399 r. p.n.e. → 3 + 1 = 4 → <b>IV w. p.n.e.</b></li><li>64 r. n.e. → 0 + 1 = 1 → <b>I w. n.e.</b></li><li>1001 r. n.e. → 10 + 1 = 11 → <b>XI w. n.e.</b></li></ul>',
+      extra:'<p>Pułapka w 1001 r.: to tylko rok po 1000, a już nowy wiek. To pierwszy rok XI wieku!</p><p>Przy 64 r. pomaga wyobrazić sobie zapis „0064”: po skreśleniu dwóch cyfr zostaje 0, a 0 + 1 = I wiek. W 64 r. n.e. wybuchł wielki pożar Rzymu, za panowania cesarza Nerona.</p>' },
+    { typ:'policz', q:'Do którego wieku należą te lata? To ważne daty z dziejów Polski i świata.',
+      body:'<ul class="dates"><li>966</li><li>1000</li><li>1410</li><li>1492</li><li>2026</li></ul>',
+      odp:'<ul><li>966 → 9 + 1 → <b>X w.</b></li><li>1000 → trzy zera, bez dodawania → <b>X w.</b></li><li>1410 → 14 + 1 → <b>XV w.</b></li><li>1492 → 14 + 1 → <b>XV w.</b></li><li>2026 → 20 + 1 → <b>XXI w.</b></li></ul>',
+      extra:'<p>Co się wtedy wydarzyło? <b>966</b> – chrzest Polski, <b>1000</b> – zjazd w Gnieźnie, <b>1410</b> – bitwa pod Grunwaldem, <b>1492</b> – Krzysztof Kolumb dopływa do Ameryki, <b>2026</b> – to Ty uczysz się historii!</p><p>Zauważ: chrzest Polski i zjazd gnieźnieński dzieli 34 lata, a oba wydarzenia należą do <b>tego samego</b> X wieku.</p>' },
+    { typ:'daty', q:'Które lata to <b>pierwsza połowa II wieku n.e.</b>, a które <b>pierwsza połowa II wieku p.n.e.</b>?',
+      odp:'<ul><li>I połowa II w. n.e. = lata <b>101–150</b> (a II połowa: 151–200)</li><li>I połowa II w. p.n.e. = lata <b>200–151 p.n.e.</b> (a II połowa: 150–101 p.n.e.)</li></ul><p>Przed naszą erą połowy liczymy odwrotnie: <b>pierwsza jest zawsze ta, która była wcześniej</b>.</p>',
+      extra:'<p>Lata przed naszą erą działają jak <b>odliczanie przed startem rakiety</b>: 200, 199, 198… 3, 2, 1 i start naszej ery! Im większa liczba p.n.e., tym dawniej. Dlatego pierwsza, czyli wcześniejsza, połowa wieku p.n.e. ma większe liczby.</p><p>Sprawdź się: II połowa I w. p.n.e. to lata 50–1 p.n.e.</p>' },
+    { typ:'daty', q:'Od 1 stycznia 2001 r. trwa trzecie tysiąclecie. Kiedy dobiegnie końca?',
+      odp:'<p><b>31 grudnia 3000 r.</b> Tysiąclecie to pełne 1000 lat: od 1 stycznia 2001 r. do 31 grudnia 3000 r.</p>',
+      extra:'<p>Tysiąclecia liczymy tak samo jak wieki: I tysiąclecie n.e. to lata 1–1000, II to lata 1001–2000, a III to lata 2001–3000.</p><p>Dlatego XXI wiek i III tysiąclecie <b>naprawdę</b> zaczęły się 1 stycznia 2001 r. A większość ludzi na świecie hucznie świętowała „nowe tysiąclecie” w sylwestra 1999 r., czyli o rok za wcześnie!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'os', ikona:'📅', nazwa:'Oś czasu: co było wcześniej?', krotko:'Oś czasu',
+    opis:'Ustaw daty w kolejności i policz, ile czasu minęło.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'daty', q:'Który rok był wcześniej: <b>87 r. p.n.e.</b> czy <b>78 r. n.e.</b>?',
+      odp:'<p><b>87 r. p.n.e.</b> Każdy rok przed naszą erą był wcześniej niż każdy rok naszej ery. Tu nie decyduje wielkość liczby, tylko dopisek p.n.e. albo n.e.</p>',
+      extra:'<p>A ile lat minęło między tymi datami? Uwaga, pułapka! Nie 87 + 78 = 165, tylko <b>164 lata</b>, bo nie było roku 0.</p><p>Zasada dla mistrzów: gdy liczysz lata „przez granicę” między p.n.e. a n.e., dodaj obie liczby i odejmij 1.</p>' },
+    { typ:'kolejnosc', q:'Ułóż te daty w kolejności chronologicznej, od najdawniejszej do najpóźniejszej.',
+      elementy:['1 r. n.e.','200 r. p.n.e.','1370 r.','2 r. p.n.e.','776 r. p.n.e.','1 r. p.n.e.'],
+      kolejnosc:[4,1,3,5,0,2],
+      odp:'<p><b>776 r. p.n.e. → 200 r. p.n.e. → 2 r. p.n.e. → 1 r. p.n.e. → 1 r. n.e. → 1370 r.</b></p>',
+      extra:'<p>Przed naszą erą działa „odliczanie rakiety”: im większa liczba, tym dawniej. Po starcie naszej ery wszystko jest zwyczajnie: im większa liczba, tym później.</p><p>A między 1 r. p.n.e. a 1 r. n.e. nie ma nic, bo roku 0 nie było.</p>' },
+    { typ:'policz', q:'Ile lat trwało średniowiecze? A ile mniej więcej trwała starożytność?',
+      odp:'<ul><li><b>Średniowiecze:</b> 1492 − 476 = <b>1016 lat</b>.</li><li><b>Starożytność:</b> od ok. 3500 r. p.n.e. do 476 r. n.e., czyli <b>prawie 4000 lat</b>. Dokładniej: 3500 + 476 − 1 = 3975 lat (odejmujemy 1, bo nie było roku 0).</li></ul>',
+      extra:'<p>Starożytność to najdłuższa epoka historyczna. Trwała dłużej niż średniowiecze i nowożytność razem wzięte!</p><p>Nowożytność trwa od 1492 r., więc w 2026 r. ma już 534 lata. A prehistoria była jeszcze dłuższa niż wszystkie epoki historyczne razem.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'pary', ikona:'🔗', nazwa:'Dopasuj w pary', krotko:'Dopasuj',
+    opis:'Połącz to, co do siebie pasuje: daty, wydarzenia i pojęcia.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj datę do wydarzenia.',
+      lewa:['ok. 8000 r. p.n.e.','ok. 3500 r. p.n.e.','476 r.','1492 r.'],
+      prawa:['Koniec średniowiecza i początek nowożytności (odkrycie Ameryki)','Koniec starszej i początek młodszej epoki kamiennej','Koniec starożytności i początek średniowiecza','Wynalezienie pisma, czyli początek historii i starożytności'],
+      klucz:['B','D','C','A'],
+      extra:'<p>Co się stało w <b>476 r.</b>? Upadło cesarstwo zachodniorzymskie. Germański wódz Odoaker odebrał władzę ostatniemu cesarzowi, Romulusowi Augustulusowi. Jego przydomek znaczy „mały August”, bo cesarz był jeszcze nastolatkiem.</p><p>A w <b>1492 r.</b> Krzysztof Kolumb płynął na zachód, szukając drogi do Indii, i dotarł do wysp Ameryki. Do końca życia był przekonany, że to Azja!</p>' },
+    { typ:'dopasuj', q:'Dopasuj środek podróży z ilustracji w podręczniku do czasu, z którego pochodzi obrazek.',
+      lewa:['Przejażdżka rydwanem na rzymskiej mozaice','Europejskie okręty na Oceanie Indyjskim','Start pierwszego w dziejach balonu na ogrzewane powietrze','Wesoły rysunek „podróże przyszłości”','Pociąg Pendolino na stacji Warszawa Zachodnia'],
+      prawa:['1829 r.','XV w.','2015 r.','III w. n.e.','XVIII w.'],
+      klucz:['D','B','E','A','C'],
+      extra:'<p>Przypisz obrazki jeszcze do epok: mozaika z III w. n.e. to <b>starożytność</b>, okręty z XV w. to koniec <b>średniowiecza</b> i początek <b>nowożytności</b>, a balon (XVIII w.), rysunek z 1829 r. i Pendolino to <b>nowożytność</b>.</p><p>Pierwszy balon na ogrzewane powietrze zbudowali we Francji bracia Montgolfier w 1783 r. <b>Rydwan</b> to dwukołowy wóz ciągnięty przez konie, a <b>rycina</b> to odbitka rysunku, drzeworytu lub zdjęcia.</p>' },
+    { typ:'dopasuj', q:'Dopasuj pojęcie do jego znaczenia.',
+      lewa:['chronologia','epoka','wiek (stulecie)','tysiąclecie','prehistoria'],
+      prawa:['pełne 100 lat','dzieje ludzkości sprzed wynalezienia pisma','nauka o mierzeniu czasu w przeszłości i ustalaniu, co było najpierw, a co potem','pełne 1000 lat','długi okres w historii lub prehistorii, który ma początek i koniec'],
+      klucz:['C','E','A','D','B'],
+      extra:'<p>Kilka innych miar czasu do kolekcji: <b>dekada</b> to 10 lat, <b>półwiecze</b> to 50 lat, a <b>era</b> to bardzo długi okres liczony od jakiegoś ważnego wydarzenia. Stąd właśnie „nasza era”.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'epoki', ikona:'🏺', nazwa:'Epoki i dzieje Ziemi', krotko:'Epoki',
+    opis:'Wielki obraz: od powstania Ziemi do dzisiaj.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'wymien', q:'Wymień po kolei epoki prehistoryczne i historyczne. Podaj daty, które je oddzielają.',
+      odp:'<p><b>Prehistoria</b></p><ol><li>Starsza epoka kamienna: do ok. 8000 r. p.n.e.</li><li>Młodsza epoka kamienna: ok. 8000 – ok. 3500 r. p.n.e.</li></ol><p><b>Historia</b></p><ol start="3"><li>Starożytność: ok. 3500 r. p.n.e. – 476 r. n.e.</li><li>Średniowiecze: 476–1492</li><li>Nowożytność (epoka nowożytna): od 1492 r. do dziś</li></ol>',
+      extra:'<p>W niektórych książkach spotkasz jeszcze jedną epokę: <b>współczesność</b>, czyli czasy najnowsze. Różni autorzy zaczynają ją od różnych dat w XX w., np. od 1918 r. albo od 1945 r. To kolejny dowód, że podział na epoki jest umowny!</p>' },
+    { typ:'opis', q:'Skąd pochodzą nazwy epok prehistorycznych?',
+      odp:'<p>Od <b>kamiennych narzędzi</b>, którymi posługiwali się wtedy ludzie. Stąd nazwy: <b>starsza</b> i <b>młodsza epoka kamienna</b>.</p>',
+      extra:'<p>Naukowcy nazywają je po grecku: <b>paleolit</b> (<i>palaios</i> – stary, <i>lithos</i> – kamień) i <b>neolit</b> (<i>neos</i> – nowy).</p><p>W paleolicie narzędzia robiono, odłupując kawałki kamienia. W neolicie ludzie nauczyli się je szlifować i gładzić, a do tego zaczęli uprawiać rośliny i hodować zwierzęta.</p>' },
+    { typ:'daty', q:'Dzieje Ziemi na spirali: ile lat ma Ziemia? Kiedy pojawiły się pierwsze rośliny lądowe, a kiedy ludzie rozumni?',
+      odp:'<ul><li>Ziemia ma ok. <b>4 miliardy 600 milionów lat</b>.</li><li>Pierwsze rośliny lądowe pojawiły się ok. <b>450 milionów lat temu</b>.</li><li>Ludzie rozumni pojawili się ok. <b>200 tysięcy lat temu</b>.</li></ul><p>Gdyby całe dzieje Ziemi zmieścić w 24 godzinach, nasz gatunek istniałby zaledwie ok. <b>2 sekundy</b>.</p>',
+      extra:'<p>„Człowiek rozumny” to po łacinie <b><i>Homo sapiens</i></b>. Tak naukowcy nazywają nasz gatunek.</p><p>Pobawmy się tą „dobą Ziemi”: pierwsze rośliny lądowe pojawiłyby się ok. godz. 21:40, a dinozaury wymarłyby (66 mln lat temu) ok. 20 minut przed północą. Cała historia od wynalezienia pisma trwałaby mniej więcej jedną dziesiątą sekundy, czyli tyle co mrugnięcie okiem!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Rok 1500 należał do XVI wieku.', p:false, fix:'należał do <b>XV wieku</b> (dwa zera na końcu, więc nie dodajemy 1).'},
+        {t:'Po 1 r. p.n.e. nastąpił rok 0.', p:false, fix:'roku 0 nie było, po 1 r. p.n.e. od razu nastąpił <b>1 r. n.e.</b>'},
+        {t:'Druga połowa I wieku p.n.e. to lata 50–1 p.n.e.', p:true, fix:'pierwsza połowa to lata 100–51 p.n.e., a druga 50–1 p.n.e.'},
+        {t:'Historia zaczęła się wraz z wynalezieniem druku.', p:false, fix:'historia zaczęła się wraz z wynalezieniem <b>pisma</b>, ok. 3500 r. p.n.e. Druk wynaleziono dopiero w połowie XV w.'},
+        {t:'Najstarszym znanym nam pismem świata jest pismo Sumerów.', p:true, fix:''},
+        {t:'XX wiek to lata 1901–2000.', p:true, fix:'rok 2000 zamyka XX wiek, a XXI wiek zaczął się w 2001 r.'}
+      ],
+      extra:'<p>Pismo Sumerów nazywamy <b>pismem klinowym</b>. Znaki wyciskano zaostrzonym patyczkiem (rylcem) w mokrej glinie, więc miały kształt małych klinów. Tabliczki suszono albo wypalano i dzięki temu przetrwały tysiące lat.</p><p>Sumerowie mieszkali w <b>Mezopotamii</b>, czyli w krainie między rzekami Eufrat i Tygrys (dziś to głównie Irak).</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">Starsza epoka kamienna<small>do ok. 8000 p.n.e.</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">Młodsza epoka kamienna<small>ok. 8000–3500 p.n.e.</small></div>'+
+      '<div class="seg" style="background:#FFC966">Starożytność<small>ok. 3500 p.n.e. – 476</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">Średniowiecze<small>476–1492</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">Nowożytność<small>od 1492 do dziś</small></div>'+
+      '<div class="era" style="grid-column:span 2">Prehistoria</div>'+
+      '<div class="era h" style="grid-column:span 3">Historia (od wynalezienia pisma)</div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>🧮 Który to wiek?</h4><p>Skreśl dwie ostatnie cyfry i dodaj 1: <b>1370 → 13 + 1 = XIV w.</b><br>Gdy na końcu są dwa lub trzy zera, nie dodajesz 1: <b>1500 → XV w.</b>, <b>2000 → XX w.</b></p></div>'+
+      '<div class="rule"><h4>🚀 Przed naszą erą liczymy w dół</h4><p>…3, 2, 1 p.n.e., a potem 1, 2, 3 n.e.… <b>Roku 0 nie było.</b><br>I poł. II w. p.n.e. = 200–151 p.n.e., I poł. II w. n.e. = 101–150.</p></div>'+
+      '<div class="rule"><h4>📏 Miary czasu</h4><p>wiek (stulecie) = 100 lat<br>tysiąclecie = 1000 lat<br>III tysiąclecie trwa od 2001 do 3000 r.</p></div>'+
+      '<div class="rule"><h4>🏛️ Cyfry rzymskie</h4><div class="roman">'+siatkaRzymska()+'</div></div>'+
+    '</div>',
+  start:'Cześć! Jestem Tik-Tak, klepsydra, która kocha historię. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🧭', n:'Podróżnik w czasie', msg:'Piasek zaczął się sypać! Każde pytanie, które umiesz, to krok w podróży przez czas. ⏳'},
+    {od:.25,e:'📅', n:'Strażnik kalendarza', msg:'Brawo! Zostajesz Strażnikiem Kalendarza. Daty już Cię słuchają!'},
+    {od:.5, e:'🏹', n:'Łowca dat', msg:'Ponad połowa za Tobą! Łowca Dat w akcji, żadna data się nie ukryje. 😎'},
+    {od:.75,e:'🏛️', n:'Znawca epok', msg:'Znawca Epok! Jeszcze tylko kilka pytań do tytułu Mistrza…'},
+    {od:1,  e:'🏆', n:'Mistrz chronologii', msg:'MISTRZ CHRONOLOGII! Cały piasek przesypany, cały dział opanowany! 🏆'}
+  ]
+},
+{
+  id:'d2', nr:2, tytul:'Od myśliwych do rolników', zakres:'podręcznik s. 11–16',
+  start:'Witaj w epoce kamiennej! Zaczynamy od myśliwych, a skończymy na rolnikach. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🔥', n:'Strażnik ogniska', msg:'Iskra skrzesana! Piasek zaczął się sypać. ⏳'},
+    {od:.25,e:'🏹', n:'Łowca mamutów', msg:'Brawo! Zostajesz Łowcą Mamutów.'},
+    {od:.5, e:'🌾', n:'Pierwszy rolnik', msg:'Ponad połowa za Tobą! Czas na pierwsze żniwa.'},
+    {od:.75,e:'🏺', n:'Mistrz garncarski', msg:'Mistrz garncarski! Jeszcze kilka pytań do tytułu Mistrza…'},
+    {od:1,  e:'🏆', n:'Mistrz epoki kamiennej', msg:'MISTRZ EPOKI KAMIENNEJ! Cały piasek przesypany, cały dział opanowany! 🏆'}
+  ],
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'d2-slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Opowiedz pełnymi zdaniami, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'Czym różnił się klimat Europy sprzed 40 tysięcy lat od dzisiejszego klimatu?',
+      odp:'<p>Ok. 40 tysięcy lat temu na Ziemi trwał <b>okres ochłodzenia</b>:</p><ul><li>średnia temperatura lipca na południu Europy wynosiła tylko <b>+5°C</b>,</li><li>północną część Europy pokrywał <b>lądolód</b>, którego grubość dochodziła do <b>3 km</b>,</li><li>na południu ciągnęła się <b>tundra</b>: rosły tam tylko trawy, krzewy i pojedyncze drzewa, a <b>lasów nie było</b>.</li></ul><p>Dziś klimat Europy jest <b>dużo cieplejszy</b>: lądolodu nie ma, rosną lasy.</p>',
+      extra:'<p>Dziś średnia temperatura lipca w Polsce to ok. 18–20°C, a na południu Europy, np. w Rzymie, ok. 25°C. Lądolód o grubości 3 km to tyle, co ponad 12 Pałaców Kultury i Nauki postawionych jeden na drugim!</p><p>W czasie tego zlodowacenia lądolód dotarł też na północ dzisiejszej Polski. Zostawił po sobie jeziora na pojezierzach i wielkie <b>głazy narzutowe</b> przywleczone ze Skandynawii.</p>' },
+    { typ:'opis', q:'Dlaczego ludzie starszej epoki kamiennej prowadzili koczowniczy tryb życia?',
+      odp:'<p>Bo w zimnym klimacie:</p><ul><li><b>nie mogli uprawiać ziemi</b>, ponieważ przez większą część roku była zmarznięta,</li><li><b>nie mogli budować drewnianych domów</b>, bo brakowało im budulca (lasy nie rosły).</li></ul><p>Dlatego zajmowali się <b>myślistwem i zbieractwem</b> i <b>wędrowali w poszukiwaniu żywności</b>, zamiast budować trwałe domy.</p>',
+      extra:'<p>„Koczować” to przebywać gdzieś tylko na jakiś czas, bez stałego domu. Koczownicy żyli nie tylko w epoce kamiennej. W dziale 6 poznasz koczowniczych pasterzy z Bliskiego Wschodu, którzy wędrowali w poszukiwaniu pastwisk dla bydła.</p>' },
+    { typ:'opis', q:'Gdzie i dlaczego ok. 10 tysięcy lat temu zmieniły się warunki życia ludzi?',
+      odp:'<p><b>Gdzie:</b> najpierw na <b>Bliskim Wschodzie</b>, a potem w Europie.</p><p><b>Dlaczego:</b> bo zmienił się klimat. Już ok. 20 tysięcy lat temu zaczął się ocieplać: lądolód cofnął się na północ, zaczęły padać obfite deszcze, wyrosły gęste lasy, wysokie trawy i <b>dzikie zboża</b>. Ok. 10 tysięcy lat temu nastał <b>okres ciepły</b>, w którym żyjemy do dziś. Wtedy mieszkańcy Bliskiego Wschodu jako pierwsi w dziejach <b>zaczęli uprawiać ziemię i hodować zwierzęta</b>.</p>',
+      extra:'<p>Obszar, na którym powstały pierwsze uprawy, nazywa się <b>Żyznym Półksiężycem</b>. To łukowaty pas urodzajnych ziem od Mezopotamii przez Syrię po Palestynę. Pierwszymi uprawianymi zbożami były pszenica i jęczmień.</p>' },
+    { typ:'opis', q:'Z jakiego powodu mieszkańcy Bliskiego Wschodu zaczęli prowadzić osiadły tryb życia?',
+      odp:'<p>Bo <b>zajęli się rolnictwem</b>. Uprawiali pola, a pól <b>trzeba było doglądać</b>, więc nie mogli już wędrować z miejsca na miejsce. Zamieszkali w <b>trwałych domach</b> z drewna albo z gliny zmieszanej z trzciną. W cieplejszym klimacie rosły już lasy, więc mieli z czego budować.</p>',
+      extra:'<p>Zboże rośnie kilka miesięcy. Od siewu do żniw trzeba pilnować pola, np. przed dzikimi zwierzętami. A zebrane ziarno można przechowywać na później w glinianych naczyniach. Dlatego rolnicy zostawali w jednym miejscu.</p>' },
+    { typ:'opis', q:'Które gałęzie rzemiosła rozwinęły się jako pierwsze – i dlaczego właśnie one?',
+      odp:'<ul><li><b>Garncarstwo.</b> Ludziom nie wystarczały już naczynia ze skóry czy drewna, więc zaczęli wytwarzać <b>gliniane wazy, misy i dzbany</b>. Przechowywali w nich ziarno i napoje, a także gotowali posiłki.</li><li><b>Tkactwo.</b> W cieplejszym klimacie potrzebne były <b>bardziej przewiewne stroje z wełny i lnu</b> zamiast ubrań szytych ze skór.</li></ul>',
+      extra:'<p>Z łodyg lnu robi się nici, a wełnę dawały udomowione owce, więc hodowla i tkactwo szły w parze.</p><p>Gliniane naczynia są dla archeologów tak ważne, że całe dawne społeczności nazywa się od wzorów na garnkach. Na ziemiach polskich żyli np. rolnicy z tzw. <b>kultury ceramiki wstęgowej rytej</b>.</p>' },
+    { typ:'wymien', q:'Przedstaw skutki rewolucji neolitycznej.',
+      odp:'<ol><li><b>Osiadły tryb życia</b> – ludzie nie wędrowali już, bo musieli doglądać pól. Budowali trwałe domy z drewna albo z gliny zmieszanej z trzciną.</li><li><b>Udoskonalenie kamiennych narzędzi</b> – ludzie nauczyli się je wygładzać, przewiercać i osadzać na trzonkach. Zaczęli też wytwarzać narzędzia rolnicze.</li><li><b>Udomowienie kóz, owiec, bydła i świń</b> – zwierzęta dawały mięso, skóry, mleko i wełnę.</li><li><b>Możliwość wyżywienia większej liczby ludzi dzięki rolnictwu</b> – na Bliskim Wschodzie przybywało ludzi, powstawały coraz ludniejsze wsie i osady.</li><li><b>Powstanie pierwszych gałęzi rzemiosła</b>: garncarstwa i tkactwa.</li></ol>',
+      extra:'<p>Skutki rewolucji neolitycznej odczuwamy do dziś. Chleb, mleko, wełniany sweter, gliniany kubek – to wszystko ma swój początek właśnie wtedy.</p>' },
+    { typ:'opis', q:'Omów różnice między koczowniczym a osiadłym trybem życia.',
+      odp:'<ul><li><b>Koczowniczy tryb życia</b> (paleolit): ludzie <b>wędrowali w poszukiwaniu żywności</b> i nie budowali trwałych domów. Mieszkali w <b>jaskiniach albo namiotach</b> z kości mamuta okrytych skórami. Żyli z <b>myślistwa i zbieractwa</b>.</li><li><b>Osiadły tryb życia</b> (neolit): ludzie <b>mieszkali na stałe w jednym miejscu</b>, bo musieli doglądać pól. Budowali <b>trwałe domy</b> z drewna lub gliny zmieszanej z trzciną. Żyli z <b>rolnictwa</b>, czyli uprawy ziemi i hodowli zwierząt. Powstawały coraz ludniejsze <b>wsie i osady</b>.</li></ul>',
+      extra:'<p>Sposób na dobrą odpowiedź: porównuj po kolei te same rzeczy – gdzie ludzie mieszkali, z czego żyli, czy się przemieszczali.</p><p>Możesz dodać jeszcze jedną różnicę: koczownik wszystko, co miał, nosił ze sobą, więc nie mógł mieć ciężkich rzeczy. Rolnik mógł gromadzić zapasy w ciężkich glinianych naczyniach.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-pojecia', ikona:'📖', nazwa:'Słowniczek pojęć', krotko:'Pojęcia',
+    opis:'Krótko i konkretnie: co znaczy to słowo?',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: lądolód, tundra, Bliski Wschód.',
+      odp:'<ul><li><b>Lądolód</b> – ogromna i bardzo gruba pokrywa lodowa. W Europie sprzed 40 tysięcy lat jego grubość dochodziła do 3 km.</li><li><b>Tundra</b> – obszar porośnięty jedynie trawami, krzewami i pojedynczymi drzewami.</li><li><b>Bliski Wschód</b> – południowo-zachodnia Azja i północno-wschodnia Afryka.</li></ul>',
+      extra:'<p>Lądolody istnieją do dziś: pokrywają Antarktydę i Grenlandię. Tundra też: znajdziesz ją na dalekiej północy, np. w północnej Skandynawii i na Syberii, gdzie żyją renifery.</p><p>Do Bliskiego Wschodu należą m.in. Mezopotamia, Egipt i Palestyna. Poznasz je w kolejnych działach.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: myślistwo, zbieractwo, rolnictwo.',
+      odp:'<ul><li><b>Myślistwo</b> – zdobywanie pożywienia przez polowanie na dzikie zwierzęta.</li><li><b>Zbieractwo</b> – zbieranie tego, co daje przyroda: owoców, nasion, jadalnych korzeni, ptasich jaj.</li><li><b>Rolnictwo</b> – <b>uprawa ziemi i hodowla zwierząt</b>.</li></ul>',
+      extra:'<p>Myśliwy i zbieracz biorą to, co przyroda sama daje. Rolnik sam sprawia, że rośnie zboże i rodzą się zwierzęta, dlatego może gromadzić zapasy.</p>' },
+    { typ:'pojecie', q:'Co nazywamy rewolucją neolityczną?',
+      odp:'<p><b>Rewolucja neolityczna</b> to <b>przejście ludzi od myślistwa i zbieractwa do rolnictwa</b>, czyli do uprawy ziemi i hodowli zwierząt. Zaczęła się na <b>Bliskim Wschodzie</b> ok. 10 tysięcy lat temu.</p>',
+      extra:'<p>„Rewolucja” to wielka, przełomowa zmiana. Ta rewolucja nie była nagłym przewrotem, bo trwała tysiące lat. Zmieniła jednak życie ludzi tak bardzo jak mało co w dziejach.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij, skąd pochodzi nazwa: młodsza epoka kamienna.',
+      odp:'<ul><li><b>„Kamienna”</b>, bo ludzie nadal robili narzędzia <b>z kamienia</b>, tylko ulepszone: wygładzane, przewiercane i osadzane na trzonkach.</li><li><b>„Młodsza”</b>, bo ta epoka <b>nastała po starszej epoce kamiennej</b>, czyli po paleolicie.</li></ul><p>Naukowa nazwa młodszej epoki kamiennej to <b>neolit</b>.</p>',
+      extra:'<p>Nazwy pochodzą z greki: <i>neos</i> – nowy, <i>palaios</i> – stary, <i>lithos</i> – kamień.</p><p>Po epokach kamiennych przyszły czasy, w których ludzie robili narzędzia z metali: najpierw z miedzi i brązu, potem z żelaza.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-paleolit', ikona:'🦣', nazwa:'Życie w paleolicie', krotko:'Paleolit',
+    opis:'Jak żyli myśliwi i zbieracze?',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'krotka', q:'Ile osób liczyła gromada ludzi paleolitu? Dlaczego właśnie tyle?',
+      odp:'<p>Gromada liczyła <b>20–30 osób</b>. <b>Mniejsza</b> nie dałaby rady upolować dużego zwierzęcia, np. mamuta. W <b>większej</b> nie starczyłoby jedzenia dla wszystkich.</p>',
+      extra:'<p>Mamut włochaty był wielkości słonia, miał gęste futro i zakrzywione ciosy. Myśliwi zapędzali go np. do dołu-pułapki (rysunek na s. 11).</p><p>Ostatnie mamuty żyły jeszcze ok. 4000 lat temu na Wyspie Wrangla w Arktyce, gdy w Egipcie stały już piramidy!</p>' },
+    { typ:'krotka', q:'Jakiej broni i jakich narzędzi używali myśliwi paleolitu?',
+      odp:'<ul><li><b>toporków i oszczepów z krzemiennymi ostrzami</b>,</li><li><b>pięściaków</b> – do rąbania, cięcia i kopania, ale też jako broni,</li><li><b>harpunów</b> do połowu ryb,</li><li><b>łuku</b>, który ludzie wynaleźli kilkanaście tysięcy lat temu; ułatwił polowanie na szybkie zwierzęta, np. renifery.</li></ul><p>Broń i narzędzia robiono z <b>krzemienia</b>.</p>',
+      extra:'<p>Pięściak trzymało się w dłoni, stąd nazwa (od „pięści”).</p><p>Na ziemiach polskich, w <b>Krzemionkach</b> koło Ostrowca Świętokrzyskiego, zachowały się kopalnie krzemienia pasiastego. Ludzie wydobywali go tam już ok. 5000 lat temu, w neolicie. Dziś kopalnie są na liście światowego dziedzictwa UNESCO.</p>' },
+    { typ:'krotka', q:'Co jedli ludzie starszej epoki kamiennej?',
+      odp:'<ul><li><b>mięso upolowanych zwierząt</b>: mamutów, niedźwiedzi, byków, koni i reniferów, pieczone nad ogniskiem,</li><li><b>ryby</b>,</li><li>to, co zebrały kobiety i dzieci: <b>owoce, nasiona, jadalne korzenie i ptasie jaja</b>.</li></ul>',
+      extra:'<p>Byki, na które polowano, to dzikie tury, przodkowie dzisiejszego bydła. Ostatni tur na świecie padł w Polsce, w Puszczy Jaktorowskiej, w 1627 r.</p>' },
+    { typ:'krotka', q:'W jaki sposób ludzie paleolitu rozpalali ogień?',
+      odp:'<p>Uderzali <b>krzemieniem w kamień zwany pirytem</b>. Z pirytu sypały się <b>iskry</b>, które podpalały np. <b>wiązkę suchej trawy</b>.</p>',
+      extra:'<p>Nazwa „piryt” pochodzi od greckiego słowa oznaczającego ogień. Bywa nazywany „złotem głupców”, bo błyszczy jak złoto.</p><p>Znacznie później żył Ötzi, człowiek sprzed ponad 5000 lat, którego ciało znaleziono w 1991 r. w lodowcu w Alpach. Miał przy sobie <b>hubkę</b>, czyli grzyb, który łatwo zajmuje się od iskry.</p>' },
+    { typ:'krotka', q:'Gdzie mieszkali ludzie paleolitu? Dlaczego nie budowali drewnianych domów?',
+      odp:'<p>Mieszkali <b>w jaskiniach</b> albo <b>w namiotach z kości mamuta okrytych zwierzęcymi skórami</b>. Drewnianych domów nie budowali, bo <b>brakowało budulca</b>, ponieważ lasy wtedy nie rosły. Poza tym wędrowali w poszukiwaniu żywności, więc nie budowali trwałych domów.</p>',
+      extra:'<p>Archeolodzy odkryli na terenie dzisiejszej Ukrainy szczątki chat z kości mamutów sprzed ok. 15 tysięcy lat. Na jedną taką chatę zużyto kości wielu mamutów.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-neolit', ikona:'🌾', nazwa:'Życie w neolicie', krotko:'Neolit',
+    opis:'Jak żyli pierwsi rolnicy?',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'krotka', q:'Jak ludzie neolitu udoskonalili kamienne narzędzia? W jaki sposób przewiercano kamienne ostrze?',
+      odp:'<p>Ludzie nauczyli się narzędzia <b>wygładzać, przewiercać i osadzać na trzonkach</b>. Zaczęli też robić <b>narzędzia rolnicze</b>. Lepsze narzędzia były potrzebne do <b>karczowania lasów i pracy w polu</b>.</p><p>Ostrze przewiercano tak: <b>„wiertarką” był kij</b>, a pomocnik <b>sypał do otworu piasek, który zwiększał tarcie</b>.</p>',
+      extra:'<p>Była też prostsza siekiera, z ostrzem osadzonym w wydrążonym trzonku. Łatwiej ją było zrobić, ale była <b>mniej trwała</b> od siekiery z otworem wywierconym w ostrzu (podpis na s. 16). Wywiercenie otworu w kamieniu mogło trwać wiele godzin.</p>' },
+    { typ:'krotka', q:'Jakie zwierzęta udomowili ludzie neolitu i co od nich mieli? Jakie zwierzę udomowiono już wcześniej, w paleolicie?',
+      odp:'<p>Ludzie neolitu udomowili <b>kozy, owce, bydło i świnie</b>. Zwierzęta hodowlane dawały <b>mięso i skóry</b>, a także <b>mleko i wełnę</b>.</p><p>Już w starszej epoce kamiennej ludzie udomowili <b>psa</b>.</p>',
+      extra:'<p>Udomowić zwierzę to przyzwyczaić je do życia przy człowieku i je hodować. Wiele zwierząt domowych ma dzikich przodków: pies pochodzi od wilka, krowa od tura, świnia od dzika, a owca od muflona.</p>' },
+    { typ:'obraz', q:'Przyjrzyj się rysunkowi neolitycznej wsi. Jakie prace wykonują na nim ludzie?',
+      body:'<p>Podręcznik, s. 15: rysunek „Neolityczna wieś”</p>',
+      odp:'<ul><li>Jedna kobieta <b>tka na krośnie</b>: przeplata poziomą nić przez pionowe nici obciążone ciężarkami, żeby były napięte.</li><li>Druga kobieta <b>miele ziarna</b>: rozciera je kamieniem na mąkę, z której upiecze chleb lub placki.</li><li>Mężczyzna na drabinie <b>naprawia dach</b> wiązkami słomy.</li></ul>',
+      extra:'<p>Na tym jednym rysunku widać prawie wszystkie skutki rewolucji neolitycznej: trwałe domy, hodowlę zwierząt (świnie, stado zwierząt w tle), rolnictwo (mąka z ziarna), tkactwo i gliniane naczynia.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-daty', ikona:'📅', nazwa:'Daty i oś czasu', krotko:'Daty',
+    opis:'Ustaw wydarzenia w kolejności i policz lata.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż wydarzenia w kolejności, od najdawniejszego do najpóźniejszego.',
+      hint:'Klikaj wydarzenia od najdawniejszego do najpóźniejszego.',
+      elementy:['Początek ocieplania się klimatu','Pojawienie się człowieka rozumnego','Początek młodszej epoki kamiennej na Bliskim Wschodzie','Ludzie rozumni przybywają do Europy','Koniec młodszej epoki kamiennej na Bliskim Wschodzie'],
+      kolejnosc:[1,3,0,2,4],
+      odp:'<p>Pojawienie się człowieka rozumnego (ok. 198 tys. p.n.e.) → ludzie rozumni przybywają do Europy (ok. 38 tys. p.n.e.) → początek ocieplania się klimatu (ok. 18 tys. p.n.e.) → początek młodszej epoki kamiennej na Bliskim Wschodzie (ok. 8000 p.n.e.) → jej koniec (ok. 2500 p.n.e.)</p>',
+      extra:'<p>Oś czasu w podręczniku nie jest narysowana w skali. Gdyby 1 cm oznaczał 1000 lat, odcinek od pojawienia się człowieka rozumnego do początku neolitu miałby prawie 2 metry, a cały neolit na Bliskim Wschodzie zająłby tylko 5,5 cm!</p>' },
+    { typ:'policz', q:'W tekście podręcznika jest „ok. 200 tysięcy lat temu”, a na osi czasu „ok. 198 tys. p.n.e.”. Skąd ta różnica? Zamień na daty p.n.e.: ok. 40 tysięcy lat temu, ok. 20 tysięcy lat temu, ok. 10 tysięcy lat temu.',
+      body:'<ul class="dates"><li>ok. 40 tys. lat temu</li><li>ok. 20 tys. lat temu</li><li>ok. 10 tys. lat temu</li></ul>',
+      odp:'<p>„Lat temu” liczymy <b>od dziś</b>, a „p.n.e.” <b>od początku naszej ery</b>. Od początku naszej ery minęło ok. 2000 lat, więc <b>odejmujemy ok. 2000</b>: 200 000 − 2000 = 198 000, czyli <b>ok. 198 tys. p.n.e.</b></p><ul><li>ok. 40 tys. lat temu → <b>ok. 38 tys. p.n.e.</b> (przybycie ludzi rozumnych do Europy)</li><li>ok. 20 tys. lat temu → <b>ok. 18 tys. p.n.e.</b> (początek ocieplania się klimatu)</li><li>ok. 10 tys. lat temu → <b>ok. 8000 p.n.e.</b> (początek młodszej epoki kamiennej na Bliskim Wschodzie)</li></ul>',
+      extra:'<p>Dokładnie w 2026 r. trzeba by odjąć 2026 lat. Przy tak dawnych i przybliżonych datach (z „ok.”) wystarczy jednak zaokrąglić do 2000.</p><p>Naukowcy często zapisują takie daty skrótem <b>BP</b> (z angielskiego <i>before present</i>, „przed teraźniejszością”). Umownie liczy się je od 1950 r.</p>' },
+    { typ:'policz', q:'Policz: a) Ile lat trwała młodsza epoka kamienna na Bliskim Wschodzie? b) Ile lat minęło od pojawienia się człowieka rozumnego (ok. 198 tys. p.n.e.) do początku rolnictwa na Bliskim Wschodzie (ok. 8000 p.n.e.)?',
+      odp:'<ul><li>a) Od ok. 8000 do ok. 2500 p.n.e.: 8000 − 2500 = <b>ok. 5500 lat</b>.</li><li>b) 198 000 − 8000 = <b>ok. 190 000 lat</b>.</li></ul>',
+      extra:'<p>190 tysięcy z ok. 200 tysięcy lat to aż <b>95%</b>! Przez prawie całe swoje dzieje ludzie rozumni byli myśliwymi i zbieraczami.</p><p>Gdyby dzieje człowieka rozumnego zmieścić w jednej dobie, rolnictwo pojawiłoby się dopiero ok. 22:50.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-pary', ikona:'🔗', nazwa:'Dopasuj i przyporządkuj', krotko:'Dopasuj',
+    opis:'Połącz pojęcia z opisami i rozdziel cechy epok.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj nazwę do opisu.',
+      lewa:['krzemień','piryt','pięściak','harpun','łuk'],
+      prawa:['Broń wynaleziona kilkanaście tysięcy lat temu; ułatwiła polowanie na szybkie zwierzęta, np. renifery','Twarda skała, którą można łupać na kawałki o bardzo ostrych krawędziach','Oszczep z zadziorami na ostrzu i liną do przyciągnięcia zdobyczy','Kamień, z którego po uderzeniu krzemieniem sypały się iskry','Krzemienne narzędzie do rąbania, cięcia i kopania, używane też jako broń'],
+      klucz:['B','D','E','C','A'],
+      extra:'<p>Krzemień był dla ludzi epoki kamiennej tym, czym dla nas stal: najlepszym materiałem na ostrza. Przy łupaniu powstają krawędzie tak ostre, że można nimi kroić skórę i mięso.</p>' },
+    { typ:'dopasuj', q:'Dopasuj pojęcie do znaczenia.',
+      lewa:['rolnictwo','garncarstwo','tkactwo','karczowanie','rzemiosło'],
+      prawa:['Usuwanie drzew z korzeniami','Wykonywanie przedmiotów codziennego użytku za pomocą prostych narzędzi','Uprawa ziemi i hodowla zwierząt','Wytwarzanie glinianych waz, mis i dzbanów','Wytwarzanie na krośnie tkanin, np. z wełny i lnu'],
+      klucz:['C','D','E','A','B'],
+      extra:'<p>Pierwsi garncarze lepili naczynia ręcznie. Koło garncarskie, na którym naczynie obraca się podczas lepienia, wynaleziono znacznie później, w Mezopotamii.</p>' },
+    { typ:'sortuj', q:'Paleolit czy neolit? Przyporządkuj każdą cechę do właściwej epoki.',
+      kategorie:['Paleolit','Neolit'],
+      elementy:[
+        {t:'Uprawa ziemi i hodowla zwierząt', k:1},
+        {t:'Jaskinie i namioty z kości mamuta okryte skórami', k:0},
+        {t:'Ubrania tkane z wełny i lnu', k:1},
+        {t:'Koczowniczy, czyli wędrowny tryb życia', k:0},
+        {t:'Narzędzia z kamienia wygładzanego i przewiercanego, osadzone na trzonkach', k:1},
+        {t:'Myślistwo i zbieractwo', k:0},
+        {t:'Trwałe domy z drewna lub gliny zmieszanej z trzciną', k:1},
+        {t:'Ubrania szyte ze skór', k:0},
+        {t:'Osiadły tryb życia', k:1},
+        {t:'Narzędzia z kamienia obłupywanego, by nadać mu kształt', k:0},
+        {t:'Gliniane wazy, misy i dzbany', k:1},
+        {t:'Polowanie na mamuty', k:0}
+      ],
+      extra:'<p>Zapamiętaj pary przeciwieństw: <b>wędrówka ↔ osiadłość, jaskinia ↔ dom, polowanie ↔ pole, skóra ↔ tkanina, obłupywanie ↔ wygładzanie</b>.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d2-pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Człowiek rozumny pojawił się na Ziemi ok. 200 tysięcy lat temu.', p:true, fix:'Tak podaje podręcznik. Zajrzyj też do ciekawostki poniżej.'},
+        {t:'Ok. 40 tysięcy lat temu Europę porastały gęste lasy.', p:false, fix:'Trwał okres ochłodzenia: północ pokrywał <b>lądolód</b>, a na południu ciągnęła się <b>tundra</b> bez lasów.'},
+        {t:'Gromada ludzi paleolitu liczyła 20–30 osób.', p:true, fix:''},
+        {t:'Już w starszej epoce kamiennej ludzie udomowili psa.', p:true, fix:''},
+        {t:'Rolnictwo to tylko uprawa ziemi.', p:false, fix:'Rolnictwo to uprawa ziemi <b>i hodowla zwierząt</b>.'},
+        {t:'Młodsza epoka kamienna zaczęła się w tym samym czasie na całym świecie.', p:false, fix:'Na Bliskim Wschodzie zaczęła się ok. 8000 r. p.n.e., a w innych częściach świata <b>znacznie później</b>.'},
+        {t:'Mieszkańcy Bliskiego Wschodu jako pierwsi w dziejach zaczęli uprawiać ziemię.', p:true, fix:''},
+        {t:'Siekiera z ostrzem osadzonym w wydrążonym trzonku była trwalsza od siekiery z otworem wywierconym w ostrzu.', p:false, fix:'Była <b>łatwiejsza do wykonania, ale mniej trwała</b>.'}
+      ],
+      extra:'<p>Nauka ciągle się rozwija! W 2017 r. ogłoszono odkrycie w Maroku kości, które wielu naukowców uznaje za szczątki ludzi rozumnych sprzed ok. 300 tysięcy lat. Dlatego w nowszych książkach możesz spotkać inną liczbę niż w podręczniku. Na sprawdzianie podaj tę z podręcznika.</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">ok. 198 tys. p.n.e.<small>pojawienie się człowieka rozumnego</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">ok. 38 tys. p.n.e.<small>ludzie rozumni przybywają do Europy</small></div>'+
+      '<div class="seg" style="background:#FFC966">ok. 18 tys. p.n.e.<small>początek ocieplania się klimatu</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">ok. 8000 – ok. 2500 p.n.e.<small>młodsza epoka kamienna (neolit) na Bliskim Wschodzie</small></div>'+
+      '<div class="era h" style="grid-column:span 4">„lat temu” − ok. 2000 = „p.n.e.” (np. 40 tys. lat temu ≈ 38 tys. p.n.e.)</div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>🦣 Paleolit (starsza epoka kamienna)</h4><p>koczowniczy, czyli wędrowny tryb życia<br>jaskinie, namioty z kości i ze skór<br>myślistwo i zbieractwo<br>narzędzia z kamienia obłupywanego<br>ubrania szyte ze skór</p></div>'+
+      '<div class="rule"><h4>🌾 Neolit (młodsza epoka kamienna)</h4><p>osiadły tryb życia<br>trwałe domy z drewna lub gliny zmieszanej z trzciną<br>rolnictwo: uprawa ziemi i hodowla zwierząt<br>narzędzia z kamienia wygładzanego, przewiercanego, osadzanego na trzonku<br>ubrania tkane z wełny i lnu</p></div>'+
+      '<div class="rule"><h4>🌾 Rewolucja neolityczna</h4><p>przejście od myślistwa i zbieractwa do rolnictwa. Skutki: 1. osiadły tryb życia, 2. udoskonalenie kamiennych narzędzi, 3. udomowienie kóz, owiec, bydła i świń, 4. wyżywienie większej liczby ludzi, 5. pierwsze rzemiosła: garncarstwo i tkactwo.</p></div>'+
+    '</div>'
+},
+{
+  id:'d3', nr:3, tytul:'Cywilizacje Sumerów, doliny Indusu i Chin', krotkiTytul:'Sumerowie, Indus, Chiny', zakres:'podręcznik s. 17–21',
+  start:'Witaj w Mezopotamii! Zaczynamy od pierwszych miast, a skończymy nad Żółtą Rzeką. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🌾', n:'Rolnik znad Eufratu', msg:'Pierwsze pole nawodnione! Piasek zaczął się sypać. ⏳'},
+    {od:.25,e:'🌊', n:'Budowniczy kanałów', msg:'Brawo! Zostajesz Budowniczym Kanałów.'},
+    {od:.5, e:'📜', n:'Pisarz glinianych tabliczek', msg:'Ponad połowa za Tobą! Trzcina w dłoń i piszemy dalej.'},
+    {od:.75,e:'👑', n:'Król miasta-państwa', msg:'Król miasta-państwa! Jeszcze kilka pytań do tytułu Mistrza…'},
+    {od:1,  e:'🏆', n:'Mistrz pierwszych cywilizacji', msg:'MISTRZ PIERWSZYCH CYWILIZACJI! Cały piasek przesypany, cały dział opanowany! 🏆'}
+  ],
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'d3-slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Opowiedz pełnymi zdaniami, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'W jaki sposób powstały pierwsze społeczeństwa?',
+      odp:'<p>Neolityczni rolnicy mieszkali we wsiach i w osadach. Z czasem stawały się one <b>coraz większe</b>, a ich mieszkańcy <b>nawiązywali ze sobą kontakty</b>.</p><p>Ludzie żyjący na jakimś obszarze nieraz <b>zgadzali się, by ktoś nimi kierował</b>. Inaczej mieszkańcy jednej wsi mogliby np. tak wykopać kanał nawadniający swoje pola, że <b>zabrakłoby wody dla drugiej wsi</b>. W ten sposób powstały pierwsze społeczeństwa.</p>',
+      extra:'<p>Przykład z kanałem pokazuje, po co ludziom władza: ktoś musi rozstrzygać spory i planować wspólne prace.</p><p>W słynnym zbiorze praw króla Hammurabiego z Babilonu (XVIII w. p.n.e.) są przepisy o tym, kto ma zapłacić, gdy przez jego zaniedbanie woda zaleje pole sąsiada.</p>' },
+    { typ:'opis', q:'Dlaczego Sumerowie zbudowali system nawadniający i co im to dało?',
+      odp:'<p>Bo w Mezopotamii <b>deszcz padał bardzo rzadko</b>. Sumerowie wykopali <b>tysiące kanałów</b>, którymi doprowadzali wodę do swoich pól. Dzięki nawadnianiu mieli <b>6 razy większe plony</b> niż inne ludy i wytwarzali <b>nadwyżkę pożywienia</b>.</p>',
+      extra:'<p>Nawadnianie miało też wadę. Woda parowała z pól i zostawiała w ziemi sól, więc z czasem część pól Mezopotamii stała się mniej urodzajna. Rolnicy zaczęli wtedy częściej siać jęczmień, który lepiej znosi zasoloną glebę niż pszenica.</p>' },
+    { typ:'opis', q:'Co się zmieniło w Mezopotamii, gdy Sumerowie zaczęli wytwarzać nadwyżkę pożywienia? Jakie to miało znaczenie dla ich cywilizacji?',
+      odp:'<p>Nadwyżka pożywienia to więcej jedzenia, niż ludzie potrzebowali. Dzięki niej:</p><ol><li><b>Podział pracy.</b> Niektórzy Sumerowie mogli zrezygnować z rolnictwa i zająć się tylko rzemiosłem, np. wyrobem narzędzi. Tak dokonał się pierwszy podział pracy: między rolników i rzemieślników.</li><li><b>Pierwsze miasta.</b> Rzemieślnicy osiedlali się blisko siebie, bo w jednym miejscu łatwiej mogli kupić surowce i sprzedać swoje wyroby. Wsie przekształcały się w miasta.</li><li><b>Miasta-państwa.</b> Większe miasta stały się miastami-państwami, którymi rządzili królowie.</li></ol>',
+      extra:'<p>Rzemieślnik nie uprawiał pola, więc jedzenie musiał od rolnika kupić albo wymienić, np. na narzędzia czy naczynia. Gdyby rolnicy nie mieli nadwyżki, nie mieliby czego oddać, a rzemieślnik nie miałby z czego żyć.</p>' },
+    { typ:'opis', q:'Czym się różni społeczeństwo od cywilizacji?',
+      odp:'<ul><li><b>Społeczeństwo</b> to duża grupa ludzi, którzy mieszkają na dużym terenie, podlegają tej samej władzy, czują łączność między sobą i dostrzegają różnice między swoim społeczeństwem a innymi.</li><li><b>Cywilizacja</b> to <b>poziom rozwoju</b> społeczeństwa: takiego, które mieszka w osadach albo miastach, zna rolnictwo i rzemiosło oraz <b>używa pisma</b>.</li></ul><p>Czyli każda cywilizacja to społeczeństwo, ale nie każde społeczeństwo osiągnęło poziom cywilizacji, np. jeśli nie używa pisma.</p>',
+      extra:'<p>Łatwy sposób na zapamiętanie: społeczeństwo to ludzie, a cywilizacja to poziom, na który ci ludzie się wspięli. Wspięli się, gdy mają osady lub miasta, rolnictwo z rzemiosłem i pismo.</p>' },
+    { typ:'wymien', q:'Przedstaw wspólne cechy najstarszych cywilizacji świata.',
+      odp:'<ol><li>Powstały <b>nad rzekami nawadniającymi pola</b>: Tygrysem i Eufratem, Nilem, Indusem i Huang-ho.</li><li>Utworzyły je społeczeństwa, które wytwarzały <b>nadwyżkę pożywienia</b>, czyli miały go więcej, niż potrzebowały.</li></ol><p>Poza tym, jak każda cywilizacja, ich mieszkańcy żyli w osadach albo miastach, znali rolnictwo i rzemiosło oraz używali pisma.</p>',
+      extra:'<p>Dlatego najstarsze cywilizacje nazywa się często <b>cywilizacjami rzecznymi</b>. Rzeki dawały wodę do nawadniania, a podczas wylewów użyźniały pola mułem.</p>' },
+    { typ:'opis', q:'Jak powstały pierwsze miasta? Czym miasto różni się od wsi?',
+      odp:'<p>Rzemieślnicy <b>osiedlali się blisko siebie</b>, bo w jednym miejscu <b>łatwiej mogli kupić surowce i sprzedać swoje wyroby</b>. Tak powstały pierwsze miasta.</p><p>Miasto różni się od wsi tym, że jego mieszkańcy utrzymują się przede wszystkim <b>z rzemiosła i usług</b> (np. medycznych, prawnych), <b>a nie z rolnictwa</b>.</p>',
+      extra:'<p>Jednym z najstarszych wielkich miast świata był sumeryjski <b>Uruk</b>, w którym ok. 3000 r. p.n.e. mieszkało kilkadziesiąt tysięcy ludzi. Na mapie na s. 21 widać inne miasto Sumerów, <b>Ur</b>. Według Biblii stamtąd pochodził Abraham (dział 6).</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-pojecia', ikona:'📖', nazwa:'Słowniczek pojęć', krotko:'Pojęcia',
+    opis:'Krótko i konkretnie: co znaczy to słowo?',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'pojecie', q:'Co to jest społeczeństwo? Wymień jego cztery cechy.',
+      odp:'<p>Społeczeństwo to <b>duża grupa ludzi</b>, którzy:</p><ol><li><b>mieszkają na dużym terenie</b> (np. w Egipcie),</li><li><b>podlegają tej samej władzy</b> (np. królowi),</li><li><b>czują łączność między sobą</b> (np. mówią tym samym językiem, podobnie pracują i spędzają czas wolny),</li><li><b>dostrzegają różnice</b> między swoim społeczeństwem a innymi.</li></ol>',
+      extra:'<p>Te cechy pasują też do nas: mieszkamy w Polsce, podlegamy tej samej władzy, mówimy po polsku i wiemy, czym różnimy się np. od naszych sąsiadów.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcie: cywilizacja.',
+      odp:'<p>Cywilizacja to <b>poziom rozwoju społeczeństwa</b>, które:</p><ol><li><b>mieszka w osadach albo miastach</b>,</li><li><b>zna rolnictwo i rzemiosło</b>,</li><li><b>używa pisma</b>.</li></ol>',
+      extra:'<p>Słowo „cywilizacja” pochodzi od łacińskiego <i>civis</i>, czyli obywatel, mieszkaniec miasta. Z cech cywilizacji najważniejsze dla historyków jest pismo, bo od jego wynalezienia zaczyna się historia (dział 1).</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: Mezopotamia, Żyzny Półksiężyc.',
+      odp:'<ul><li><b>Mezopotamia</b>, inaczej <b>Międzyrzecze</b>, to kraina na Bliskim Wschodzie leżąca <b>między dwiema rzekami: Tygrysem i Eufratem</b> (a także wokół nich).</li><li><b>Żyzny Półksiężyc</b> to <b>obszary uprawne w kształcie półksiężyca</b>, które ciągną się <b>od Mezopotamii do Palestyny</b>. Powstało tam i upadło wiele starożytnych cywilizacji.</li></ul>',
+      extra:'<p>„Mezopotamia” to po grecku „kraj między rzekami” (<i>mesos</i> – środkowy, <i>potamos</i> – rzeka). Polska nazwa „Międzyrzecze” znaczy dokładnie to samo. Dziś większa część Mezopotamii leży w Iraku (zdjęcie Eufratu na s. 17).</p>' },
+    { typ:'pojecie', q:'Wytłumacz, czym były miasta-państwa. Kto nimi rządził?',
+      odp:'<p>Miasta-państwa to <b>starożytne państewka, które obejmowały miasto wraz z okolicą</b>. Stawały się nimi większe miasta Sumerów. Sumeryjskimi miastami-państwami <b>rządzili królowie</b>.</p>',
+      extra:'<p>Sumeryjskimi miastami-państwami były np. Ur, Uruk i Lagasz. Król Eannatum, którego żołnierzy widać na płaskorzeźbie na s. 18, rządził Lagaszem. Miasta-państwa często walczyły między sobą, np. o pola i wodę przy granicy.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-sumer', ikona:'🏺', nazwa:'Sumerowie', krotko:'Sumerowie',
+    opis:'Pierwsza cywilizacja świata z bliska.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'wymien', q:'Przedstaw główne osiągnięcia Sumerów.',
+      odp:'<p>Sumerowie jako pierwsi w dziejach:</p><ol><li><b>ok. 3500 r. p.n.e. wynaleźli pismo</b> – wraz z tym wynalazkiem skończyła się prehistoria, a zaczęła się historia,</li><li><b>zbudowali koło i pierwsze wozy</b>,</li><li><b>wynaleźli szkło</b> (choć nie znali szyb),</li><li><b>uzyskali brąz</b> (ok. 2500 r. p.n.e.).</li></ol><p>Do ich osiągnięć należą też <b>system nawadniający pola</b> (dzięki niemu mieli nadwyżkę pożywienia) i <b>utworzenie miast-państw</b>.</p>',
+      extra:'<p>Koło pojawiło się mniej więcej w tym samym czasie w kilku miejscach świata. Jedno z najstarszych znanych przedstawień wozu na kołach znaleziono w Polsce, na glinianym dzbanie z Bronocic (ok. 3500 r. p.n.e.).</p>' },
+    { typ:'krotka', q:'Jak pisali Sumerowie? Jak nazywamy ich pismo?',
+      odp:'<p>Sumerowie <b>nie znali papieru</b>. Znaki pisma <b>ryli trzciną na tabliczkach z miękkiej gliny</b>, a potem <b>wypalali tabliczki</b>, żeby glina stwardniała. Ich pismo nazywamy <b>pismem klinowym</b>.</p>',
+      extra:'<p>Znaki miały kształt małych klinów, bo zaostrzoną trzcinę wciskano w glinę ukośnie. Tabliczka na s. 19 opisuje kupno ziemi przez niejakiego Tuppsikkę, więc to coś jak dzisiejszy dokument u notariusza!</p><p>Pismem klinowym przez prawie 3000 lat pisały też inne ludy Bliskiego Wschodu, np. Babilończycy i Persowie.</p>' },
+    { typ:'krotka', q:'Co to jest brąz? Kiedy Sumerowie go uzyskali i do czego służył?',
+      odp:'<p>Brąz to <b>stop miedzi z cyną</b>. Sumerowie uzyskali go <b>ok. 2500 r. p.n.e.</b> Nadawał się do <b>wyrobu narzędzi i broni</b>. Wynalazek brązu <b>zakończył młodszą epokę kamienną</b>.</p>',
+      extra:'<p>Stop to mieszanina metali stopionych razem. Brąz jest twardszy od samej miedzi. Z brązu do dziś odlewa się dzwony i pomniki, a medal za trzecie miejsce to „brązowy medal”.</p>' },
+    { typ:'obraz', q:'Przyjrzyj się płaskorzeźbie z XXV w. p.n.e. Jak byli ubrani i uzbrojeni żołnierze sumeryjskiego króla Eannatuma?',
+      body:'<p>Podręcznik, s. 18: płaskorzeźba z żołnierzami króla Eannatuma</p>',
+      odp:'<p>Żołnierze byli ubrani w <b>spódniczki z owczej skóry</b>, na głowach mieli <b>miedziane hełmy</b>, a w rękach <b>włócznie i topory</b>.</p>',
+      extra:'<p>Płaskorzeźba to rzeźba, która tylko trochę wystaje z płaskiej powierzchni. Ta pochodzi z tzw. <b>Steli Sępów</b>, która upamiętnia zwycięstwo Lagaszu nad sąsiednim miastem-państwem Umma. Można ją oglądać w Luwrze w Paryżu.</p>' },
+    { typ:'krotka', q:'Kiedy upadła cywilizacja Sumerów i co po niej zostało?',
+      odp:'<p><b>Ok. 2000 r. p.n.e.</b> cywilizację Sumerów <b>zniszczyły inne ludy</b>. Jej <b>osiągnięcia zostały jednak wykorzystane przez następne cywilizacje</b>.</p>',
+      extra:'<p>Język sumeryjski przestał być używany na co dzień, ale jeszcze bardzo długo uczono się go w szkołach pisarzy. Było to trochę tak, jak w średniowiecznej Europie uczono się łaciny.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-indus-chiny', ikona:'🌏', nazwa:'Dolina Indusu i Chiny', krotko:'Indus i Chiny',
+    opis:'Dwie wielkie cywilizacje Azji.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'krotka', q:'Gdzie i kiedy powstała cywilizacja doliny Indusu? Wymień dzisiejsze państwa, na których terenie się rozwijała.',
+      odp:'<p>Powstała <b>w drugiej połowie IV tysiąclecia p.n.e.</b> w dolinie rzeki <b>Indus</b>, na terenie dzisiejszych <b>Indii i Pakistanu</b>. Największą świetność osiągnęła w latach <b>ok. 2500 – ok. 1800 p.n.e.</b> Potem zniszczyły ją inne ludy.</p>',
+      extra:'<p>Od rzeki Indus pochodzi nazwa całych Indii. Dziś większa część doliny Indusu leży w Pakistanie. Na mapie na s. 21 widać dwa wielkie miasta tej cywilizacji: Harappę i Mohendżo Daro.</p>' },
+    { typ:'krotka', q:'Czym się odznaczała cywilizacja doliny Indusu?',
+      odp:'<ul><li>Mieszkańcy zajmowali się <b>rolnictwem, rzemiosłem i handlem</b> (także z Mezopotamią).</li><li>Budowali <b>domy z wypalanych cegieł</b>.</li><li>Mieli <b>prywatne łazienki i rury kanalizacyjne</b>, którymi spływały nieczystości.</li><li>Wytwarzali <b>narzędzia z brązu</b>.</li><li>Znali <b>pismo, którego uczonym nie udało się jeszcze odczytać</b>.</li></ul><p>Jednym z największych miast było <b>Mohendżo Daro</b>, w którym ludzie mieszkali przez ponad 600 lat.</p>',
+      extra:'<p>Znamy kilkaset różnych znaków pisma doliny Indusu, ale zachowane napisy są bardzo krótkie. To jeden z powodów, dla których nikt ich jeszcze nie odczytał. Może kiedyś zrobisz to Ty?</p>' },
+    { typ:'krotka', q:'Gdzie i kiedy powstała cywilizacja chińska? Czym zajmowali się najdawniejsi Chińczycy?',
+      odp:'<p>Powstała <b>ok. 1700 r. p.n.e.</b> nad rzeką <b>Huang-ho, czyli Żółtą Rzeką</b>. Najdawniejsi Chińczycy zajmowali się <b>rolnictwem i rzemiosłem</b>: wytwarzali piękne <b>przedmioty z brązu</b> oraz <b>wyroby ceramiczne, które nie miały sobie równych na świecie</b>. Wynaleźli też <b>pismo obrazkowe</b>.</p>',
+      extra:'<p>Żółta Rzeka zawdzięcza nazwę żółtemu mułowi, który niesie jej woda. Jej powodzie bywały tak groźne, że nazywano ją „smutkiem Chin”.</p><p>Znacznie później Chińczycy wynaleźli porcelanę. Po angielsku porcelanę nazywa się po prostu <i>china</i>!</p>' },
+    { typ:'krotka', q:'Przedstaw elementy starożytnej cywilizacji chińskiej, które przetrwały do dziś.',
+      odp:'<ul><li><b>Pismo</b>, które przeszło wiele zmian, ale <b>nadal jest używane</b>.</li><li><b>Język chiński</b>.</li><li><b>Państwo chińskie</b>: Chiny zostały zjednoczone <b>w III w. p.n.e.</b> i od tego czasu wciąż istnieje państwo chińskie, więc jest ono <b>najstarszym państwem świata</b>.</li></ul>',
+      extra:'<p>Żeby swobodnie czytać chińską gazetę, trzeba znać ok. 3000 znaków. Językiem chińskim jako ojczystym mówi więcej ludzi niż jakimkolwiek innym językiem na świecie.</p>' },
+    { typ:'krotka', q:'Do czego służył Wielki Mur Chiński? Kiedy go budowano i jaką ma długość?',
+      odp:'<p>Bronił <b>północnej granicy Chin</b>. Chińczycy zbudowali go <b>w III w. p.n.e.</b>, a potem <b>aż do XVII w.</b> powiększali go i przebudowywali. Łączna długość wszystkich umocnień to <b>ponad 20 tysięcy kilometrów</b>.</p>',
+      extra:'<p>20 tysięcy kilometrów to ponad połowa obwodu Ziemi (ok. 40 tysięcy km)!</p><p>Popularny mit głosi, że Wielki Mur widać gołym okiem z Księżyca. To nieprawda, bo mur jest na to o wiele za wąski.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-daty', ikona:'📅', nazwa:'Daty i oś czasu', krotko:'Daty',
+    opis:'Ustaw wydarzenia w kolejności i policz lata.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż wydarzenia w kolejności, od najdawniejszego do najpóźniejszego.',
+      hint:'Klikaj wydarzenia od najdawniejszego do najpóźniejszego.',
+      elementy:['Sumerowie uzyskują brąz','Powstaje cywilizacja chińska','Sumerowie osiedlają się w Mezopotamii','Chiny zostają zjednoczone','Upadek cywilizacji Sumerów','Sumerowie wynajdują pismo','Koniec świetności cywilizacji doliny Indusu'],
+      kolejnosc:[2,5,0,4,6,1,3],
+      odp:'<p>Sumerowie osiedlają się w Mezopotamii (po 4000 r. p.n.e.) → wynajdują pismo (ok. 3500 r. p.n.e.) → uzyskują brąz (ok. 2500 r. p.n.e.) → upadek cywilizacji Sumerów (ok. 2000 r. p.n.e.) → koniec świetności cywilizacji doliny Indusu (ok. 1800 r. p.n.e.) → powstaje cywilizacja chińska (ok. 1700 r. p.n.e.) → Chiny zostają zjednoczone (III w. p.n.e.)</p>',
+      extra:'<p>Zauważ: gdy powstawała cywilizacja chińska, Sumerów już od ok. 300 lat nie było! Najstarsze cywilizacje nie istniały wszystkie jednocześnie.</p>' },
+    { typ:'policz', q:'Liczymy tysiąclecia i wieki p.n.e. a) Jakie lata obejmuje IV tysiąclecie p.n.e., a jakie jego druga połowa, kiedy powstała cywilizacja doliny Indusu? b) Tabliczka z pismem klinowym pochodzi z XXIV–XXII w. p.n.e. Jakie to lata i które to tysiąclecie?',
+      odp:'<ul><li>a) IV tysiąclecie p.n.e. to lata <b>4000–3001 p.n.e.</b> Jego druga połowa to lata <b>3500–3001 p.n.e.</b> Przed naszą erą pierwsza połowa jest tą wcześniejszą (4000–3501 p.n.e.), tak samo jak przy wiekach.</li><li>b) XXIV w. p.n.e. to lata 2400–2301 p.n.e., a XXII w. p.n.e. to lata 2200–2101 p.n.e. Tabliczka pochodzi więc z lat <b>2400–2101 p.n.e.</b>, czyli z <b>III tysiąclecia p.n.e.</b> (3000–2001 p.n.e.).</li></ul>',
+      extra:'<p>Tysiąclecia liczymy jak wieki, tylko skreślamy trzy ostatnie cyfry i dodajemy 1. Na przykład 1700 r. p.n.e. → 1 + 1 = <b>II tysiąclecie p.n.e.</b> Wyjątek jak przy wiekach: rok 3000 p.n.e. należy do III tysiąclecia, bo kończy się trzema zerami.</p><p>W dziale 1 była tabliczka Sumerów z III tysiąclecia p.n.e., czyli z tego samego czasu!</p>' },
+    { typ:'policz', q:'Policz: a) Ile lat mniej więcej istniała cywilizacja Sumerów, od ok. 4000 do ok. 2000 r. p.n.e.? b) Ile lat trwała świetność cywilizacji doliny Indusu? c) Ile lat temu Sumerowie wynaleźli pismo, jeśli liczymy do 2026 r.?',
+      odp:'<ul><li>a) 4000 − 2000 = <b>ok. 2000 lat</b>.</li><li>b) 2500 − 1800 = <b>ok. 700 lat</b>.</li><li>c) 3500 + 2026 − 1 = 5525, czyli <b>ok. 5500 lat temu</b>. Odejmujemy 1, bo nie było roku 0.</li></ul>',
+      extra:'<p>Cywilizacja Sumerów trwała ok. 2000 lat, czyli mniej więcej tyle, ile minęło od początku naszej ery do dziś!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-pary', ikona:'🔗', nazwa:'Dopasuj i przyporządkuj', krotko:'Dopasuj',
+    opis:'Połącz rzeki, pojęcia i osiągnięcia z cywilizacjami.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj cywilizację do rzeki, nad którą powstała. Sprawdź na mapie „Najstarsze cywilizacje świata” (s. 21).',
+      lewa:['Cywilizacja Sumerów','Cywilizacja Egiptu','Cywilizacja doliny Indusu','Cywilizacja chińska'],
+      prawa:['Huang-ho (Żółta Rzeka)','Nil','Tygrys i Eufrat','Indus'],
+      klucz:['C','B','D','A'],
+      extra:'<p>O cywilizacji Egiptu dowiesz się więcej w kolejnym dziale. Na razie zapamiętaj, że i ona powstała nad wielką rzeką, a każda z najstarszych cywilizacji miała swoją rzekę.</p>' },
+    { typ:'sortuj', q:'Która to cywilizacja? Przyporządkuj każdą cechę do właściwej cywilizacji.',
+      hint:'Przy każdej cesze wybierz cywilizację.',
+      kategorie:['Sumerowie','Dolina Indusu','Chiny'],
+      elementy:[
+        {t:'Prywatne łazienki i rury kanalizacyjne', k:1},
+        {t:'Pismo klinowe ryte trzciną na glinianych tabliczkach', k:0},
+        {t:'Pismo obrazkowe, które po wielu zmianach jest używane do dziś', k:2},
+        {t:'Pismo, którego uczeni wciąż nie potrafią odczytać', k:1},
+        {t:'Tysiące kanałów nawadniających pola', k:0},
+        {t:'Wielki Mur', k:2},
+        {t:'Miasto Mohendżo Daro', k:1},
+        {t:'Pierwsze wozy na kołach', k:0},
+        {t:'Cywilizacja nad Żółtą Rzeką', k:2},
+        {t:'Wynalezienie szkła', k:0},
+        {t:'Handel z Mezopotamią', k:1},
+        {t:'Ceramika, która nie miała sobie równych na świecie', k:2}
+      ],
+      extra:'<p>Przedmioty z brązu wytwarzano we wszystkich trzech cywilizacjach, dlatego nie ma ich na tej liście. Do sprawdzianu najlepiej zapamiętać to, co wyróżnia każdą z nich.</p>' },
+    { typ:'dopasuj', q:'Dopasuj pojęcie do znaczenia.',
+      lewa:['nadwyżka pożywienia','podział pracy','miasto','miasto-państwo','Żyzny Półksiężyc'],
+      prawa:['Starożytne państewko obejmujące miasto wraz z okolicą','Obszary uprawne w kształcie półksiężyca, od Mezopotamii do Palestyny','Więcej pożywienia, niż ludzie potrzebują','Osada, której mieszkańcy utrzymują się głównie z rzemiosła i usług, a nie z rolnictwa','Sytuacja, w której jedni zajmują się rolnictwem, a inni rzemiosłem'],
+      klucz:['C','E','D','A','B'],
+      extra:'<p>Podział pracy trwa do dziś i jest coraz drobniejszy: piekarz, lekarz, kierowca, programistka… Nikt nie robi wszystkiego sam, i to właśnie zaczęło się u Sumerów.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d3-pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Mezopotamia leży między Tygrysem a Eufratem.', p:true, fix:''},
+        {t:'Sumerowie pisali atramentem na papierze.', p:false, fix:'Nie znali papieru: <b>ryli znaki trzciną na tabliczkach z miękkiej gliny</b>, a potem je wypalali.'},
+        {t:'Brąz to stop miedzi z cyną.', p:true, fix:''},
+        {t:'Sumerowie wynaleźli szkło i robili z niego szyby w oknach.', p:false, fix:'Wynaleźli szkło, ale <b>nie znali szyb</b>.'},
+        {t:'Uczeni odczytali już pismo cywilizacji doliny Indusu.', p:false, fix:'<b>Nie udało się go jeszcze odczytać</b>.'},
+        {t:'Cywilizacja chińska powstała nad rzeką Huang-ho, czyli Żółtą Rzeką.', p:true, fix:''},
+        {t:'Każde społeczeństwo jest cywilizacją.', p:false, fix:'Cywilizacja to <b>poziom rozwoju</b> społeczeństwa, które mieszka w osadach albo miastach, zna rolnictwo i rzemiosło oraz <b>używa pisma</b>.'},
+        {t:'Państwo chińskie istnieje od III w. p.n.e., dlatego nazywa się je najstarszym państwem świata.', p:true, fix:''}
+      ],
+      extra:'<p>Chińczycy nazywają swój kraj <i>Zhongguo</i>, co znaczy „Państwo Środka”.</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">po 4000 p.n.e.<small>Sumerowie osiedlają się w Mezopotamii</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">ok. 3500 p.n.e.<small>Sumerowie wynajdują pismo, koniec prehistorii</small></div>'+
+      '<div class="seg" style="background:#FFC966">ok. 2500 – ok. 1800 p.n.e.<small>świetność cywilizacji doliny Indusu</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">ok. 2000 p.n.e.<small>upadek cywilizacji Sumerów</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">ok. 1700 p.n.e.<small>początki cywilizacji chińskiej</small></div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>👥 Społeczeństwo</h4><p>duża grupa ludzi: wspólny teren, wspólna władza, poczucie łączności, dostrzeganie różnic wobec innych.</p></div>'+
+      '<div class="rule"><h4>🏛️ Cywilizacja</h4><p>poziom rozwoju społeczeństwa: osady lub miasta + rolnictwo i rzemiosło + pismo.</p></div>'+
+      '<div class="rule"><h4>🌊 Wspólne cechy najstarszych cywilizacji</h4><p>powstały nad rzekami nawadniającymi pola i wytwarzały nadwyżkę pożywienia.</p></div>'+
+      '<div class="rule"><h4>🏺 Sumerowie</h4><p>od początku IV tysiąclecia do ok. 2000 p.n.e.<br>Mezopotamia (Tygrys i Eufrat)<br>nawadnianie i nadwyżka → podział pracy → miasta → miasta-państwa; pismo klinowe, koło i wozy, szkło, brąz</p></div>'+
+      '<div class="rule"><h4>🌏 Dolina Indusu</h4><p>świetność ok. 2500 – ok. 1800 p.n.e.<br>dzisiejsze Indie i Pakistan (Indus)<br>domy z wypalanych cegieł, łazienki i kanalizacja, brąz, nieodczytane pismo</p></div>'+
+      '<div class="rule"><h4>🐉 Chiny</h4><p>od ok. 1700 p.n.e.; państwo zjednoczone od III w. p.n.e.<br>nad Huang-ho (Żółtą Rzeką)<br>brąz, ceramika, pismo obrazkowe używane do dziś</p></div>'+
+    '</div>'
+},
+{
+  id:'d4', nr:4, tytul:'Starożytny Egipt', zakres:'podręcznik s. 22–27',
+  start:'Witaj nad Nilem! Zaczynasz u podnóża piramidy, a każde pytanie, które umiesz, wyniesie Cię wyżej. I przesypie trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🌾', n:'Chłop znad Nilu', msg:'Pierwsze pole obsiane! Piasek zaczął się sypać. ⏳'},
+    {od:.25,e:'🔨', n:'Rzemieślnik', msg:'Brawo! Awans: zostajesz Rzemieślnikiem.'},
+    {od:.5, e:'✍️', n:'Pisarz', msg:'Ponad połowa! Zostajesz Pisarzem. Pędzelek w dłoń!'},
+    {od:.75,e:'📜', n:'Wezyr', msg:'Wezyr! Już tylko jeden stopień do szczytu piramidy…'},
+    {od:1,  e:'👑', n:'Faraon wiedzy', msg:'FARAON WIEDZY! Szczyt piramidy zdobyty, cały dział opanowany! 🏆'}
+  ],
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'d4-slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Opowiedz pełnymi zdaniami, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'Z jakiego powodu Egipt nazwano darem Nilu?',
+      odp:'<p>W Egipcie <b>deszcz prawie nie pada</b>. Gdyby nie Nil, kraj byłby jedną wielką pustynią. Co roku <b>w lipcu zaczynał się wylew Nilu</b>, podobny do łagodnej powodzi: woda powoli przybierała, aż zalała pola, i <b>opadała dopiero we wrześniu</b>. Zostawał po niej <b>muł, który użyźniał pola</b>. Dlatego już w starożytności nazwano Egipt <b>darem Nilu</b>.</p>',
+      extra:'<p>Sami Egipcjanie nazywali swój kraj <b>Kemet</b>, czyli „Czarna Ziemia”, od ciemnego, żyznego mułu.</p><p>Coroczne wylewy Nilu skończyły się dopiero w XX w., gdy zbudowano wielką tamę w Asuanie, ukończoną w 1970 r.</p>' },
+    { typ:'opis', q:'Dlaczego Egipcjanie zbudowali system nawadniający?',
+      odp:'<p>Bo <b>wkrótce po wylewie ziemia zaczynała wysychać</b>. Egipcjanie wykopali więc <b>tysiące kanałów i niewielkich zbiorników wodnych</b>, z których nawadniali pola. Musieli je <b>ciągle pogłębiać</b>, bo inaczej zasypałby je piasek pustyni.</p>',
+      extra:'<p>Do czerpania wody z kanałów Egipcjanie używali <b>żurawia</b>: długiej tyczki z wiadrem na jednym końcu i ciężarem na drugim, która działa jak huśtawka. Podobne żurawie przy studniach można jeszcze zobaczyć na starych polskich wsiach.</p>' },
+    { typ:'opis', q:'Kiedy i dlaczego Egipt stał się państwem?',
+      odp:'<p><b>Ok. 3100 r. p.n.e.</b> Budową i utrzymaniem systemu nawadniającego <b>ktoś musiał kierować</b>, dlatego Egipcjanie utworzyli państwo. Podlegali władzy <b>faraona</b>, czyli króla.</p>',
+      extra:'<p>Wcześniej istniały dwa królestwa: <b>Górny Egipt</b> na południu i <b>Dolny Egipt</b> na północy, w delcie Nilu. Dlatego faraonowie nosili podwójną koronę: białą Górnego i czerwoną Dolnego Egiptu.</p><p>Według tradycji pierwszym faraonem zjednoczonego Egiptu był Menes. Wielu uczonych utożsamia go z władcą o imieniu Narmer.</p>' },
+    { typ:'opis', q:'Omów organizację państwa egipskiego: kto rządził i komu wydawał polecenia?',
+      odp:'<p>Egipt był <b>monarchią</b>, a rządził nim <b>faraon</b>. Faraon <b>wydawał polecenia kapłanom, urzędnikom i oficerom</b>, a oni <b>przekazywali je chłopom, rzemieślnikom i żołnierzom</b>.</p><p><b>Najwyższym urzędnikiem był wezyr</b>, który rządził państwem w imieniu faraona. Urzędnicy zarządzali prowincjami, dbali o kanały nawadniające i zaopatrzenie dla armii.</p><p>Faraon i jego urzędnicy <b>organizowali pracę mieszkańców, zapewniali im bezpieczeństwo i rozsądzali spory</b>. W zamian Egipcjanie składali faraonowi <b>daniny</b>.</p>',
+      extra:'<p>Egipt był podzielony na ok. 40 prowincji, które Grecy nazywali <b>nomami</b>. Każdą zarządzał urzędnik wyznaczony przez faraona.</p>' },
+    { typ:'opis', q:'Porównaj położenie urzędników i chłopów w starożytnym Egipcie.',
+      odp:'<ul><li><b>Urzędnicy</b> byli <b>wykształceni</b> (umieli czytać, pisać i rachować). Zarządzali prowincjami, dbali o kanały i zaopatrzenie dla armii. Byli <b>zamożni</b>, bo jako wynagrodzenie dostawali <b>ziemię i żywność</b>. Przekazywali polecenia faraona innym, więc <b>w piramidzie społecznej stali wysoko</b>.</li><li><b>Chłopi</b> stanowili <b>ogromną większość</b> mieszkańców. Uprawiali <b>ziemię należącą do faraona</b> i <b>oddawali większość plonów jako daninę</b>. W czasie wylewu Nilu musieli <b>pracować przy budowie</b> grobowców, świątyń i magazynów. <b>W piramidzie społecznej byli nisko</b>, niżej stali tylko niewolnicy.</li></ul>',
+      extra:'<p>Zachował się egipski tekst nazywany „Satyrą na zawody”. Ojciec zachęca w nim syna do nauki na pisarza: opisuje, jak ciężko pracują rolnicy i rzemieślnicy, a pisarz ma czyste ręce i nikt nim nie pomiata.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-pojecia', ikona:'📖', nazwa:'Słowniczek pojęć', krotko:'Pojęcia',
+    opis:'Krótko i konkretnie: co znaczy to słowo?',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: państwo, ustrój, monarchia.',
+      odp:'<ul><li><b>Państwo</b> – organizacja społeczeństwa, które <b>zamieszkuje jakieś terytorium, ma swoje prawa i podlega czyjejś władzy</b>.</li><li><b>Ustrój</b> – <b>sposób zorganizowania władzy</b> w państwie.</li><li><b>Monarchia</b> – <b>państwo rządzone przez koronowanego władcę</b>. Starożytny Egipt miał ustrój monarchiczny, bo rządził nim faraon.</li></ul>',
+      extra:'<p>„Monarchia” pochodzi z greki: <i>monos</i> – jeden, <i>archein</i> – rządzić, czyli „władza jednego”. Polska przez wieki też była monarchią, rządzoną przez książąt i królów. Monarchiami są do dziś np. Wielka Brytania, Hiszpania i Szwecja, ale tamtejsi władcy mają znacznie mniej władzy niż faraon.</p>' },
+    { typ:'pojecie', q:'Czym była danina? Czym zastąpiono daniny i kiedy?',
+      odp:'<ul><li><b>Danina</b> – to, co Egipcjanie składali faraonowi <b>w zbożu, zwierzętach, wyrobach rzemieślniczych itp.</b> Faraon przeznaczał daniny na utrzymanie siebie, swoich urzędników i żołnierzy.</li><li>Gdy <b>na Bliskim Wschodzie wynaleziono pieniądze (VII w. p.n.e.)</b>, daniny zastąpiono <b>podatkami</b>.</li></ul>',
+      extra:'<p>Pierwsze monety bito w <b>Lidii</b>, krainie na terenie dzisiejszej Turcji, z elektronu, czyli naturalnej mieszanki złota i srebra.</p><p>Podatki płacimy do dziś: część ceny prawie każdej rzeczy kupionej w sklepie to podatek.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: wezyr, prowincja, najemnik.',
+      odp:'<ul><li><b>Wezyr</b> – <b>najwyższy urzędnik</b>; rządził państwem <b>w imieniu faraona</b>, który przekazywał mu swoje polecenia.</li><li><b>Prowincja</b> – (tu) <b>część państwa, którą rządzi urzędnik wyznaczony przez władcę</b>.</li><li><b>Najemnik</b> – <b>żołnierz walczący w obcym wojsku za pieniądze</b>.</li></ul>',
+      extra:'<p>Słowo „wezyr” przyszło do nas z języka arabskiego i tureckiego. Tak nazywano m.in. ministrów sułtana tureckiego. Egipski tytuł brzmiał inaczej, ale historycy używają słowa „wezyr”, bo dobrze oddaje tę funkcję.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-spoleczenstwo', ikona:'👑', nazwa:'Faraon i jego poddani', krotko:'Faraon',
+    opis:'Kto rządził, kto słuchał i kto co robił.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'wymien', q:'Przedstaw uprawnienia faraona.',
+      odp:'<ul><li>Sprawował <b>nieograniczoną władzę</b>.</li><li>Miał <b>prawo życia i śmierci</b> nad wszystkimi mieszkańcami Egiptu. Nawet jeśli kazał zabić niewinnego człowieka, nie ponosił za to kary.</li><li><b>Do niego należała cała ziemia</b> w państwie, a chłopi ją tylko uprawiali.</li><li>Był <b>najwyższym dowódcą wojskowym, najwyższym sędzią i najwyższym kapłanem</b>.</li><li><b>Wydawał polecenia</b> kapłanom, urzędnikom i oficerom.</li><li>Otrzymywał <b>daniny</b> od Egipcjan.</li></ul>',
+      extra:'<p>Słowo „faraon” pochodzi od egipskiego określenia „wielki dom”, czyli pałac. Znakami władzy faraona były m.in. korona, laska w kształcie pasterskiego haka i cep.</p>' },
+    { typ:'wymien', q:'Omów główne zadania faraona i jego urzędników. Co Egipcjanie dawali w zamian?',
+      odp:'<p>Faraon i jego urzędnicy:</p><ol><li><b>organizowali pracę</b> mieszkańców państwa,</li><li><b>zapewniali im bezpieczeństwo</b>,</li><li><b>rozsądzali spory</b> między nimi.</li></ol><p>W zamian Egipcjanie <b>składali faraonowi daniny</b> w zbożu, zwierzętach, wyrobach rzemieślniczych itp.</p>',
+      extra:'<p>Nad Nilem stawiano tzw. <b>nilometry</b>, czyli schody lub studnie ze znakami do mierzenia poziomu wody. Na ich podstawie urzędnicy przewidywali, jakie będą plony, i ustalali, ile trzeba oddać.</p>' },
+    { typ:'krotka', q:'Za kogo Egipcjanie uważali faraona? Dlaczego nie wiemy, czy bóg słońca nazywał się Ra, czy Re?',
+      odp:'<p>Egipcjanie uważali faraona za <b>syna boga słońca Ra (albo Re)</b>. Wierzyli, że <b>po śmierci faraon sam staje się bogiem</b>.</p><p>Nie wiemy, jak brzmiało imię boga, bo <b>Egipcjanie nie zapisywali samogłosek</b>.</p>',
+      extra:'<p>Boga Ra przedstawiano z głową sokoła i tarczą słońca nad głową. Ponieważ faraon miał po śmierci stać się bogiem, budowano dla niego wspaniałe grobowce, np. piramidy w Gizie. Znajdziesz je na mapie na s. 23.</p>' },
+    { typ:'krotka', q:'Omów rolę kapłanów w państwie egipskim.',
+      odp:'<ul><li>Zajmowali się <b>nauką, zwłaszcza astronomią i medycyną</b>.</li><li>Przy świątyniach prowadzili <b>szkoły dla przyszłych urzędników</b>.</li><li>Byli <b>bardzo zamożni</b> i <b>nieraz wywierali wpływ na rządy państwem</b>, czyli faraon musiał postąpić tak, jak oni chcieli.</li></ul>',
+      extra:'<p>Obserwując niebo, Egipcjanie stworzyli kalendarz z 365 dniami: 12 miesięcy po 30 dni i 5 dni dodatkowych. Pojawienie się o świcie gwiazdy Syriusz zapowiadało, że wkrótce zacznie się wylew Nilu.</p>' },
+    { typ:'krotka', q:'Co należało do obowiązków chłopów?',
+      odp:'<ul><li><b>Uprawiali ziemię należącą do faraona</b>.</li><li><b>Większość plonów odnosili do magazynów jako daninę</b>.</li><li><b>W czasie wylewu Nilu</b> musieli <b>pracować przy budowie grobowców, świątyń lub magazynów</b>.</li><li>Mogli też zostać <b>żołnierzami</b>.</li></ul>',
+      extra:'<p>Dlaczego przy budowach pracowano właśnie w czasie wylewu? Bo pola były wtedy zalane i chłopi i tak nie mogli na nich pracować.</p><p>Archeolodzy odkryli obok piramid w Gizie osadę robotników. Wynika z niej, że piramidy budowali głównie zwykli pracownicy, którym dawano jedzenie, a nie tłumy niewolników, jak dawniej sądzono.</p>' },
+    { typ:'wymien', q:'Kto wchodził w skład społeczeństwa starożytnego Egiptu i jakie miał obowiązki?',
+      odp:'<p>Społeczeństwo Egiptu można przedstawić jako <b>piramidę</b>: im wyżej ktoś się znajdował, tym więcej ludzi musiało wypełniać jego polecenia.</p><ol><li><b>Faraon</b> – król, najwyższy dowódca wojskowy, sędzia i kapłan; wydawał polecenia.</li><li><b>Wezyr</b> – najwyższy urzędnik; rządził państwem w imieniu faraona.</li><li><b>Kapłani</b> – zajmowali się nauką (astronomią, medycyną), prowadzili szkoły przy świątyniach.</li><li><b>Urzędnicy</b> (m.in. pisarze) – zarządzali prowincjami, dbali o kanały i zaopatrzenie dla armii.</li><li><b>Rzemieślnicy</b> – wytwarzali narzędzia i przedmioty codziennego użytku.</li><li><b>Żołnierze</b> – chłopi, rzemieślnicy i cudzoziemscy najemnicy; walczyli w wojnach faraona.</li><li><b>Chłopi</b> – uprawiali ziemię faraona, oddawali daninę, w czasie wylewu budowali grobowce, świątynie i magazyny.</li><li><b>Niewolnicy</b> – jeńcy wojenni lub osoby kupione na targu; należeli do swego pana i nie mieli żadnych praw.</li></ol>',
+      extra:'<p>Uwaga, pułapka! Niewolnicy są na samym dole piramidy, bo nie mieli żadnych praw, ale było ich <b>niewielu</b>. Najliczniejszą grupą byli <b>chłopi</b>, którzy stanowili ogromną większość Egipcjan.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-pismo', ikona:'✍️', nazwa:'Pismo egipskie', krotko:'Pismo',
+    opis:'Hieroglify, pisarze i papirus.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'krotka', q:'Czym się zajmowali egipscy pisarze?',
+      odp:'<p>Pisarze byli <b>urzędnikami</b>. <b>Sporządzali dokumenty państwowe</b> i <b>zapisywali informacje potrzebne do rządzenia państwem</b>, np. ile zboża zebrano do magazynów albo jaką zapłatę otrzymali robotnicy.</p>',
+      extra:'<p>Nauka na pisarza trwała wiele lat. Papirus był drogi, więc uczniowie ćwiczyli pisanie na skorupach naczyń i płaskich kawałkach wapienia.</p>' },
+    { typ:'krotka', q:'Na jakich materiałach i w jaki sposób pisali Egipcjanie?',
+      odp:'<ul><li><b>Hieroglify wykuwali</b> w skałach, na kamiennych ścianach, posągach i obeliskach.</li><li>Na co dzień pisarze używali uproszczonego <b>pisma kapłańskiego</b>. Pisali je <b>pędzelkiem na papirusie</b>, czyli materiale podobnym do papieru. Robiono go <b>z łodyg trzciny papirusowej</b>, która rosła nad Nilem.</li></ul>',
+      extra:'<p>Od słowa „papirus” pochodzi nasze słowo „papier”. Papirus robiono tak: cienkie paski łodygi układano w dwóch warstwach na krzyż, prasowano i suszono. Pisano czarnym tuszem z sadzy, a ważniejsze fragmenty czerwonym.</p>' },
+    { typ:'krotka', q:'Kiedy powstało pismo egipskie? Skąd pochodzi nazwa „hieroglify” i ile było znaków?',
+      odp:'<p>Pismo egipskie powstało <b>ok. 3000 r. p.n.e.</b> Starożytni Grecy nazwali je <b>hieroglifami, czyli „świętymi znakami”</b>, bo zetknęli się z nimi <b>w świątyniach Egiptu</b>. Pismo hieroglificzne liczyło <b>ok. 800 znaków</b> i było trudne, dlatego na co dzień używano uproszczonego <b>pisma kapłańskiego</b>.</p>',
+      extra:'<p>Przez wieki nikt nie umiał czytać hieroglifów. Pomógł <b>Kamień z Rosetty</b>, znaleziony w 1799 r., na którym ten sam tekst wyryto trzema rodzajami pisma, w tym hieroglifami i po grecku. Dzięki niemu w 1822 r. Francuz <b>Jean-François Champollion</b> odczytał hieroglify.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-zrodla', ikona:'📜', nazwa:'Źródło, mapa i ilustracja', krotko:'Źródła',
+    opis:'Przeczytaj, popatrz i wyciągnij wnioski.',
+    c:'#8B5E3C', soft:'#F4E9DF', dark:'#6B4226',
+    pytania:[
+    { typ:'zrodlo', q:'Przeczytaj tekst źródłowy z podręcznika (s. 22): fragment „Dziejów” greckiego historyka Herodota z V w. p.n.e. Dlaczego, według Herodota, Egipcjanie mniej pracują przy uprawie roli niż mieszkańcy innych krajów?',
+      body:'<p>Podręcznik, s. 22: ramka „Tekst źródłowy”</p>',
+      odp:'<p>Bo <b>nie muszą orać pługiem, kopać ani wykonywać innych ciężkich prac</b> przed siewem, które muszą wykonywać ludzie w innych krajach. W Egipcie <b>rzeka sama wylewa, nawadnia pola, a potem opada</b>. Wtedy wystarczy obsiać pole.</p>',
+      extra:'<p>Herodota nazywa się „ojcem historii”. Sam podróżował po Egipcie i opisywał to, co zobaczył.</p><p>Pamiętaj jednak, że źródło trzeba czytać krytycznie. Herodot trochę przesadził: Egipcjanie musieli kopać i ciągle pogłębiać tysiące kanałów (s. 22), więc ich praca wcale nie była łatwa.</p>' },
+    { typ:'mapa', q:'Spójrz na mapę „Starożytny Egipt” (s. 23). Nad jakimi morzami leży Egipt? Gdzie znajdowały się tereny uprawne?',
+      body:'<p>Podręcznik, s. 23: mapa „Starożytny Egipt”</p>',
+      odp:'<ul><li>Egipt leży nad <b>Morzem Śródziemnym</b> (od północy) i nad <b>Morzem Czerwonym</b> (od wschodu).</li><li><b>Tereny uprawne</b> to <b>wąski pas wzdłuż Nilu</b> i jego <b>delta</b> przy ujściu do Morza Śródziemnego. Resztę kraju zajmują <b>pustynie</b> z nielicznymi oazami.</li></ul>',
+      extra:'<p>Nil płynie z południa na północ, dlatego południe nazywano Górnym Egiptem (bo „w górę rzeki”), a północ Dolnym Egiptem. Nil jest jedną z najdłuższych rzek świata (ok. 6650 km). Delta to nazwa od greckiej litery Δ, do której podobny jest kształt ujścia rzeki.</p>' },
+    { typ:'obraz', q:'Przyjrzyj się malowidłu na s. 23. Kogo przedstawia i co się na nim dzieje? Z którego wieku pochodzi?',
+      body:'<p>Podręcznik, s. 23: malowidło z faraonem na rydwanie</p>',
+      odp:'<p>Przedstawia <b>faraona Ramzesa II</b>, który <b>na rydwanie prowadzi Egipcjan do ataku na nieprzyjacielską twierdzę</b>. To kopia malowidła ściennego <b>z XIII w. p.n.e.</b> Malowidło pokazuje, że faraon był <b>najwyższym dowódcą wojskowym</b>.</p>',
+      extra:'<p>Na egipskich malowidłach faraon jest dużo większy od innych postaci. Tak Egipcjanie pokazywali, kto jest najważniejszy.</p><p>Ramzes II panował ok. 66 lat i kazał zbudować m.in. świątynie w <b>Abu Simbel</b> (zaznaczone na mapie). W latach 60. XX w. przeniesiono je w całości wyżej, żeby nie zalała ich woda ze sztucznego jeziora przy nowej tamie.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-daty', ikona:'📅', nazwa:'Daty i oś czasu', krotko:'Daty',
+    opis:'Ustaw wydarzenia w kolejności i policz lata.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż wydarzenia w kolejności, od najdawniejszego do najpóźniejszego. Przydadzą się też daty z działu 3!',
+      hint:'Klikaj wydarzenia od najdawniejszego do najpóźniejszego.',
+      elementy:['Egipcjanie tworzą państwo','Ramzes II prowadzi wojska do ataku na twierdzę','Sumerowie wynajdują pismo','Egipt zostaje przyłączony do Rzymu','Powstaje pismo egipskie','Na Bliskim Wschodzie wynaleziono pieniądze','Upadek cywilizacji Sumerów'],
+      kolejnosc:[2,0,4,6,1,5,3],
+      odp:'<p>Sumerowie wynajdują pismo (ok. 3500 r. p.n.e.) → Egipcjanie tworzą państwo (ok. 3100 r. p.n.e.) → powstaje pismo egipskie (ok. 3000 r. p.n.e.) → upadek cywilizacji Sumerów (ok. 2000 r. p.n.e.) → Ramzes II na malowidle (XIII w. p.n.e.) → wynalezienie pieniędzy (VII w. p.n.e.) → Egipt częścią Rzymu (30 r. p.n.e.)</p>',
+      extra:'<p>Państwo egipskie istniało przez cały ten czas, od drugiego wydarzenia aż do ostatniego. Widziało upadek Sumerów i wynalezienie pieniędzy!</p>' },
+    { typ:'policz', q:'W którym wieku i w którym tysiącleciu to było? Uważaj na zera!',
+      body:'<ul class="dates"><li>ok. 3100 r. p.n.e. (powstanie państwa)</li><li>ok. 3000 r. p.n.e. (powstanie pisma)</li><li>30 r. p.n.e. (przyłączenie do Rzymu)</li></ul>',
+      odp:'<ul><li>ok. 3100 r. p.n.e. → 31 + 1 = 32 → <b>XXXII w. p.n.e.</b>; 3 + 1 = 4 → <b>IV tysiąclecie p.n.e.</b></li><li>ok. 3000 r. p.n.e. → trzy zera, więc nie dodajemy 1 → <b>XXX w. p.n.e.</b> i <b>III tysiąclecie p.n.e.</b></li><li>30 r. p.n.e. → 0 + 1 = 1 → <b>I w. p.n.e.</b> i <b>I tysiąclecie p.n.e.</b></li></ul>',
+      extra:'<p>Powstanie państwa i powstanie pisma dzieli tylko ok. 100 lat, a należą do różnych tysiącleci! To jak z sylwestrem: kilka minut różnicy, a już inny rok.</p>' },
+    { typ:'policz', q:'Policz: a) Ile lat przetrwało starożytne państwo egipskie (od ok. 3100 do 30 r. p.n.e.)? b) O ile lat pismo egipskie (ok. 3000 r. p.n.e.) jest młodsze od pisma Sumerów (ok. 3500 r. p.n.e.)? c) Ile lat minęło od przyłączenia Egiptu do Rzymu do 2026 r.?',
+      odp:'<ul><li>a) 3100 − 30 = <b>ok. 3070 lat</b>, czyli <b>ponad 3 tysiące lat</b>, tak jak podaje podręcznik.</li><li>b) 3500 − 3000 = <b>ok. 500 lat</b>.</li><li>c) 30 + 2026 − 1 = <b>2055 lat</b>. Odejmujemy 1, bo nie było roku 0.</li></ul>',
+      extra:'<p>Ostatnią władczynią Egiptu była słynna <b>Kleopatra</b>. Po jej śmierci w 30 r. p.n.e. Egipt zajęli Rzymianie. Wielką piramidę w Gizie zbudowano ok. 2560 r. p.n.e., czyli ok. 2530 lat przed śmiercią Kleopatry. Kleopatra żyła więc bliżej naszych czasów niż czasów budowy piramidy!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-pary', ikona:'🔗', nazwa:'Dopasuj i ułóż', krotko:'Dopasuj',
+    opis:'Piramida społeczna i pojęcia w parach.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż grupy społeczne starożytnego Egiptu od szczytu piramidy w dół.',
+      hint:'Klikaj od szczytu piramidy w dół.',
+      elementy:['chłopi','wezyr','rzemieślnicy','niewolnicy','faraon','urzędnicy','żołnierze','kapłani'],
+      kolejnosc:[4,1,7,5,2,6,0,3],
+      odp:'<p><b>faraon → wezyr → kapłani → urzędnicy (m.in. pisarze) → rzemieślnicy → żołnierze → chłopi → niewolnicy</b></p>',
+      extra:'<p>Im wyżej ktoś stał w piramidzie, tym więcej ludzi musiało wypełniać jego polecenia. Na szczycie jest jedna osoba, faraon, a niżej coraz więcej ludzi. Wyjątkiem są niewolnicy: stoją najniżej, bo nie mieli żadnych praw, ale było ich niewielu.</p>' },
+    { typ:'dopasuj', q:'Dopasuj grupę społeczną do jej opisu.',
+      lewa:['wezyr','kapłani','urzędnicy','żołnierze','chłopi','niewolnicy'],
+      prawa:['Uprawiali ziemię faraona i oddawali większość plonów jako daninę; w czasie wylewu budowali grobowce i świątynie','Jeńcy wojenni lub osoby kupione na targu; należeli do swego pana i nie mieli żadnych praw','Najwyższy urzędnik; rządził państwem w imieniu faraona','Walczyli w wojnach faraona; byli wśród nich także cudzoziemscy najemnicy','Zajmowali się nauką, zwłaszcza astronomią i medycyną; prowadzili szkoły przy świątyniach','Ludzie wykształceni; zarządzali prowincjami, dbali o kanały i zaopatrzenie dla armii'],
+      klucz:['C','E','F','D','A','B'],
+      extra:'<p>W zadaniu brakuje jednej grupy: <b>rzemieślników</b>. Wytwarzali narzędzia i przedmioty codziennego użytku.</p>' },
+    { typ:'dopasuj', q:'Dopasuj pojęcie do znaczenia.',
+      lewa:['hieroglify','pismo kapłańskie','papirus','obelisk','pisarz'],
+      prawa:['Pomnik w formie wysokiego słupa','Materiał podobny do papieru, robiony z łodyg trzciny rosnącej nad Nilem','Urzędnik, który sporządzał dokumenty i zapisywał informacje potrzebne do rządzenia państwem','„Święte znaki” – pismo, które Egipcjanie wykuwali m.in. w kamieniu','Uproszczone znaki, którymi pisarze pisali na co dzień pędzelkiem na papirusie'],
+      klucz:['D','E','B','A','C'],
+      extra:'<p>Egipskie obeliski można dziś zobaczyć nie tylko w Egipcie, lecz także m.in. w Rzymie, Paryżu, Londynie i Nowym Jorku. Przywieziono je tam w różnych czasach jako cenne zabytki.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d4-pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Egipt leży w północno-wschodniej Afryce.', p:true, fix:''},
+        {t:'Wylew Nilu był gwałtowną, niszczycielską powodzią.', p:false, fix:'Przypominał <b>łagodną powódź</b>: woda powoli przybierała od lipca, opadała we wrześniu i zostawiała <b>żyzny muł</b>.'},
+        {t:'Faraon był najwyższym dowódcą wojskowym, najwyższym sędzią i najwyższym kapłanem.', p:true, fix:''},
+        {t:'Chłopi byli właścicielami ziemi, którą uprawiali.', p:false, fix:'<b>Cała ziemia należała do faraona</b>, a chłopi ją tylko uprawiali.'},
+        {t:'Niewolników było w Egipcie bardzo dużo.', p:false, fix:'Niewolników było <b>niewielu</b>. Najliczniejsi byli chłopi.'},
+        {t:'Pismo hieroglificzne liczyło ok. 800 znaków.', p:true, fix:''},
+        {t:'Kapłani nieraz wywierali wpływ na rządy państwem.', p:true, fix:''},
+        {t:'Egipt stał się częścią Rzymu w 30 r. n.e.', p:false, fix:'Stało się to w <b>30 r. p.n.e.</b>'}
+      ],
+      extra:'<p>Wielka piramida w Gizie przez ok. 3800 lat była najwyższą budowlą zbudowaną przez ludzi. To jedyny z siedmiu cudów świata starożytnego, który przetrwał do dziś.</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">ok. 3100 p.n.e.<small>powstanie państwa egipskiego</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">ok. 3000 p.n.e.<small>powstanie pisma egipskiego</small></div>'+
+      '<div class="seg" style="background:#FFC966">XIII w. p.n.e.<small>faraon Ramzes II</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">VII w. p.n.e.<small>wynalezienie pieniędzy; daniny zastąpione podatkami</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">30 p.n.e.<small>Egipt częścią Rzymu</small></div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>🌊 Dar Nilu</h4><p>wylewy Nilu (od lipca do września) nawadniały ziemię i nanosiły żyzny muł. Po wylewie: system nawadniający z kanałów i zbiorników.</p></div>'+
+      '<div class="rule"><h4>👑 Faraon</h4><p>syn boga słońca Ra (według wierzeń Egipcjan); prawo życia i śmierci; cała ziemia jego; najwyższy dowódca, sędzia i kapłan.</p></div>'+
+      '<div class="rule"><h4>🏛️ Państwo</h4><p>monarchia. Faraon i urzędnicy: organizowali pracę, zapewniali bezpieczeństwo, rozsądzali spory. W zamian daniny.</p></div>'+
+      '<div class="rule"><h4>🔺 Piramida społeczna</h4><p>faraon → wezyr → kapłani → urzędnicy (m.in. pisarze) → rzemieślnicy → żołnierze → chłopi → niewolnicy.</p></div>'+
+      '<div class="rule"><h4>✍️ Pismo</h4><p>hieroglify (ok. 800 „świętych znaków”, wykuwane w kamieniu) i uproszczone pismo kapłańskie (pędzelkiem na papirusie).</p></div>'+
+    '</div>'
+},
+{
+  id:'d5', nr:5, tytul:'Wierzenia starożytnych Egipcjan', krotkiTytul:'Wierzenia Egipcjan', zakres:'podręcznik s. 28–33',
+  start:'Witaj w Egipcie! Zostaniesz archeologiem: odkryjesz bogów, piramidy i tajemnice sądu Ozyrysa. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🔍', n:'Młody archeolog', msg:'Pierwsze znalezisko! Piasek zaczął się sypać. ⏳'},
+    {od:.25,e:'🗺️', n:'Tropiciel z Doliny Królów', msg:'Brawo! Zostajesz Tropicielem z Doliny Królów.'},
+    {od:.5, e:'🔺', n:'Badacz piramid', msg:'Ponad połowa! Badacz piramid w akcji.'},
+    {od:.75,e:'📜', n:'Znawca Księgi Umarłych', msg:'Znawca Księgi Umarłych! Jeszcze kilka pytań do tytułu Mistrza…'},
+    {od:1,  e:'🏆', n:'Mistrz egiptologii', msg:'MISTRZ EGIPTOLOGII! Cały piasek przesypany, cały dział opanowany! 🏆'}
+  ],
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'d5-slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Opowiedz pełnymi zdaniami, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'W jaki sposób Ozyrys został władcą krainy umarłych?',
+      odp:'<p>Według Egipcjan Ozyrysa <b>zabił i poćwiartował jego zły brat Set</b>. Siostra Ozyrysa, <b>Izyda, pozbierała jego szczątki</b>, a <b>Anubis je skleił</b>. Tak powstała <b>pierwsza mumia</b>. Inni bogowie <b>przywrócili Ozyrysa do życia</b> i odtąd <b>władał on krainą umarłych</b>.</p>',
+      extra:'<p>Według mitu Izyda była nie tylko siostrą, lecz także żoną Ozyrysa. Ich syn <b>Horus</b> pokonał później Seta. Na ilustracji z sądu Ozyrysa (s. 33) to właśnie Horus prowadzi zmarłego przed tron swojego ojca.</p>' },
+    { typ:'opis', q:'Co robili Egipcjanie, żeby zapewnić sobie przychylność bogów?',
+      odp:'<p><b>Wznosili bogom kamienne świątynie</b> i <b>składali ofiary</b>: żywność, wyroby rzemieślnicze oraz kosztowności. Wierzyli, że zadowolone bóstwa spowodują np. <b>obfity wylew Nilu</b>.</p>',
+      extra:'<p>Największy zespół świątyń starożytnego Egiptu to <b>Karnak</b> w Tebach (Teby znajdziesz na mapie w dziale 4). Budowano go i rozbudowywano przez ok. 2000 lat.</p>' },
+    { typ:'opis', q:'Wyjaśnij, przed kim i jak faraonowie próbowali zabezpieczyć swoje groby.',
+      odp:'<p>Przed <b>złodziejami</b>, których kusiły skarby w grobowcach. Faraonowie kazali <b>budować piramidy</b> albo <b>kuć grobowce w niedostępnych skałach</b>. W piramidzie Cheopsa <b>komorę grobową ukryto wewnątrz budowli</b>, a <b>wejście zawalono kamieniami</b>.</p><p>Na próżno: złodzieje obrabowali wszystkie znane piramidy i grobowce <b>z wyjątkiem jednego</b>, grobowca Tutanchamona.</p>',
+      extra:'<p>Grobowce w skałach kuto m.in. w <b>Dolinie Królów</b> koło Teb (zaznaczonej na mapie w dziale 4). Tam w 1922 r. znaleziono grób Tutanchamona.</p>' },
+    { typ:'opis', q:'Co robili Egipcjanie, żeby zapewnić swoim zmarłym życie wieczne?',
+      odp:'<ol><li><b>Dbali, by ciało nie uległo rozkładowi</b>: balsamowali ciała i sporządzali mumie, wkładali je do trumien i sarkofagów, budowali piramidy (np. Cheopsa) i kuli w skałach grobowce.</li><li><b>Pomagali duszy przejść sąd Ozyrysa</b>: wkładali do grobów tzw. <b>Księgę Umarłych</b> z tekstami mów i modlitw.</li><li>W grobowcach faraonów umieszczali <b>przedmioty potrzebne na tamtym świecie</b>: łoża pokryte złotem, rydwany, tron, ubrania, klejnoty.</li></ol>',
+      extra:'<p>Egipcjanie mumifikowali nie tylko ludzi, lecz także zwierzęta, np. koty, krokodyle i ibisy (ptaki boga Tota). Archeolodzy znaleźli miliony takich zwierzęcych mumii.</p>' },
+    { typ:'opis', q:'Wyjaśnij, jak, według Egipcjan, przebiegał sąd Ozyrysa.',
+      odp:'<p>Egipcjanie wierzyli, że <b>dusza każdego zmarłego staje przed sądem Ozyrysa</b>. Ilustracja z Księgi Umarłych pisarza Hunefera (s. 33) pokazuje przebieg sądu:</p><ol><li><b>Anubis</b> prowadzi zmarłego na sąd.</li><li>Zmarły <b>opowiada o swoim życiu 14 bogom</b>, którzy wraz z Ozyrysem wydadzą wyrok.</li><li>Na <b>wadze</b> waży się <b>serce zmarłego</b>, a na drugiej szali leży <b>strusie pióro</b>. Serce lżejsze od pióra nie jest obciążone grzechami.</li><li>Serca cięższe od pióra pożera <b>Ammit, „Pożeraczka Zmarłych”</b>.</li><li><b>Tot</b> zapisuje wynik sądu na papirusie.</li><li><b>Horus</b> prowadzi zmarłego przed tron <b>Ozyrysa</b>, a Ozyrys przyjmuje go do krainy umarłych.</li></ol><p>W zależności od wyroku dusza trafiała do <b>szczęśliwej krainy umarłych</b> albo <b>przestawała istnieć lub cierpiała wieczne męki</b>.</p>',
+      extra:'<p>Pióro było znakiem <b>Maat</b>, bogini prawdy i porządku świata.</p><p>Dlaczego ważono serce, a nie mózg? Egipcjanie uważali serce za siedzibę myśli i uczuć. Mózg podczas balsamowania usuwano i wyrzucano, a serce zostawiano w ciele, bo było potrzebne na sądzie.</p>' },
+    { typ:'opis', q:'Wytłumacz, po co Egipcjanie wkładali do grobów tzw. Księgi Umarłych.',
+      odp:'<p>Żeby <b>pomogły zmarłemu podczas sądu Ozyrysa</b>. Księga Umarłych zawierała <b>spisane na papirusie teksty mów i modlitw</b>, które zmarły miał wygłosić przed Ozyrysem i innymi bogami. Były w niej też <b>ilustracje</b> przedstawiające ziemskie życie zmarłego oraz sąd Ozyrysa. Np. rodzina pisarza Hunefera włożyła mu taką księgę do grobu.</p>',
+      extra:'<p>Nazwę „Księga Umarłych” nadali jej dopiero nowożytni uczeni. Sami Egipcjanie nazywali te teksty mniej więcej „Księgą wychodzenia za dnia”. Papirus Hunefera można dziś oglądać w Muzeum Brytyjskim w Londynie.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-bogowie', ikona:'☀️', nazwa:'Bogowie Egiptu', krotko:'Bogowie',
+    opis:'W kogo i jak wierzyli Egipcjanie.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'pojecie', q:'Co to jest politeizm?',
+      odp:'<p><b>Politeizm</b>, czyli <b>wielobóstwo</b>, to <b>wiara w wielu bogów</b>. Wyznawali go starożytni Egipcjanie.</p>',
+      extra:'<p>Przeciwieństwem politeizmu jest <b>monoteizm</b>, czyli wiara w jednego Boga. Poznasz go w dziale 6, o starożytnym Izraelu.</p>' },
+    { typ:'wymien', q:'Podaj imiona i cechy pięciu bóstw Egiptu przedstawionych w podręczniku. Jak wyglądali egipscy bogowie?',
+      odp:'<p>Egipscy bogowie mieli <b>kształty zwierząt, ludzi albo ludzi z głowami zwierząt</b>.</p><ul><li><b>Ra</b> – bóg słońca, <b>najważniejszy z bogów, stwórca świata</b>. Codziennie wraz ze słońcem żeglował łodzią po niebie. Przedstawiany jako mężczyzna z głową sokoła, na której jest tarcza słoneczna.</li><li><b>Tot</b> (albo Thot) – patron mądrości, <b>bóg pisarzy i uczonych</b>. Przedstawiany jako mężczyzna z głową ibisa.</li><li><b>Anubis</b> – <b>bóg zmarłych i opiekun grobów</b>. Mężczyzna z głową szakala.</li><li><b>Ozyrys</b> – <b>sędzia umarłych i władca ich krainy</b>, bóg życia po śmierci. Mężczyzna owinięty bandażami jak mumia.</li><li><b>Izyda</b> – <b>opiekunka rodzin, bogini magii, uzdrowicielka chorych</b>; pomagała rodzącym kobietom. Często przedstawiana z tronem na głowie.</li></ul>',
+      extra:'<p>Wygląd bogów nie był przypadkowy. Ibis, ptak Tota, ma długi, zakrzywiony dziób, trochę jak przyrząd do pisania. Szakale kręciły się przy cmentarzach na pustyni, dlatego szakal stał się zwierzęciem boga zmarłych.</p>' },
+    { typ:'pojecie', q:'Co trzymali w dłoniach egipscy bogowie i co to oznaczało?',
+      odp:'<ul><li>W <b>lewej dłoni</b> trzymali <b>krzyż ankh</b>, który oznaczał <b>życie i nieśmiertelność</b>.</li><li>W <b>prawej dłoni</b> trzymali <b>berło uas</b>, czyli <b>oznakę boskiej władzy</b>.</li></ul>',
+      extra:'<p>Ankh ma kształt krzyża z pętlą u góry. Był też znakiem pisma oznaczającym „życie”. Znajdziesz go nawet w imieniu faraona Tut-<b>ankh</b>-amona.</p>' },
+    { typ:'krotka', q:'Za kogo uchodził każdy faraon? Dlaczego faraonowie nosili sztuczne brody?',
+      odp:'<p>Każdy faraon <b>uchodził za syna boga słońca Ra</b>. Egipcjanie wierzyli, że <b>po śmierci faraon staje się bogiem</b>.</p><p>Egipcjanie golili brody, ale faraonowie <b>nosili sztuczne brody na znak swojej władzy i mocy</b>. Nosiła ją nawet <b>kobieta, gdy była faraonem</b>.</p>',
+      extra:'<p>Kobietą-faraonem była np. <b>Hatszepsut</b> (XV w. p.n.e.). Na wielu posągach przedstawiono ją ze sztuczną brodą, tak jak faraonów mężczyzn.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-groby', ikona:'🔺', nazwa:'Piramidy, grobowce i mumie', krotko:'Piramidy',
+    opis:'„Domy wieczności” i sposoby na życie wieczne.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'krotka', q:'Gdzie Egipcjanie grzebali zmarłych? Po co faraonowie budowali sobie grobowce już za życia i co w nich umieszczano?',
+      odp:'<p>Egipcjanie grzebali zmarłych <b>na pustyni</b>, którą uważali za <b>królestwo demonów i śmierci</b>. Faraonowie budowali sobie już za życia <b>„domy wieczności”</b>, czyli grobowce. Miały one:</p><ul><li><b>ukazać potęgę władcy</b>,</li><li><b>pomieścić przedmioty potrzebne mu na tamtym świecie</b>: łoża pokryte złotem, rydwany, tron, ubrania, klejnoty…</li></ul>',
+      extra:'<p>Pustynia miała też praktyczne zalety: nie zabierała cennej ziemi uprawnej nad Nilem, a suchy, gorący piasek dobrze chronił ciała. Najstarsze egipskie mumie powstały w sposób naturalny, po prostu wysuszone w piasku.</p>' },
+    { typ:'krotka', q:'Kiedy powstała piramida Cheopsa? Jaka jest wysoka i z ilu bloków ją zbudowano? Gdzie ukryto komorę grobową?',
+      odp:'<ul><li>Powstała <b>w XXVI w. p.n.e.</b></li><li>Jej szczyt wznosi się na wysokość <b>138 metrów</b>.</li><li>Do budowy zużyto <b>2 300 000 kamiennych bloków</b>.</li><li><b>Komorę grobową ukryto wewnątrz budowli</b>, a wejście zawalono kamieniami. Złodzieje i tak ją obrabowali.</li></ul>',
+      extra:'<p>138 metrów to mniej więcej tyle, co 46-piętrowy wieżowiec! Dawniej piramida była jeszcze wyższa (ok. 146 m), ale straciła wierzchołek i gładką okładzinę z białego wapienia. Przez ok. 3800 lat była najwyższą budowlą zbudowaną przez ludzi.</p><p>Obok niej stoją dwie inne wielkie piramidy: Chefrena i Mykerinosa (zdjęcie na s. 29).</p>' },
+    { typ:'krotka', q:'Co wyjątkowego odkryli archeolodzy w 1922 r.? Z czego wykonano maskę Tutanchamona?',
+      odp:'<p>W <b>1922 r.</b> archeolodzy odkryli <b>grobowiec faraona Tutanchamona</b>. Był to jedyny znany grobowiec, którego nie obrabowali złodzieje. Znaleziono w nim <b>mnóstwo złota i kosztowności</b>, świadczących o bogactwie władcy starożytnego Egiptu.</p><p>Maskę Tutanchamona (XIV w. p.n.e.) wykonano <b>ze złota i kamieni szlachetnych</b>.</p>',
+      extra:'<p>Grobowiec odkrył Brytyjczyk <b>Howard Carter</b>. Sama maska waży ok. 10 kg. Tutanchamon został faraonem jako dziecko, w wieku ok. 9 lat, a zmarł młodo, mając ok. 19 lat.</p><p>Gazety pisały potem o „klątwie faraona”, która miała dotknąć odkrywców. To tylko legenda: sam Carter żył jeszcze 17 lat.</p>' },
+    { typ:'krotka', q:'Pod jakimi warunkami, według egipskich wierzeń, dusza mogła trafić do krainy umarłych?',
+      odp:'<p>Kraina umarłych była <b>miejscem wiecznego szczęścia</b>. Dusza mogła się tam dostać, jeśli:</p><ol><li><b>pomyślnie przeszła sąd Ozyrysa</b>,</li><li><b>ciało zmarłego nie uległo rozkładowi</b>.</li></ol>',
+      extra:'<p>Sposób na zapamiętanie: każdy warunek ma swoje „narzędzie”. Na ciało – <b>mumia</b>, na sąd – <b>Księga Umarłych</b>.</p>' },
+    { typ:'wymien', q:'Wyjaśnij, jak Egipcjanie sporządzali mumie.',
+      odp:'<ol><li><b>Usuwali wnętrzności</b> zmarłego.</li><li><b>Suszyli ciało</b>.</li><li><b>Bandażowali</b> je.</li><li><b>Pokrywali żywicą</b>.</li><li>Mumię wkładali do <b>drewnianej trumny w kształcie człowieka</b>.</li><li>Trumnę zamykali w <b>sarkofagu</b>, czyli kamiennej skrzyni w kształcie trumny.</li></ol>',
+      extra:'<p>Ciało suszono specjalną solą, zwaną natronem, przez ok. 40 dni, a całe balsamowanie trwało ok. 70 dni. Serce zostawiano w ciele, bo zmarły potrzebował go na sądzie Ozyrysa.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: mumia, balsamowanie, sarkofag.',
+      odp:'<ul><li><b>Mumia</b> – <b>ciało zmarłego zabezpieczone przed rozkładem</b>.</li><li><b>Balsamowanie</b> – <b>zabezpieczanie ciała przed rozkładem</b>.</li><li><b>Sarkofag</b> – <b>kamienna skrzynia w kształcie trumny</b>.</li></ul>',
+      extra:'<p>Słowo „sarkofag” pochodzi z greki i znaczy dosłownie „zjadający ciało”. Słowo „mumia” wywodzi się z języka perskiego i arabskiego, od nazwy smoły, bo ciemne mumie kojarzyły się ludziom ze smołą.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-zrodla', ikona:'📜', nazwa:'Źródło i ilustracja', krotko:'Źródła',
+    opis:'Przeczytaj, popatrz i wyciągnij wnioski.',
+    c:'#8B5E3C', soft:'#F4E9DF', dark:'#6B4226',
+    pytania:[
+    { typ:'zrodlo', q:'Przeczytaj tekst źródłowy z Księgi Umarłych (s. 32). Co zmarły mówił o sobie przed bogami? Czy nasza ocena dobra i zła jest podobna do egipskiej? Uzasadnij odpowiedź.',
+      body:'<p>Podręcznik, s. 32: ramka „Tekst źródłowy”</p>',
+      odp:'<p>Zmarły zapewniał, że <b>nie krzywdził ludzi</b>: nie doprowadzał biednych do nędzy, nie był przyczyną głodu ani płaczu, nie zabijał i nie kazał zabijać, nikomu nie zadawał cierpienia i nie oczerniał sługi przed jego przełożonym. Zapewniał też, że <b>nie robił nic, czego nie lubią bogowie</b>, i nie umniejszał ofiar w świątyniach. Na koniec kilka razy powtarzał, że <b>jest czysty</b>.</p><p><b>Czy to podobne do naszej oceny?</b> W dużej części <b>tak</b>: także my uważamy za złe zabijanie, zadawanie cierpienia, krzywdzenie biednych i obmawianie innych. <b>Różnica:</b> część zasad dotyczy obowiązków wobec egipskich bogów i zmarłych, np. ofiar w świątyniach czy placków dla dusz zmarłych.</p><p>To pytanie otwarte, więc liczy się dobre uzasadnienie.</p>',
+      extra:'<p>Tę część Księgi Umarłych nazywa się „wyznaniem negatywnym”, bo zmarły wylicza, czego <b>nie</b> robił. Podobne zasady, np. „nie zabijaj”, znajdziesz w Dekalogu (dział 6).</p>' },
+    { typ:'obraz', q:'Przyjrzyj się ilustracji z Księgi Umarłych Hunefera (s. 33). Wymień bogów uczestniczących w sądzie Ozyrysa.',
+      body:'<p>Podręcznik, s. 33: ilustracja sądu Ozyrysa z ponumerowanymi scenami</p>',
+      odp:'<ul><li><b>Ozyrys</b> – siedzi na tronie i przyjmuje zmarłego do krainy umarłych,</li><li><b>14 bogów</b> – słuchają opowieści zmarłego i wraz z Ozyrysem wydają wyrok,</li><li><b>Anubis</b> – prowadzi zmarłego na sąd,</li><li><b>Tot</b> – zapisuje wynik sądu,</li><li><b>Horus</b> – prowadzi zmarłego przed tron Ozyrysa,</li><li><b>Izyda i Neftyda</b> – stoją za Ozyrysem.</li></ul><p>Przy wadze czeka też <b>Ammit, „Pożeraczka Zmarłych”</b>.</p>',
+      extra:'<p>Ammit przedstawiano jako potwora złożonego z trzech groźnych zwierząt: miała głowę krokodyla, przód ciała lwa i tył hipopotama.</p>' },
+    { typ:'obraz', q:'Na ilustracji sądu Ozyrysa (s. 33) jest waga, oznaczona numerem 3. Co leżało na jej szalach i co oznaczał wynik ważenia?',
+      body:'<p>Podręcznik, s. 33: ilustracja sądu Ozyrysa</p>',
+      odp:'<p>Na <b>lewej szali</b> leżało <b>serce Hunefera</b>, a na <b>prawej – strusie pióro</b>. Serce <b>lżejsze od pióra</b> oznaczało, że <b>nie jest obciążone grzechami</b>, więc zmarły mógł trafić do krainy umarłych. Serca <b>cięższe od pióra</b> pożerała <b>Ammit, „Pożeraczka Zmarłych”</b>. Wynik zapisywał <b>Tot</b>.</p>',
+      extra:'<p>W polszczyźnie też łączymy serce z ciężarem: mówimy „z lekkim sercem”, gdy niczym się nie martwimy, i „ciężko na sercu”, gdy coś nas gnębi.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-daty', ikona:'📅', nazwa:'Daty i oś czasu', krotko:'Daty',
+    opis:'Ustaw wydarzenia w kolejności i policz lata.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż wydarzenia w kolejności, od najdawniejszego do najpóźniejszego. Przydadzą się daty z działów 3 i 4!',
+      hint:'Klikaj wydarzenia od najdawniejszego do najpóźniejszego.',
+      elementy:['Odkrycie grobowca Tutanchamona','Budowa piramidy Cheopsa','Egipt zostaje przyłączony do Rzymu','Sumerowie wynajdują pismo','Panowanie Tutanchamona','Powstanie państwa egipskiego'],
+      kolejnosc:[3,5,1,4,2,0],
+      odp:'<p>Sumerowie wynajdują pismo (ok. 3500 r. p.n.e.) → powstanie państwa egipskiego (ok. 3100 r. p.n.e.) → budowa piramidy Cheopsa (XXVI w. p.n.e.) → panowanie Tutanchamona (XIV w. p.n.e.) → Egipt częścią Rzymu (30 r. p.n.e.) → odkrycie grobowca Tutanchamona (1922 r.)</p>',
+      extra:'<p>Między pochowaniem Tutanchamona a odkryciem jego grobowca minęło ponad 3000 lat, a skarby przez cały ten czas czekały pod ziemią!</p>' },
+    { typ:'policz', q:'Jakie lata obejmują te okresy? a) XXVI w. p.n.e., kiedy zbudowano piramidę Cheopsa; b) XIV w. p.n.e., z którego pochodzi maska Tutanchamona; c) I tysiąclecie p.n.e., z którego pochodzi mumia w drewnianej trumnie (s. 32). d) Do którego wieku należy rok 1922?',
+      odp:'<ul><li>a) XXVI w. p.n.e. = lata <b>2600–2501 p.n.e.</b></li><li>b) XIV w. p.n.e. = lata <b>1400–1301 p.n.e.</b></li><li>c) I tysiąclecie p.n.e. = lata <b>1000–1 p.n.e.</b></li><li>d) 1922 → 19 + 1 = 20 → <b>XX w.</b></li></ul>',
+      extra:'<p>Przed naszą erą wiek „zaczyna się” od większej liczby: XXVI w. p.n.e. zaczął się w 2600 r. p.n.e., a skończył w 2501 r. p.n.e. To znów „odliczanie rakiety” z działu 1.</p>' },
+    { typ:'policz', q:'Policz: a) Ile mniej więcej lat dzieli budowę piramidy Cheopsa (XXVI w. p.n.e.) od czasów Tutanchamona (XIV w. p.n.e.)? b) Ile lat minęło od odkrycia grobowca Tutanchamona (1922 r.) do 2026 r.? c) Ile co najmniej lat temu zbudowano piramidę Cheopsa?',
+      odp:'<ul><li>a) 26 − 14 = 12 wieków, czyli <b>ok. 1200 lat</b>.</li><li>b) 2026 − 1922 = <b>104 lata</b>.</li><li>c) Najpóźniejszy rok XXVI w. p.n.e. to 2501 r. p.n.e.: 2501 + 2026 − 1 = 4526, czyli <b>ponad 4500 lat temu</b>. Odejmujemy 1, bo nie było roku 0.</li></ul>',
+      extra:'<p>Dla Tutanchamona piramida Cheopsa była już bardzo starym zabytkiem, starszym niż dla nas czasy przed chrztem Polski (966 r.)!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-pary', ikona:'🔗', nazwa:'Dopasuj i ułóż', krotko:'Dopasuj',
+    opis:'Bogowie w parach i przebieg sądu Ozyrysa.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj bóstwo do jego roli.',
+      lewa:['Ra','Tot','Anubis','Ozyrys','Izyda','Set'],
+      prawa:['Opiekunka rodzin, bogini magii, uzdrowicielka chorych','Zły brat Ozyrysa, który go zabił i poćwiartował','Bóg słońca, najważniejszy z bogów, stwórca świata','Sędzia umarłych i władca ich krainy','Patron mądrości, bóg pisarzy i uczonych','Bóg zmarłych i opiekun grobów'],
+      klucz:['C','E','F','D','A','B'],
+      extra:'<p>Set był bogiem pustyni, burz i chaosu. Egipcjanie widzieli w nim przeciwieństwo Ozyrysa, który kojarzył się z życiem i urodzajem.</p>' },
+    { typ:'dopasuj', q:'Dopasuj bóstwo do tego, jak je przedstawiano.',
+      lewa:['Ra','Tot','Anubis','Ozyrys','Izyda'],
+      prawa:['Mężczyzna owinięty bandażami jak mumia','Mężczyzna z głową szakala','Kobieta z tronem na głowie','Mężczyzna z głową sokoła, na której jest tarcza słoneczna','Mężczyzna z głową ptaka ibisa'],
+      klucz:['D','E','B','A','C'],
+      extra:'<p>Imię Izydy po egipsku prawdopodobnie oznaczało „tron”, dlatego przedstawiano ją z tronem na głowie.</p>' },
+    { typ:'kolejnosc', q:'Ułóż etapy sądu Ozyrysa we właściwej kolejności. Pomoże Ci ilustracja na s. 33.',
+      hint:'Klikaj kolejne etapy sądu, od początku do końca.',
+      elementy:['Tot zapisuje wynik sądu','Ozyrys przyjmuje zmarłego do krainy umarłych','Anubis prowadzi zmarłego na sąd','Horus prowadzi zmarłego przed tron Ozyrysa','Serce zmarłego zostaje zważone ze strusim piórem'],
+      kolejnosc:[2,4,0,3,1],
+      odp:'<p><b>Anubis prowadzi zmarłego na sąd → serce zmarłego zostaje zważone ze strusim piórem → Tot zapisuje wynik sądu → Horus prowadzi zmarłego przed tron Ozyrysa → Ozyrys przyjmuje zmarłego do krainy umarłych</b></p>',
+      extra:'<p>Ilustrację w podręczniku czyta się od lewej do prawej, a numery 2, 3, 5, 6 i 7 idą w tej samej kolejności co etapy sądu.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d5-pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Starożytni Egipcjanie wyznawali politeizm.', p:true, fix:''},
+        {t:'Anubisa przedstawiano jako mężczyznę z głową sokoła.', p:false, fix:'Anubis miał <b>głowę szakala</b>. Głowę sokoła miał Ra.'},
+        {t:'Według Egipcjan Ozyrysa zabił jego zły brat Set.', p:true, fix:''},
+        {t:'Sztuczną brodę nosiła nawet kobieta, gdy była faraonem.', p:true, fix:''},
+        {t:'Dusza mogła trafić do krainy umarłych tylko wtedy, gdy ciało zmarłego uległo rozkładowi.', p:false, fix:'Było odwrotnie: ciało <b>nie mogło ulec rozkładowi</b>, dlatego Egipcjanie robili mumie.'},
+        {t:'W czasie sądu Ozyrysa serce zmarłego ważono ze strusim piórem.', p:true, fix:''},
+        {t:'Piramidę Cheopsa zbudowano w XIV w. p.n.e.', p:false, fix:'Zbudowano ją w <b>XXVI w. p.n.e.</b> XIV w. p.n.e. to czasy Tutanchamona.'},
+        {t:'Egipcjanie grzebali zmarłych na żyznych polach nad Nilem.', p:false, fix:'Grzebali ich <b>na pustyni</b>, którą uważali za królestwo demonów i śmierci.'}
+      ],
+      extra:'<p>Piramida Cheopsa to jedyny z siedmiu cudów świata starożytnego, który przetrwał do dziś.</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">ok. 3100 p.n.e.<small>powstanie państwa egipskiego</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">XXVI w. p.n.e.<small>piramida Cheopsa</small></div>'+
+      '<div class="seg" style="background:#FFC966">XIV w. p.n.e.<small>Tutanchamon</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">30 p.n.e.<small>Egipt częścią Rzymu</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">1922<small>odkrycie grobowca Tutanchamona</small></div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>☀️ Bogowie</h4><p>politeizm = wielobóstwo<br>Ra – słońce, najważniejszy, stwórca świata (głowa sokoła)<br>Tot – mądrość, pisarze (głowa ibisa)<br>Anubis – zmarli i groby (głowa szakala)<br>Ozyrys – sędzia i władca umarłych (bandaże jak mumia)<br>Izyda – rodziny, magia, leczenie (tron na głowie)<br>Set – zły brat Ozyrysa</p></div>'+
+      '<div class="rule"><h4>🗝️ Dwa warunki krainy umarłych</h4><p>1) ciało nie może ulec rozkładowi → mumie, piramidy, grobowce w skałach; 2) dusza musi przejść sąd Ozyrysa → Księga Umarłych.</p></div>'+
+      '<div class="rule"><h4>🧻 Mumia krok po kroku</h4><p>wnętrzności → suszenie → bandaże → żywica → drewniana trumna → sarkofag.</p></div>'+
+      '<div class="rule"><h4>⚖️ Sąd Ozyrysa</h4><p>Anubis prowadzi → serce na wadze z piórem → Tot zapisuje → Horus prowadzi → Ozyrys przyjmuje (serca cięższe od pióra pożera Ammit).</p></div>'+
+      '<div class="rule"><h4>🔺 Piramida Cheopsa</h4><p>XXVI w. p.n.e., 138 m, 2,3 mln bloków.</p></div>'+
+    '</div>'
+},
+{
+  id:'d6', nr:6, tytul:'Starożytny Izrael', zakres:'podręcznik s. 34–37',
+  start:'Witaj w starożytnym Izraelu! Ruszamy szlakiem koczowników z Mezopotamii. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!',
+  rangi:[
+    {od:0,  e:'🐪', n:'Wędrowiec z Mezopotamii', msg:'Pierwsze kroki na szlaku za nami! Piasek zaczął się sypać. ⏳'},
+    {od:.25,e:'🗺️', n:'Odkrywca Ziemi Obiecanej', msg:'Brawo! Zostajesz Odkrywcą Ziemi Obiecanej.'},
+    {od:.5, e:'📜', n:'Badacz zwojów', msg:'Ponad połowa za Tobą! Badacz zwojów w akcji.'},
+    {od:.75,e:'👑', n:'Kronikarz królów', msg:'Kronikarz królów! Jeszcze kilka pytań do tytułu Mistrza…'},
+    {od:1,  e:'🏆', n:'Mistrz starożytnego Izraela', msg:'MISTRZ STAROŻYTNEGO IZRAELA! Cały piasek przesypany, cały dział opanowany! 🏆'}
+  ],
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'d6-slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Opowiedz pełnymi zdaniami, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'Czym jest Biblia?',
+      odp:'<p>Biblia to <b>święta księga żydów i chrześcijan</b>. Wierzą oni, że powstała <b>pod natchnieniem Boga</b>, czyli że jej autorzy napisali to, co Stwórca chciał powiedzieć ludziom. Składa się z <b>kilkudziesięciu części nazywanych księgami</b> (np. Księga Rodzaju). Jest dziełem <b>religijnym, a nie naukowym</b>.</p>',
+      extra:'<p>Słowo „Biblia” pochodzi z greki i znaczy po prostu „książki”, w liczbie mnogiej! Greckie słowo wiąże się z nazwą fenickiego miasta Byblos, przez które sprowadzano papirus, czyli materiał do pisania. Z tego samego źródła pochodzi słowo „biblioteka”.</p><p>Biblia to rzeczywiście cała biblioteka: Biblia katolicka liczy 73 księgi.</p>' },
+    { typ:'opis', q:'Jakie są różnice między Biblią hebrajską a Biblią chrześcijańską?',
+      odp:'<ul><li><b>Biblia hebrajska</b> (żydowska) była pisana prawdopodobnie <b>od XIII do II w. p.n.e.</b> Chrześcijanie nazywają ją <b>Starym Testamentem</b>.</li><li><b>Biblia chrześcijańska</b> obejmuje Stary Testament oraz <b>Nowy Testament</b>, który powstał <b>w I w. n.e.</b> i opowiada o życiu i nauce Jezusa Chrystusa.</li><li>Dla chrześcijan Nowy Testament jest częścią Biblii, a <b>dla żydów – nie</b>.</li></ul>',
+      extra:'<p>Żydzi nazywają swoją Biblię <b>Tanach</b>. To skrót od nazw jej trzech części: <b>T</b>ora (Pouczenie), <b>N</b>ewiim (Prorocy) i <b>K</b>etuwim (Pisma). Biblię hebrajską spisano głównie po hebrajsku, a Nowy Testament – po grecku.</p><p>Policz: od XIII do II w. p.n.e. to ponad tysiąc lat spisywania ksiąg!</p>' },
+    { typ:'opis', q:'Dlaczego historycy ostrożnie podchodzą do informacji zawartych w Biblii? Co odpowie historyk na pytanie, czy istniał Abraham?',
+      odp:'<p>Bo Biblia jest dziełem <b>religijnym, a nie naukowym</b>. Jej autorzy opisali np. <b>rozmowy Abrahama z Bogiem</b>. Nauka nie zajmuje się takimi informacjami, bo są one <b>przedmiotem wiary</b>: albo ktoś w nie wierzy, albo nie. Jednocześnie księgi historyczne Biblii są znakomitym źródłem historycznym, więc historycy z nich korzystają, ale ostrożnie.</p><p>Na pytanie o Abrahama historyk odpowie: <b>na pewno istniało plemię, z którego powstał naród żydowski, i być może żył biblijny Abraham</b>. Pewności jednak nie mamy i prawdopodobnie nie będziemy mieli nigdy.</p>',
+      extra:'<p>Historycy porównują opisy z Biblii z innymi źródłami, np. ze znaleziskami archeologów. W 1947 r. pasterz z plemienia Beduinów, szukając zagubionej kozy, natrafił w jaskiniach nad Morzem Martwym na gliniane dzbany ze starymi zwojami.</p><p>Te <b>zwoje znad Morza Martwego</b> mają ponad 2000 lat i należą do najstarszych znanych odpisów ksiąg Biblii hebrajskiej.</p>' },
+    { typ:'opis', q:'Co nazywamy tzw. niewolą babilońską? Dlaczego mówimy „tak zwaną”?',
+      odp:'<p>W początkach VI w. p.n.e. Babilończycy opanowali królestwo Judy. Gdy Żydzi zbuntowali się przeciwko ich rządom, Babilończycy <b>zdobyli Jerozolimę i zniszczyli świątynię (586 r. p.n.e.)</b>. Król Babilonii kazał <b>przesiedlić kilkanaście tysięcy Żydów na wschód</b>. Ten czas nazywamy tzw. <b>niewolą babilońską</b>.</p><p>Mówimy „tak zwaną”, bo Żydzi byli <b>przesiedleńcami, a nie niewolnikami</b>. Niektórzy zajmowali nawet wysokie stanowiska w państwie babilońskim.</p><p>Niewola skończyła się po kilkudziesięciu latach: w <b>539 r. p.n.e.</b> Persowie podbili Babilonię, a ich król pozwolił Żydom wrócić do Palestyny.</p>',
+      extra:'<p>Królem Babilonii, który kazał zniszczyć świątynię jerozolimską, był <b>Nabuchodonozor II</b>. Za jego panowania zbudowano w Babilonie <b>Bramę Isztar</b>, ozdobioną niebieskimi glazurowanymi cegłami z wizerunkami zwierząt. Jej rekonstrukcja stoi dziś w muzeum w Berlinie.</p>' },
+    { typ:'opis', q:'Czym różni się monoteizm od politeizmu? Co wyznawali Izraelici?',
+      odp:'<ul><li><b>Monoteizm</b>, czyli jedynobóstwo, to wiara w <b>jednego Boga</b>.</li><li><b>Politeizm</b>, czyli wielobóstwo, to wiara w <b>wielu bogów</b>.</li></ul><p>Izraelici, w przeciwieństwie do innych starożytnych ludów, wierzyli w jednego Boga, <b>Jahwe</b>, czyli wyznawali <b>monoteizm</b>. Inne ludy starożytne, np. Sumerowie czy Egipcjanie, czciły wielu bogów.</p>',
+      extra:'<p>Obie nazwy pochodzą z greki: <i>monos</i> – jeden, <i>polys</i> – wiele, <i>theos</i> – bóg.</p><p>Religie, które wywodzą się z judaizmu, czyli chrześcijaństwo i islam, też są monoteistyczne.</p>' },
+    { typ:'opis', q:'Co mówi judaizm o Bogu i o narodzie wybranym?',
+      odp:'<ul><li>Bóg jest jeden (<b>Jahwe</b>), <b>nie ma początku ani końca</b>, <b>stworzył świat i człowieka</b>.</li><li>Okazuje ludziom <b>miłosierdzie</b>, ale jest „<b>Bogiem zazdrosnym</b>”: człowiek ma Go kochać „z całego serca, z całej duszy, ze wszystkich sił”.</li><li>Izraelici są <b>narodem wybranym</b>, bo <b>za ich pośrednictwem Bóg da się poznać całemu światu</b>.</li></ul>',
+      extra:'<p>Słowa o kochaniu Boga „z całego serca” są częścią modlitwy <b>Szema Israel</b> („Słuchaj, Izraelu”), jednej z najważniejszych modlitw w judaizmie.</p><p>Imię Boga zapisywano czterema literami (JHWH). Pobożni żydzi z szacunku go nie wymawiają i mówią zamiast niego np. „Adonaj”, czyli „Pan”.</p>' },
+    { typ:'opis', q:'Omów dzieje narodu wybranego od czasów Abrahama do końca tzw. niewoli babilońskiej.',
+      odp:'<ol><li>Według Biblii plemię koczowniczych pasterzy, którym przewodził <b>Abraham</b>, na polecenie Boga wyruszyło <b>z Mezopotamii do Ziemi Obiecanej</b> (Palestyny).</li><li>Potomkowie Abrahama dali początek <b>narodowi wybranemu</b> – Izraelitom, których później nazwano Żydami.</li><li><b>Na przełomie XI i X w. p.n.e.</b> Izraelici utworzyli w Palestynie <b>królestwo Izraela</b>. Do rozkwitu doprowadzili je królowie <b>Dawid</b> (ok. 1010 – ok. 970 p.n.e.) i jego syn <b>Salomon</b> (ok. 970 – ok. 931 p.n.e.), który zbudował świątynię w Jerozolimie.</li><li>Po śmierci Salomona królestwo <b>podzieliło się na dwa słabe i skłócone państwa</b>. Jednym z nich była <b>Juda</b> ze stolicą w Jerozolimie.</li><li>W początkach VI w. p.n.e. Judę opanowali <b>Babilończycy</b>. Po buncie Żydów zdobyli Jerozolimę i zniszczyli świątynię (<b>586 r. p.n.e.</b>), a kilkanaście tysięcy Żydów przesiedlono na wschód. Zaczęła się <b>tzw. niewola babilońska</b>.</li><li>W <b>539 r. p.n.e.</b> Persowie podbili Babilonię. Ich król <b>pozwolił Żydom wrócić do Palestyny</b>, która stała się częścią Persji. Żydzi odbudowali świątynię i wierzyli, że własne państwo przywróci im Mesjasz.</li></ol>',
+      extra:'<p>Sposób na zapamiętanie: sześć słów-kluczy po kolei, czyli <b>wędrówka → naród → królestwo → podział → niewola → powrót</b>. Do każdego dopowiedz jedno zdanie, a w pracy pisemnej dodaj daty: ok. 1010, ok. 931, 586 i 539 p.n.e.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-pojecia', ikona:'📖', nazwa:'Słowniczek pojęć', krotko:'Pojęcia',
+    opis:'Krótko i konkretnie: co znaczy to słowo?',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: Ziemia Obiecana, Palestyna, Izrael.',
+      odp:'<ul><li><b>Ziemia Obiecana</b> – według Biblii kraj, do którego na polecenie Boga wyruszyło z Mezopotamii plemię Abrahama. Leżał tam, gdzie dziś znajduje się państwo Izrael.</li><li><b>Palestyna</b> – starożytna nazwa kraju potomków Abrahama.</li><li><b>Izrael</b> – druga starożytna nazwa tego kraju, od imienia jednego z wnuków Abrahama. Tak nazywało się też królestwo utworzone przez Izraelitów na przełomie XI i X w. p.n.e. Dziś to nazwa państwa.</li></ul>',
+      extra:'<p>Tym wnukiem Abrahama był <b>Jakub</b>, syn Izaaka. Według Biblii otrzymał on od Boga imię Izrael.</p><p>Nazwa <b>Palestyna</b> pochodzi od <b>Filistynów</b>, ludu, który mieszkał na wybrzeżu. Filistynem był biblijny olbrzym Goliat, którego pokonał młody Dawid.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: judaizm, Dekalog, Tora.',
+      odp:'<ul><li><b>Judaizm</b> – religia żydowska. Jest <b>monoteistyczna</b> i <b>istnieje do dziś</b>. Wywodzą się z niej chrześcijaństwo i islam.</li><li><b>Dekalog</b> – <b>dziesięcioro przykazań</b> zawartych w Biblii. Według Biblii otrzymał je Mojżesz od samego Boga, wyryte na kamiennych tablicach. Określa <b>główne zasady postępowania</b> wyznawców judaizmu.</li><li><b>Tora</b> – <b>pięć pierwszych ksiąg Biblii</b>. Zawiera liczne nakazy i zakazy uzupełniające Dekalog, a także opisy stworzenia świata i dzieje Abrahama oraz jego potomków. Dla wyznawców judaizmu to <b>najważniejsza część Biblii</b>.</li></ul>',
+      extra:'<p>„Dekalog” to po grecku „dziesięć słów” (<i>deka</i> – dziesięć, <i>logos</i> – słowo). Według tradycji żydowskiej Tora zawiera aż <b>613 nakazów i zakazów</b>.</p><p>Zwój Tory przepisuje się ręcznie, piórem. Podczas czytania wodzi się po tekście wskaźnikiem w kształcie małej dłoni (nazywa się <b>jad</b>), żeby nie dotykać pergaminu palcami.</p>' },
+    { typ:'pojecie', q:'Słowo „Żydzi” ma dwa znaczenia. Jakie? Kiedy piszemy je wielką, a kiedy małą literą?',
+      odp:'<ol><li><b>żydzi</b> (małą literą) – <b>wyznawcy judaizmu</b>, tak jak chrześcijanie, muzułmanie czy wyznawcy innych religii.</li><li><b>Żydzi</b> (wielką literą) – <b>członkowie narodu żydowskiego</b>, tak jak np. Polacy. W przeszłości nazywano ich też <b>Izraelitami</b> lub <b>Hebrajczykami</b>.</li></ol>',
+      extra:'<p>To ogólna zasada polskiej pisowni: nazwy narodów piszemy wielką literą (Polak, Żyd, Egipcjanin), a nazwy wyznawców religii małą (katolik, żyd, muzułmanin).</p><p>Język hebrajski jest używany do dziś. To urzędowy język państwa Izrael, a pisze się w nim od prawej do lewej.</p>' },
+    { typ:'pojecie', q:'Kim byli koczownicy? Czym różnili się od ludów osiadłych? Podaj przykład jednych i drugich.',
+      odp:'<ul><li><b>Koczownicy</b> nie mieli stałych siedzib. Na Bliskim Wschodzie były to <b>plemiona pasterzy</b>, które wędrowały z miejsca na miejsce <b>w poszukiwaniu pastwisk dla bydła</b>. Przykład: <b>plemię Abrahama</b>.</li><li><b>Ludy osiadłe</b> mieszkały na stałe w jednym miejscu. Przykład: <b>Sumerowie</b>.</li></ul><p>Koczownicy nieraz szukali schronienia przed głodem lub suszą w zamożnym Egipcie.</p>',
+      extra:'<p>Na egipskim malowidle w podręczniku łatwo odróżnić obie grupy. Egipcjanie noszą proste białe spódniczki, a przybysze mają kolorowe, wzorzyste stroje i prowadzą ze sobą osły.</p><p>Koczownicy żyją do dziś, np. część Beduinów na pustyniach Bliskiego Wschodu.</p>' },
+    { typ:'pojecie', q:'Wyjaśnij pojęcia: Mesjasz, synagoga.',
+      odp:'<ul><li><b>Mesjasz</b> – według wierzeń Żydów <b>człowiek posłany przez Boga</b>. Po powrocie z niewoli babilońskiej Żydzi wierzyli, że Mesjasz <b>przywróci im własne państwo</b>.</li><li><b>Synagoga</b> – <b>żydowski dom modlitwy</b>. Każda synagoga ma ręcznie spisany zwój Tory.</li></ul>',
+      extra:'<p>Hebrajskie słowo „mesjasz” znaczy „namaszczony”. Po grecku to samo słowo brzmi „Christos”, stąd tytuł Chrystus. Chrześcijanie wierzą, że Mesjaszem był Jezus, a wyznawcy judaizmu wciąż na Mesjasza czekają.</p><p>„Synagoga” to po grecku „zgromadzenie”.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-ludzie', ikona:'👑', nazwa:'Kto to był?', krotko:'Kto to był?',
+    opis:'Postacie, które trzeba znać z tego działu.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'opis', q:'Kim byli i czego dokonali Dawid oraz Salomon?',
+      odp:'<p><b>Dawid</b> (panował ok. 1010 – ok. 970 p.n.e.) i jego syn <b>Salomon</b> (ok. 970 – ok. 931 p.n.e.) to <b>królowie Izraela</b>, którzy <b>doprowadzili królestwo do rozkwitu</b>. Salomon <b>wybudował wspaniałą świątynię w stolicy państwa, Jerozolimie</b>. Po jego śmierci królestwo podzieliło się na dwa państwa.</p>',
+      extra:'<p>Według Biblii Dawid jako młody pasterz pokonał olbrzyma Goliata kamieniem wystrzelonym z procy.</p><p>Salomon słynął z mądrości. Stąd powiedzenie „<b>salomonowy wyrok</b>”, czyli mądry i sprawiedliwy, oraz przysłowie „<b>z pustego i Salomon nie naleje</b>”.</p>' },
+    { typ:'opis', q:'Kim był Abraham i dokąd – według Biblii – wyruszyło jego plemię?',
+      odp:'<p>Abraham to postać <b>znana nam tylko z Biblii</b>: przywódca <b>plemienia koczowniczych pasterzy</b>. Według Biblii na polecenie Boga jego plemię wyruszyło <b>z Mezopotamii do Ziemi Obiecanej</b>, tam, gdzie dziś leży państwo Izrael. Jego potomkowie dali początek <b>narodowi wybranemu</b>, czyli Izraelitom.</p>',
+      extra:'<p>Według Biblii Abraham pochodził z miasta <b>Ur</b> w Mezopotamii, jednego z miast Sumerów.</p><p>Na rycinie w podręczniku aniołowie zapowiadają, że Abraham i Sara mimo starości będą mieli syna. Był nim <b>Izaak</b>. Jego imię kojarzy się ze śmiechem, bo według Biblii Sara roześmiała się, słysząc tę zapowiedź.</p><p>Abraham jest ważną postacią dla trzech religii: judaizmu, chrześcijaństwa i islamu.</p>' },
+    { typ:'krotka', q:'Kto i kiedy zniszczył świątynię jerozolimską? Kto pozwolił Żydom wrócić do Palestyny?',
+      odp:'<ul><li>Świątynię zniszczyli <b>Babilończycy w 586 r. p.n.e.</b>, po zdobyciu Jerozolimy. Rozkaz wydał król Babilonii <b>Nabuchodonozor</b>.</li><li>Wrócić do Palestyny pozwolił Żydom <b>król Persów</b>, wkrótce po tym, jak <b>Persowie podbili Babilonię w 539 r. p.n.e.</b> Żydzi odbudowali wtedy świątynię.</li></ul>',
+      extra:'<p>Tym perskim królem był <b>Cyrus Wielki</b>. Odbudowana świątynia przetrwała do 70 r. n.e., kiedy zburzyli ją Rzymianie.</p><p>Do dziś zachował się fragment muru, który otaczał wzgórze świątynne. To <b>Ściana Płaczu</b> (Mur Zachodni) w Jerozolimie, najważniejsze miejsce modlitwy Żydów. Wierni wkładają w szczeliny między kamieniami karteczki z modlitwami.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-daty', ikona:'📅', nazwa:'Daty i oś czasu', krotko:'Daty',
+    opis:'Ustaw wydarzenia w kolejności i policz lata.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'kolejnosc', q:'Ułóż wydarzenia w kolejności, od najdawniejszego do najpóźniejszego.',
+      hint:'Klikaj wydarzenia od najdawniejszego do najpóźniejszego.',
+      elementy:['Persowie podbijają Babilonię','Plemię Abrahama wyrusza z Mezopotamii do Ziemi Obiecanej','Babilończycy zdobywają Jerozolimę i niszczą świątynię','Początek panowania króla Dawida','Rzymianie łupią Jerozolimę i zabierają menorę ze świątyni','Podział Izraela na dwa państwa','Salomon buduje świątynię w Jerozolimie'],
+      kolejnosc:[1,3,6,5,2,0,4],
+      odp:'<p>Wyprawa plemienia Abrahama → początek panowania Dawida (ok. 1010 p.n.e.) → Salomon buduje świątynię (X w. p.n.e.) → podział Izraela (ok. 931 p.n.e.) → Babilończycy niszczą świątynię (586 p.n.e.) → Persowie podbijają Babilonię (539 p.n.e.) → Rzymianie łupią Jerozolimę (70 n.e.)</p>',
+      extra:'<p>Wyprawa Abrahama nie ma daty. Historycy nie wiedzą, kiedy (ani czy) żył Abraham. Według Biblii jego plemię wyruszyło do Ziemi Obiecanej na długo przed czasami królów.</p>' },
+    { typ:'policz', q:'W którym wieku to było? Zapisz wiek cyframi rzymskimi.',
+      body:'<ul class="dates"><li>ok. 1010 r. p.n.e.</li><li>ok. 931 r. p.n.e.</li><li>586 r. p.n.e.</li><li>539 r. p.n.e.</li><li>70 r. n.e.</li></ul>',
+      odp:'<ul><li>ok. 1010 r. p.n.e. → 10 + 1 = 11 → <b>XI w. p.n.e.</b> (początek panowania Dawida)</li><li>ok. 931 r. p.n.e. → 9 + 1 = 10 → <b>X w. p.n.e.</b> (podział Izraela)</li><li>586 r. p.n.e. → 5 + 1 = 6 → <b>VI w. p.n.e.</b> (zniszczenie świątyni)</li><li>539 r. p.n.e. → 5 + 1 = 6 → <b>VI w. p.n.e.</b> (podbój Babilonii przez Persów)</li><li>70 r. n.e. → 0 + 1 = 1 → <b>I w. n.e.</b> (Rzymianie łupią Jerozolimę)</li></ul>',
+      extra:'<p>Teraz widać, skąd w podręczniku zwrot „na przełomie XI i X w. p.n.e.”: Dawid zaczął panować ok. 1010 r. p.n.e. (XI w.), a Salomon ok. 970 r. p.n.e. (X w.).</p><p>Zdobycie Jerozolimy i upadek Babilonii wypadają w tym samym VI wieku p.n.e., więc tzw. niewola babilońska zaczęła się i skończyła w jednym stuleciu.</p>' },
+    { typ:'policz', q:'Policz: a) Ile lat minęło od zdobycia Jerozolimy przez Babilończyków (586 r. p.n.e.) do podboju Babilonii przez Persów (539 r. p.n.e.)? b) Ile lat mniej więcej panował Dawid, a ile Salomon?',
+      odp:'<ul><li>a) 586 − 539 = <b>47 lat</b>. Zgadza się to z podręcznikiem: państwo babilońskie przetrwało jeszcze „kilkadziesiąt lat”.</li><li>b) Dawid: 1010 − 970 = <b>ok. 40 lat</b>. Salomon: 970 − 931 = <b>ok. 39 lat</b>.</li></ul>',
+      extra:'<p>Gdy obie daty są p.n.e., odejmujemy mniejszą liczbę od większej. Lata przed naszą erą „odliczamy w dół”, jak przed startem rakiety. Według Biblii obaj królowie panowali po 40 lat.</p><p>Zadanie dla mistrzów: od zniszczenia świątyni (586 r. p.n.e.) do zburzenia odbudowanej świątyni przez Rzymian (70 r. n.e.) minęło 586 + 70 − 1 = <b>655 lat</b>. Odejmujemy 1, bo nie było roku 0.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-pary', ikona:'🔗', nazwa:'Dopasuj w pary', krotko:'Dopasuj',
+    opis:'Połącz daty, ludzi i symbole z opisami.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj datę do wydarzenia.',
+      lewa:['ok. 1010 r. p.n.e.','ok. 931 r. p.n.e.','586 r. p.n.e.','539 r. p.n.e.','70 r. n.e.'],
+      prawa:['Persowie podbijają Babilonię','Rzymianie łupią Jerozolimę i zabierają menorę ze świątyni','Początek panowania króla Dawida','Babilończycy zdobywają Jerozolimę i niszczą świątynię','Podział Izraela na dwa państwa'],
+      klucz:['C','E','D','A','B'],
+      extra:'<p>Skrót „ok.” (około) przy dacie oznacza, że historycy nie znają jej dokładnie. Im dawniejsze wydarzenie, tym częściej spotkasz przy nim to „ok.”.</p>' },
+    { typ:'dopasuj', q:'Dopasuj postać do opisu.',
+      lewa:['Abraham','Dawid','Salomon','Mojżesz','Nabuchodonozor'],
+      prawa:['Syn Dawida; zbudował wspaniałą świątynię w Jerozolimie','Król Babilonii, który kazał zniszczyć świątynię jerozolimską','Według Biblii praojciec narodu wybranego; jego plemię wyruszyło z Mezopotamii do Ziemi Obiecanej','Według Biblii otrzymał od Boga Dekalog wyryty na kamiennych tablicach','Król Izraela panujący ok. 1010 – ok. 970 p.n.e.; ojciec Salomona'],
+      klucz:['C','E','A','D','B'],
+      extra:'<p>Według Biblii Mojżesz wyprowadził Izraelitów z niewoli w Egipcie, a Dekalog otrzymał na górze Synaj. Tradycyjnie utożsamia się ją z górą na Półwyspie Synaj, który widać na mapie na s. 36.</p>' },
+    { typ:'dopasuj', q:'Dopasuj symbol lub przedmiot do opisu.',
+      lewa:['Gwiazda Dawida','Menora','Zwój Tory','Kamienne tablice'],
+      prawa:['Siedmioramienny złoty świecznik używany w religii żydowskiej; stał w świątyni jerozolimskiej','Spisany ręcznie na pergaminie z jagnięcej skóry; ma go każda synagoga','Według Biblii wyryto na nich Dekalog, który otrzymał Mojżesz','Symbol religii żydowskiej i dzisiejszego państwa Izrael; jako symbol powstał dopiero w średniowieczu'],
+      klucz:['D','A','B','C'],
+      extra:'<p>Gwiazda Dawida (po hebrajsku <i>Magen Dawid</i>, czyli „tarcza Dawida”) jest na fladze Izraela, a menora w godle tego państwa.</p><p>Na łuku triumfalnym Tytusa w Rzymie do dziś widać płaskorzeźbę rzymskich żołnierzy niosących menorę zabraną ze świątyni w 70 r. n.e. Nie myl menory z <b>chanukiją</b>, czyli świecznikiem z dziewięcioma ramionami, który zapala się podczas święta Chanuka.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-mapa', ikona:'🗺️', nazwa:'Praca z mapą', krotko:'Mapa',
+    opis:'Otwórz podręcznik na s. 36 i spójrz na mapę.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'mapa', q:'Spójrz na mapę „Palestyna w X–IX w. p.n.e.” w podręczniku. Które miasto było stolicą Izraela w czasach Dawida i Salomona? Na jakie dwa państwa podzielił się Izrael po śmierci Salomona i które z nich miało stolicę w Jerozolimie?',
+      body:'<p>Podręcznik, s. 36: mapa „Palestyna w X–IX w. p.n.e.”</p>',
+      odp:'<ul><li>Stolicą była <b>Jerozolima</b>.</li><li>Po śmierci Salomona powstały dwa słabe i skłócone państwa: <b>królestwo Izraela</b> na północy (zachowało nazwę zjednoczonego państwa) i <b>królestwo Judy</b> na południu. Stolicą Judy była <b>Jerozolima</b>.</li></ul>',
+      extra:'<p>Stolicą północnego królestwa Izraela stała się później <b>Samaria</b>, którą też widać na mapie.</p><p>Słowo „Żyd” pochodzi (przez łacinę) od nazwy Judy.</p>' },
+    { typ:'mapa', q:'Nad jakim morzem leżała Palestyna? Jak nazywa się rzeka, która przez nią płynie, i dokąd ta rzeka wpada?',
+      body:'<p>Podręcznik, s. 36: mapa „Palestyna w X–IX w. p.n.e.”</p>',
+      odp:'<ul><li>Palestyna leżała nad <b>Morzem Śródziemnym</b> (od zachodu).</li><li>Przez Palestynę płynie rzeka <b>Jordan</b>, z <b>Jeziora Genezaret</b> do <b>Morza Martwego</b>.</li></ul>',
+      extra:'<p>Morze Martwe to w rzeczywistości bardzo słone jezioro. Jest tak słone, że można się na nim unosić jak na materacu, a ryby nie mogą w nim żyć. Jego brzeg leży ponad 400 m poniżej poziomu morza i jest najniżej położonym miejscem na lądzie na Ziemi.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'d6-pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Nowy Testament jest częścią Biblii zarówno dla chrześcijan, jak i dla żydów.', p:false, fix:'tylko dla chrześcijan; <b>dla żydów Nowy Testament nie jest częścią Biblii</b>.'},
+        {t:'Biblia hebrajska była pisana prawdopodobnie od XIII do II w. p.n.e.', p:true, fix:''},
+        {t:'W czasie tzw. niewoli babilońskiej Żydzi byli niewolnikami.', p:false, fix:'byli <b>przesiedleńcami</b>; niektórzy zajmowali nawet wysokie stanowiska w państwie babilońskim.'},
+        {t:'Z judaizmu wywodzą się chrześcijaństwo i islam.', p:true, fix:''},
+        {t:'Gwiazda Dawida powstała w czasach króla Dawida.', p:false, fix:'jej nazwa nawiązuje do Dawida, ale jako symbol powstała <b>dopiero w średniowieczu</b>.'},
+        {t:'Tora to pięć pierwszych ksiąg Biblii.', p:true, fix:''},
+        {t:'Izraelici, podobnie jak Egipcjanie, czcili wielu bogów.', p:false, fix:'Izraelici wierzyli w <b>jednego Boga, Jahwe</b> (monoteizm).'},
+        {t:'Persja to dzisiejszy Iran.', p:true, fix:''}
+      ],
+      extra:'<p>Nazwą „Persja” posługiwano się w Europie aż do 1935 r. Wtedy władze tego kraju poprosiły inne państwa, by używały nazwy <b>Iran</b>.</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">ok. 1010 p.n.e.<small>początek panowania Dawida</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">ok. 970 p.n.e.<small>początek panowania Salomona, budowa świątyni w Jerozolimie</small></div>'+
+      '<div class="seg" style="background:#FFC966">ok. 931 p.n.e.<small>podział na królestwo Izraela i królestwo Judy</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">586 p.n.e.<small>Babilończycy niszczą świątynię, początek tzw. niewoli babilońskiej</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">539 p.n.e.<small>Persowie podbijają Babilonię, Żydzi wracają do Palestyny</small></div>'+
+      '<div class="era h" style="grid-column:span 5">Wszystkie daty: przed naszą erą</div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>📜 Biblia ma dwie części</h4><p>Biblia hebrajska (= Stary Testament), pisana prawdopodobnie od XIII do II w. p.n.e. Nowy Testament – I w. n.e., część Biblii tylko dla chrześcijan.</p></div>'+
+      '<div class="rule"><h4>✡️ Judaizm w trzech punktach</h4><p>Monoteizm, czyli jeden Bóg, Jahwe. Główne zasady postępowania określa Dekalog. Szczegółowe nakazy i zakazy podaje Tora (pięć pierwszych ksiąg Biblii).</p></div>'+
+      '<div class="rule"><h4>✍️ Żyd czy żyd?</h4><p>Żyd – członek narodu (jak Polak). żyd – wyznawca judaizmu (jak katolik).</p></div>'+
+      '<div class="rule"><h4>🕎 Symbole</h4><p>Gwiazda Dawida (symbol od średniowiecza), menora (siedmioramienny świecznik), zwój Tory (w każdej synagodze).</p></div>'+
+    '</div>'
+}
+];
+
+/* ===================================================================== */
+
+var $=function(s){return document.querySelector(s);};
+var LIT='ABCDEFGH';
+var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function plural(n,a,b,c){if(n===1)return a;var d=n%10,dd=n%100;return (d>=2&&d<=4&&!(dd>=12&&dd<=14))?b:c;}
+
+var dz=null,ALL=[],BY={},TOTAL=0;
+function unlocked(){return DZIALY.filter(function(d){return !d.locked;});}
+function getDz(id){var u=unlocked(),f=null;u.forEach(function(d){if(d.id===id)f=d;});return f||u[0];}
+function curRangi(){return (dz&&dz.rangi)||RANGI;}
+function buildDz(d){var n=0;ALL=[];BY={};d.kategorie.forEach(function(k){k.pytania.forEach(function(p){p.nr=++n;p.uid=d.id+'-'+p.nr;p.k=k;ALL.push(p);BY[p.uid]=p;});});TOTAL=ALL.length;}
+
+var KEY='kapsula-czasu-v1',store={};
+try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+var RANGI=[
+  {od:0,  e:'🧭', n:'Podróżnik w czasie', msg:'Piasek zaczął się sypać! Każde pytanie, które umiesz, to krok w podróży przez czas. ⏳'},
+  {od:.25,e:'📅', n:'Strażnik kalendarza', msg:'Brawo! Zostajesz Strażnikiem Kalendarza. Daty już Cię słuchają!'},
+  {od:.5, e:'🏹', n:'Łowca dat', msg:'Ponad połowa za Tobą! Łowca Dat w akcji, żadna data się nie ukryje. 😎'},
+  {od:.75,e:'🏛️', n:'Znawca epok', msg:'Znawca Epok! Jeszcze tylko kilka pytań do tytułu Mistrza…'},
+  {od:1,  e:'🏆', n:'Mistrz chronologii', msg:'MISTRZ CHRONOLOGII! Cały piasek przesypany, cały dział opanowany! 🏆'}
+];
+var POCHWALY=['Brawo! 🎉','Super, tak trzymaj! 💪','Mistrzowsko! ⭐','Świetnie, tak trzymaj! ⏳','Ekstra! Kolejne ziarenko wiedzy 🌟','Pięknie! Historia nie ma przed Tobą tajemnic 😎'];
+var DOPING=['Powtarzanie to matka wiedzy! 💪','Zapisane do powtórki. Wrócimy tu! 🔁','Każdy mistrz kiedyś zaczynał. Do dzieła! 🚀'];
+
+function vars(k){return '--c:'+k.c+';--soft:'+k.soft+';--dark:'+k.dark;}
+
+/* ---------- budowanie HTML ---------- */
+function matchHTML(p){
+  var opts='<option value="">?</option>'+p.prawa.map(function(_,j){return '<option value="'+LIT[j]+'">'+LIT[j]+'</option>';}).join('');
+  var L=p.lewa.map(function(t,i){return '<li><span class="ix ix-n">'+(i+1)+'</span><span>'+t+'</span><select aria-label="Litera dla pozycji '+(i+1)+'">'+opts+'</select></li>';}).join('');
+  var R=p.prawa.map(function(t,j){return '<li><span class="ix ix-l">'+LIT[j]+'</span><span>'+t+'</span></li>';}).join('');
+  return '<p class="hint">Przy każdym numerze wybierz literę albo zapisz pary na kartce, np. 1–B.</p><div class="match"><ol class="mcol ml">'+L+'</ol><ul class="mcol mr">'+R+'</ul></div>';
+}
+function matchAnswer(p){
+  return '<ul>'+p.lewa.map(function(t,i){var j=LIT.indexOf(p.klucz[i]);return '<li><b>'+(i+1)+' – '+p.klucz[i]+'</b>: '+t+' → '+p.prawa[j]+'</li>';}).join('')+'</ul>';
+}
+function pfHTML(p){
+  return '<p class="hint">Przy każdym zdaniu kliknij P (prawda) albo F (fałsz).</p><ol class="pf">'+p.zdania.map(function(z,i){
+    var l=LIT[i].toLowerCase();
+    return '<li><span class="t"><b>'+l+')</b> '+z.t+'</span><span class="pfb" role="group" aria-label="Zdanie '+l+'"><button type="button" data-v="P" aria-pressed="false">P</button><button type="button" data-v="F" aria-pressed="false">F</button></span></li>';
+  }).join('')+'</ol>';
+}
+function pfAnswer(p){
+  return '<ul>'+p.zdania.map(function(z,i){return '<li><b>'+LIT[i].toLowerCase()+') '+(z.p?'✅ Prawda':'❌ Fałsz')+'</b>'+(z.fix?': '+z.fix:'')+'</li>';}).join('')+'</ul>';
+}
+function sortHTML(p){
+  var btns=p.kategorie.map(function(kat,ki){return '<button type="button" data-k="'+ki+'" aria-pressed="false">'+kat+'</button>';}).join('');
+  var hint=p.hint||('Przy każdej cesze kliknij „'+p.kategorie.slice(0,-1).join('”, „')+'” albo „'+p.kategorie[p.kategorie.length-1]+'”.');
+  return '<p class="hint">'+hint+'</p><ol class="sort">'+p.elementy.map(function(el,i){
+    return '<li><span class="t">'+el.t+'</span><span class="sortb" role="group" aria-label="Cecha '+(i+1)+'">'+btns+'</span></li>';
+  }).join('')+'</ol>';
+}
+function sortAnswer(p){
+  return p.kategorie.map(function(kat,ki){
+    var items=p.elementy.filter(function(el){return el.k===ki;});
+    return '<p><b>'+kat+':</b></p><ul>'+items.map(function(el){return '<li>'+el.t+'</li>';}).join('')+'</ul>';
+  }).join('');
+}
+function orderHTML(p){
+  return '<p class="hint">'+(p.hint||'Klikaj daty od najdawniejszej do najpóźniejszej.')+'</p><div class="opool">'+p.elementy.map(function(t,i){return '<button type="button" class="ochip" data-i="'+i+'">'+t+'</button>';}).join('')+'</div><div class="oseq" aria-live="polite"></div><button type="button" class="oclear">Wyczyść i ułóż jeszcze raz</button>';
+}
+function bodyHTML(p){
+  if(p.typ==='dopasuj')return matchHTML(p);
+  if(p.typ==='pf')return pfHTML(p);
+  if(p.typ==='sortuj')return sortHTML(p);
+  if(p.typ==='kolejnosc')return orderHTML(p);
+  return p.body||'';
+}
+function cardHTML(p){
+  var ans=p.typ==='dopasuj'?matchAnswer(p):p.typ==='pf'?pfAnswer(p):p.typ==='sortuj'?sortAnswer(p):p.odp;
+  var body=bodyHTML(p);
+  return '<article class="card" id="q'+p.nr+'" data-uid="'+p.uid+'" style="'+vars(p.k)+'">'+
+    '<div class="ctop"><span class="qnr">'+p.nr+'</span><span class="qtype">'+TYPY[p.typ]+'</span><span class="qmark"></span></div>'+
+    '<h3 class="qtext">'+p.q+'</h3>'+
+    (body?'<div class="qbody">'+body+'</div>':'')+
+    '<button type="button" class="btn btn-reveal" aria-expanded="false" aria-controls="a'+p.nr+'">👀 Pokaż odpowiedź</button>'+
+    '<div class="answer" id="a'+p.nr+'" hidden>'+
+      '<div class="score hide"></div>'+
+      '<div class="abox"><span class="lbl">✔ Odpowiedź</span>'+ans+'</div>'+
+      (p.extra?'<div class="xbox"><span class="lbl">⭐ Zabłyśnij na lekcji</span>'+p.extra+'</div>':'')+
+      '<div class="selfcheck"><span>Jak Ci poszło?</span><button type="button" class="btn btn-ok">✅ Umiem!</button><button type="button" class="btn btn-rep">🔁 Muszę powtórzyć</button></div>'+
+    '</div></article>';
+}
+function catHTML(k){
+  return '<section class="cat" id="k-'+k.id+'" style="'+vars(k)+'">'+
+    '<div class="cat-head"><div class="cat-ico" aria-hidden="true">'+k.ikona+'</div><div><h2>'+k.nazwa+'</h2><p>'+k.opis+'</p></div><span class="cat-cnt" data-cnt="'+k.id+'"></span></div>'+
+    '<div class="cards">'+k.pytania.map(cardHTML).join('')+'</div></section>';
+}
+
+/* ---------- górne menu: przedmioty i działy ---------- */
+var SUBJECTS=[
+  {id:'start',label:'🏠 Start',h1:'Start',sub:'Wybierz przedmiot z menu powyżej'},
+  {id:'biologia',label:'🧬 Biologia',h1:'Powtórka z biologii'},
+  {id:'chemia',label:'⚗️ Chemia',h1:'Powtórka z chemii'},
+  {id:'historia',label:'🏛️ Historia',h1:'Powtórka z historii'},
+  {id:'matematyka',label:'📐 Matematyka',h1:'Powtórka z matematyki'},
+  {id:'onas',label:'ℹ️ O stronie',h1:'O stronie',sub:'Jak korzystać z tej strony i jak powstawała' }
+];
+var SKEY='powtorka-subject-v1',subject='historia';
+try{subject=localStorage.getItem(SKEY)||'historia';}catch(e){subject='historia';}
+if(!SUBJECTS.some(function(s){return s.id===subject;}))subject='historia';
+function saveSubject(){try{localStorage.setItem(SKEY,subject);}catch(e){}}
+var view='klasy';
+function setHero(sub,lead){$('#hero-sub').textContent=sub;$('#hero-lead').textContent=lead;}
+function subjLabel(id){var s=null;SUBJECTS.forEach(function(x){if(x.id===id)s=x;});return s?s.label.replace(/^\S+\s/,''):id;}
+function renderMenu(){
+  $('#tm-subjects').innerHTML=SUBJECTS.map(function(s){
+    return '<button type="button" class="tm-sub'+(s.id===subject?' active':'')+'"'+(s.id===subject?' aria-current="page"':'')+' data-sub="'+s.id+'">'+s.label+'</button>';
+  }).join('');
+  $('#tm-dzialy').innerHTML=(subject==='historia'&&view==='dzial')?DZIALY.map(function(d){
+    return '<button type="button" class="tab'+(d===dz?' active':'')+'"'+(d===dz?' aria-current="page"':'')+' data-dz="'+d.id+'"><span class="tnr">Dział '+d.nr+'</span>'+(d.krotkiTytul||d.tytul)+'</button>';
+  }).join(''):'';
+}
+function subj(id){var s=null;SUBJECTS.forEach(function(x){if(x.id===id)s=x;});return s;}
+function heroForSubject(){
+  var s=subj(subject),his=subject==='historia';
+  $('#hero-h1').textContent=s?s.h1:'Powtórka z historii';
+  $('#hero-sub').textContent=his?'Historia – pytania do powtórki':((s&&s.sub)?s.sub:subjLabel(subject)+' – w trakcie prac');
+  $('#hero-lead').textContent=his?'Przeczytaj pytanie, odpowiedz na głos albo na kartce i dopiero wtedy zajrzyj do odpowiedzi. Uczciwie! 😉':'Ta sekcja jest w trakcie prac. Zapraszamy wkrótce! 🔧';
+  try{document.title=s?s.h1:'Powtórka z historii';}catch(e){}
+}
+function showStatus(v){document.querySelector('.status').style.display=v?'':'none';}
+function renderSoon(){
+  renderMenu();heroForSubject();showStatus(false);
+  $('#chips').innerHTML='';
+  $('#main').innerHTML='<section class="soon"><div class="soon-ico" aria-hidden="true">🔧</div><h2>W trakcie prac</h2><p>Sekcja „'+subjLabel(subject)+'” jest w przygotowaniu. Zaglądnij tu wkrótce!</p></section>';
+  $('#footer').textContent='Powtórka z historii. Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  fixSticky();
+}
+var RZYMSKIE=['I','II','III','IV','V','VI','VII','VIII'];
+function goHist(v,hash){
+  view=v;
+  try{if(hash&&location.hash!=='#'+hash)location.hash='#'+hash;}catch(err){}
+  if(v==='klasy')renderKlasy();
+  else if(v==='ksiazki')renderKsiazki();
+  else if(v==='rozdzialy')renderRozdzialy();
+}
+function renderKlasy(){
+  renderMenu();setHero('Historia','Wybierz klasę.');showStatus(false);
+  $('#chips').innerHTML='';
+  $('#main').innerHTML='<section class="pick"><button type="button" class="pick-btn" data-nav="ksiazki"><span class="pk-ico">🎒</span><span>Klasa 5<small>Szkoła podstawowa</small></span><span class="go">→</span></button></section>';
+  $('#footer').textContent='Powtórka z historii. Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  fixSticky();
+}
+function renderKsiazki(){
+  renderMenu();setHero('Historia • Klasa 5','Wybierz podręcznik.');showStatus(false);
+  $('#chips').innerHTML='';
+  $('#main').innerHTML='<button type="button" class="back" data-nav="klasy">← Klasy</button>'+
+    '<section class="pick"><button type="button" class="pick-btn" data-nav="rozdzialy"><img class="book-cover" src="res/images/historia-5-podroze-w-czasie-podrecznik.png" alt="Okładka podręcznika Historia 5. Podróże w czasie"><span>Historia 5. Podróże w czasie.<small>Podręcznik</small></span><span class="go">→</span></button></section>';
+  $('#footer').textContent='Powtórka z historii. Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  fixSticky();
+}
+function renderRozdzialy(){
+  renderMenu();setHero('Historia • Klasa 5','Wybierz rozdział.');showStatus(false);
+  $('#chips').innerHTML='';
+  $('#main').innerHTML='<button type="button" class="back" data-nav="ksiazki">← Podręczniki</button>'+
+    '<section class="pick">'+RZYMSKIE.map(function(r,i){
+      var otwarty=i===0;
+      return '<button type="button" class="pick-btn" data-r="'+(i+1)+'"><span class="pk-ico">'+(otwarty?'📖':'🔒')+'</span><span>Rozdział '+r+(otwarty?'<small>Działy 1–6: od chronologii do Izraela</small>':'<small>Wkrótce</small>')+'</span><span class="badge'+(otwarty?'':' soon-b')+'">'+(otwarty?'dostępny':'wkrótce')+'</span><span class="go">→</span></button>';
+    }).join('')+'</section>';
+  $('#footer').textContent='Powtórka z historii. Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  fixSticky();
+}
+function renderSoonChapter(n){
+  view='soon-r';renderMenu();setHero('Historia • Klasa 5','Ta sekcja jest w trakcie prac. Zapraszamy wkrótce! 🔧');showStatus(false);
+  $('#chips').innerHTML='';
+  $('#main').innerHTML='<button type="button" class="back" data-nav="rozdzialy">← Rozdziały</button>'+
+    '<section class="soon"><div class="soon-ico" aria-hidden="true">🔧</div><h2>W trakcie prac</h2><p>Rozdział '+RZYMSKIE[n-1]+' jest w przygotowaniu. Zaglądnij tu wkrótce!</p></section>';
+  $('#footer').textContent='Powtórka z historii. Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  fixSticky();
+}
+function fixSticky(){
+  var m=$('#topmenu'),s=document.querySelector('.status');
+  if(!m||!s)return;
+  s.style.top=m.offsetHeight+'px';
+  document.documentElement.style.scrollPaddingTop=(m.offsetHeight+s.offsetHeight+12)+'px';
+}
+window.addEventListener('resize',fixSticky);
+function render(dzId){
+  dz=getDz(dzId);buildDz(dz);view='dzial';renderMenu();heroForSubject();showStatus(true);
+  $('#main').innerHTML=
+    '<button type="button" class="back" data-nav="rozdzialy">← Rozdziały</button>'+
+    '<section class="intro"><div class="bignr" aria-hidden="true">'+dz.nr+'</div><div>'+
+      '<h2>'+dz.tytul+'</h2>'+
+      '<ul class="meta"><li>'+dz.zakres+'</li><li>'+TOTAL+' '+plural(TOTAL,'pytanie','pytania','pytań')+'</li><li>'+dz.kategorie.length+' '+plural(dz.kategorie.length,'rodzaj','rodzaje','rodzajów')+' zadań</li></ul>'+
+      '<ol class="howto"><li>Przeczytaj pytanie</li><li>Odpowiedz na głos lub na kartce</li><li>Kliknij „Pokaż odpowiedź”</li><li>Oceń się uczciwie</li></ol>'+
+    '</div></section>'+
+    dz.kategorie.map(catHTML).join('')+
+    (dz.sciagawka?'<details class="cheat"><summary>📜 Ściągawka: otwórz, gdy skończysz pytania</summary><div class="cheat-body">'+dz.sciagawka+'</div></details>':'');
+  $('#chips').innerHTML=dz.kategorie.map(function(k){return '<a class="chip" href="#k-'+k.id+'" data-chip="'+k.id+'" style="'+vars(k)+'">'+k.ikona+' '+k.krotko+'<small></small></a>';}).join('');
+  $('#footer').textContent='Pytania do działu „'+dz.tytul+'” ('+dz.zakres+'). Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+  $('#bar').setAttribute('aria-valuemax',TOTAL);
+  setRepOnly(false);
+  ALL.forEach(function(p){paintCard(cardOf(p),p);});
+  refresh();
+  fixSticky();
+}
+
+/* ---------- logika kart ---------- */
+function cardOf(p){return document.getElementById('q'+p.nr);}
+function isOpen(card){return !card.querySelector('.answer').hidden;}
+function getSeq(card){return card.dataset.seq?card.dataset.seq.split(',').map(Number):[];}
+function renderSeq(card,p){card.querySelector('.oseq').innerHTML=getSeq(card).map(function(i,n){return '<span><em>'+(n+1)+'.</em>'+p.elementy[i]+'</span>';}).join('');}
+function clearOrder(card,p){card.dataset.seq='';card.querySelectorAll('.ochip').forEach(function(b){b.disabled=false;});renderSeq(card,p);if(isOpen(card))evaluate(card,p);}
+
+function scoreMsg(h,n,what){
+  if(h===n)return '🎯 Bezbłędnie! '+what+': '+h+' z '+n+'.';
+  return '🔎 '+what+': '+h+' z '+n+'. Porównaj z odpowiedzią poniżej.';
+}
+function evaluate(card,p){
+  var sc=card.querySelector('.score'),msg='';
+  if(p.typ==='dopasuj'){
+    var hit=0,tried=0;
+    card.querySelectorAll('.ml li').forEach(function(li,i){var v=li.querySelector('select').value;li.classList.remove('right','wrong');if(!v)return;tried++;if(v===p.klucz[i]){hit++;li.classList.add('right');}else li.classList.add('wrong');});
+    if(tried)msg=scoreMsg(hit,p.klucz.length,'Dobrze dopasowane');
+  }else if(p.typ==='pf'){
+    var h2=0,t2=0;
+    card.querySelectorAll('.pf li').forEach(function(li,i){var s=li.querySelector('button.sel');li.classList.remove('right','wrong');if(!s)return;t2++;if((s.dataset.v==='P')===p.zdania[i].p){h2++;li.classList.add('right');}else li.classList.add('wrong');});
+    if(t2)msg=scoreMsg(h2,p.zdania.length,'Dobre odpowiedzi');
+  }else if(p.typ==='kolejnosc'){
+    var seq=getSeq(card);
+    if(seq.length){var h3=0;seq.forEach(function(v,i){if(v===p.kolejnosc[i])h3++;});msg=scoreMsg(h3,p.kolejnosc.length,'Na właściwym miejscu');}
+  }else if(p.typ==='sortuj'){
+    var h4=0,t4=0;
+    card.querySelectorAll('.sort li').forEach(function(li,i){var s=li.querySelector('button.sel');li.classList.remove('right','wrong');if(!s)return;t4++;if(+s.getAttribute('data-k')===p.elementy[i].k){h4++;li.classList.add('right');}else li.classList.add('wrong');});
+    if(t4)msg=scoreMsg(h4,p.elementy.length,'Dobrze przyporządkowane');
+  }
+  sc.classList.toggle('hide',!msg);sc.textContent=msg;
+}
+function toggle(card,p){
+  var a=card.querySelector('.answer'),b=card.querySelector('.btn-reveal'),open=a.hidden;
+  a.hidden=!open;b.setAttribute('aria-expanded',String(open));
+  b.textContent=open?'🙈 Schowaj odpowiedź':'👀 Pokaż odpowiedź';
+  if(open)evaluate(card,p);
+  else card.querySelectorAll('li.right,li.wrong').forEach(function(li){li.classList.remove('right','wrong');});
+}
+function paintCard(card,p){
+  var m=store[p.uid];
+  card.classList.toggle('is-ok',m==='ok');card.classList.toggle('is-rep',m==='rep');
+  card.querySelector('.qmark').textContent=m==='ok'?'✅ Umiem':m==='rep'?'🔁 Do powtórki':'';
+  card.querySelector('.btn-ok').classList.toggle('on',m==='ok');
+  card.querySelector('.btn-rep').classList.toggle('on',m==='rep');
+}
+function countOk(list){return (list||ALL).filter(function(p){return store[p.uid]==='ok';}).length;}
+function catDone(k){return countOk(k.pytania)===k.pytania.length;}
+
+function rankFor(f){var list=curRangi(),r=list[0];list.forEach(function(x){if(f>=x.od)r=x;});return r;}
+function refresh(){
+  var ok=countOk(),f=ok/TOTAL,r=rankFor(f);
+  $('#pcount').textContent='Umiem: '+ok+' / '+TOTAL;
+  $('#barfill').style.width=(f*100)+'%';
+  $('#bar').setAttribute('aria-valuenow',ok);
+  $('#rank').textContent=r.e+' '+r.n;
+  dz.kategorie.forEach(function(k){
+    var c=countOk(k.pytania),n=k.pytania.length;
+    var chip=document.querySelector('[data-chip="'+k.id+'"]');
+    chip.querySelector('small').textContent=c+'/'+n;
+    chip.classList.toggle('done',c===n);
+    document.querySelector('[data-cnt="'+k.id+'"]').textContent=(c===n?'🌟 ':'')+'Umiem '+c+' z '+n;
+  });
+}
+
+var repOnly=false;
+function applyFilter(){
+  ALL.forEach(function(p){cardOf(p).classList.toggle('hide',repOnly&&store[p.uid]!=='rep');});
+  document.querySelectorAll('.cat').forEach(function(s){s.classList.toggle('hide',repOnly&&!s.querySelector('.card:not(.hide)'));});
+}
+function setRepOnly(v){repOnly=v;$('#t-rep').setAttribute('aria-pressed',String(v));applyFilter();}
+
+function setMark(card,p,m){
+  var wasCat=catDone(p.k),wasAll=countOk()===TOTAL;
+  if(store[p.uid]===m)delete store[p.uid];else store[p.uid]=m;
+  save();paintCard(card,p);refresh();
+  if(store[p.uid]==='ok'){
+    if(countOk()===TOTAL&&!wasAll){celebrate();toast('🏆 Cały dział opanowany! Zostajesz: '+curRangi()[curRangi().length-1].n+'!');}
+    else if(catDone(p.k)&&!wasCat){toast('🌟 Kategoria „'+p.k.nazwa+'” zaliczona!');}
+    else toast(pick(POCHWALY));
+  }else if(store[p.uid]==='rep')toast(pick(DOPING));
+  if(repOnly){
+    if(!ALL.some(function(x){return store[x.uid]==='rep';})){setRepOnly(false);toast('Wszystkie powtórki zrobione! 🎉');}
+    else applyFilter();
+  }
+}
+
+$('#main').addEventListener('click',function(e){
+  var nb=e.target.closest('[data-nav]');
+  if(nb){var nv=nb.getAttribute('data-nav');if(nv==='klasy')goHist('klasy','historia');else if(nv==='ksiazki')goHist('ksiazki','klasa5');else if(nv==='rozdzialy')goHist('rozdzialy','podrecznik-h5');return;}
+  var rb=e.target.closest('[data-r]');
+  if(rb){var n=+rb.getAttribute('data-r');try{if(location.hash!=='#r'+n)location.hash='#r'+n;}catch(err){}if(n===1){view='dzial';render(dz?dz.id:unlocked()[0].id);}else renderSoonChapter(n);window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});return;}
+  var card=e.target.closest('.card');if(!card)return;
+  var p=BY[card.dataset.uid];
+  if(e.target.closest('.btn-reveal'))return toggle(card,p);
+  if(e.target.closest('.btn-ok'))return setMark(card,p,'ok');
+  if(e.target.closest('.btn-rep'))return setMark(card,p,'rep');
+  var pb=e.target.closest('.pfb button');
+  if(pb){pb.parentNode.querySelectorAll('button').forEach(function(b){var on=b===pb;b.classList.toggle('sel',on);b.setAttribute('aria-pressed',String(on));});if(isOpen(card))evaluate(card,p);return;}
+  var sb=e.target.closest('.sortb button');
+  if(sb){sb.parentNode.querySelectorAll('button').forEach(function(b){var on=b===sb;b.classList.toggle('sel',on);b.setAttribute('aria-pressed',String(on));});if(isOpen(card))evaluate(card,p);return;}
+  var oc=e.target.closest('.ochip');
+  if(oc){var s=getSeq(card);s.push(+oc.dataset.i);card.dataset.seq=s.join(',');oc.disabled=true;renderSeq(card,p);if(isOpen(card))evaluate(card,p);return;}
+  if(e.target.closest('.oclear'))clearOrder(card,p);
+});
+$('#main').addEventListener('change',function(e){
+  if(!e.target.matches('select'))return;
+  var card=e.target.closest('.card');if(isOpen(card))evaluate(card,BY[card.dataset.uid]);
+});
+
+function goSubject(id,push){
+  if(subject!==id){subject=id;saveSubject();}
+  if(push){try{if(location.hash!=='#'+id)location.hash='#'+id;}catch(err){}}
+  if(id==='historia'){view='klasy';renderKlasy();}
+  else renderSoon();
+  window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+}
+$('#tm-subjects').addEventListener('click',function(e){
+  var b=e.target.closest('[data-sub]');if(!b||b.getAttribute('data-sub')===subject)return;
+  goSubject(b.getAttribute('data-sub'),true);
+});
+$('#tm-dzialy').addEventListener('click',function(e){
+  var b=e.target.closest('[data-dz]');if(!b||!dz||b.getAttribute('data-dz')===dz.id)return;
+  try{if(location.hash!=='#'+b.getAttribute('data-dz'))location.hash='#'+b.getAttribute('data-dz');}catch(err){}
+  render(b.getAttribute('data-dz'));
+  window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+});
+function routeFromHash(){
+  var id=(location.hash||'').replace('#','');
+  if(!id)return false;
+  if(SUBJECTS.some(function(s){return s.id===id;})){
+    if(id!==subject)goSubject(id,false);
+    else if(id==='historia')goHist('klasy');
+    return true;
+  }
+  if(id==='klasa5'){if(subject!=='historia'){subject='historia';saveSubject();}goHist('ksiazki');return true;}
+  if(id==='podrecznik-h5'){if(subject!=='historia'){subject='historia';saveSubject();}goHist('rozdzialy');return true;}
+  var rm=id.match(/^r([1-8])$/);
+  if(rm){if(subject!=='historia'){subject='historia';saveSubject();}var n=+rm[1];if(n===1){view='dzial';render(dz?dz.id:unlocked()[0].id);}else renderSoonChapter(n);return true;}
+  if(getDz(id).id===id){if(subject!=='historia'){subject='historia';saveSubject();}view='dzial';render(id);return true;}
+  return false;
+}
+window.addEventListener('hashchange',function(){routeFromHash();});
+
+$('#t-random').addEventListener('click',function(){
+  var pool=ALL.filter(function(p){return store[p.uid]!=='ok'&&!cardOf(p).classList.contains('hide');});
+  if(!pool.length){toast('Umiesz wszystko! 🏆 Kliknij „Zacznij od nowa”, żeby sprawdzić się jeszcze raz.');return;}
+  var c=cardOf(pick(pool));
+  c.scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});
+  c.classList.remove('pulse');void c.offsetWidth;c.classList.add('pulse');
+});
+$('#t-rep').addEventListener('click',function(){
+  if(!repOnly&&!ALL.some(function(p){return store[p.uid]==='rep';})){toast('Nie masz jeszcze pytań do powtórki. Tak trzymaj! 👍');return;}
+  setRepOnly(!repOnly);
+  if(repOnly){var n=ALL.filter(function(p){return store[p.uid]==='rep';}).length;toast('Pokazuję '+n+' '+plural(n,'pytanie','pytania','pytań')+' do powtórki 🔁');}
+});
+$('#t-reset').addEventListener('click',function(){
+  if(!confirm('Zacząć od nowa? Oceny „Umiem” i „Muszę powtórzyć” w tym dziale zostaną wyczyszczone.'))return;
+  ALL.forEach(function(p){
+    delete store[p.uid];
+    var c=cardOf(p);
+    if(isOpen(c))toggle(c,p);
+    c.querySelectorAll('select').forEach(function(s){s.value='';});
+    c.querySelectorAll('.pfb button').forEach(function(b){b.classList.remove('sel');b.setAttribute('aria-pressed','false');});
+    c.querySelectorAll('.sortb button').forEach(function(b){b.classList.remove('sel');b.setAttribute('aria-pressed','false');});
+    if(p.typ==='kolejnosc')clearOrder(c,p);
+    paintCard(c,p);
+  });
+  save();setRepOnly(false);refresh();
+  window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+  toast('Czysta karta! Ruszamy od początku 🚀');
+});
+
+var toastT;
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},2400);}
+function celebrate(){
+  if(reduced)return;
+  var cols=['#FF6B5B','#FFB938','#14A39F','#7C5CFF','#3B82F6','#16A063','#E8579B'];
+  for(var i=0;i<110;i++){
+    var d=document.createElement('i');d.className='confetti';
+    d.style.left=Math.random()*100+'vw';d.style.background=cols[i%cols.length];
+    d.style.setProperty('--dx',(Math.random()*160-80)+'px');d.style.setProperty('--rot',(Math.random()*900-450)+'deg');
+    d.style.animationDuration=(2.4+Math.random()*2)+'s';d.style.animationDelay=(Math.random()*.6)+'s';
+    document.body.appendChild(d);
+    (function(el){setTimeout(function(){el.remove();},5600);})(d);
+  }
+}
+
+(function init(){
+  var id=(location.hash||'').replace('#','');
+  if(id&&SUBJECTS.some(function(s){return s.id===id;})){goSubject(id,false);return;}
+  if(id==='klasa5'){subject='historia';saveSubject();goHist('ksiazki');return;}
+  if(id==='podrecznik-h5'){subject='historia';saveSubject();goHist('rozdzialy');return;}
+  var rm=id.match(/^r([1-8])$/);
+  if(rm){subject='historia';saveSubject();var n=+rm[1];if(n===1){view='dzial';render(unlocked()[0].id);}else renderSoonChapter(n);return;}
+  if(id&&getDz(id).id===id){subject='historia';saveSubject();view='dzial';render(id);return;}
+  if(subject!=='historia'){renderSoon();return;}
+  view='klasy';renderKlasy();
+})();
+})();
+</script>
+</body>
+</html>
