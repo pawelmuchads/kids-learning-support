@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kapsuła Czasu – historia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1EFFA;
+  --ink:#1D2347;
+  --muted:#5A6085;
+  --line:#DEDAF0;
+  --paper:#F8F7FD;
+  --sand:#FFB938;
+  --night:#1D2350;
+  --good:#16A063;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:160px}
+body{
+  margin:0;color:var(--ink);background-color:var(--bg);
+  background-image:radial-gradient(rgba(29,35,71,.07) 1px,transparent 1.3px);background-size:22px 22px;
+  font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Baloo 2','Lexend',system-ui,sans-serif;letter-spacing:-.005em}
+b,strong{font-weight:700}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #7C5CFF;outline-offset:2px;border-radius:10px}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px}
+.hide{display:none!important}
+
+/* ---------- HERO: nocne niebo i klepsydra ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;padding-top:30px;
+  background:linear-gradient(160deg,#1D2350 0%,#2E2A66 58%,#45306E 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:
+  radial-gradient(1.6px 1.6px at 7% 24%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 17% 72%,#FFE3A3 50%,transparent 52%),
+  radial-gradient(2px 2px at 29% 13%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 44% 58%,#fff 50%,transparent 52%),
+  radial-gradient(1.8px 1.8px at 55% 20%,#FFE3A3 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 63% 80%,#fff 50%,transparent 52%),
+  radial-gradient(1.5px 1.5px at 79% 9%,#fff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 90% 66%,#FFE3A3 50%,transparent 52%);opacity:.85}
+.hero-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.hero-text{flex:1 1 360px}
+.hero .sub{margin:0;color:#FFD27A;font-weight:600;font-size:15px}
+.hero h1{font-size:clamp(46px,8vw,76px);line-height:.95;margin:8px 0 12px;font-weight:800;color:#FFF6E3}
+.hero .lead{margin:0;max-width:430px;color:#DCDFF4;font-size:16.5px}
+.mascot{display:flex;align-items:flex-end;gap:10px;flex:0 1 auto}
+.bubble{position:relative;background:#fff;color:var(--ink);border-radius:18px;padding:12px 15px;max-width:250px;font-weight:600;font-size:14.5px;line-height:1.45;margin-bottom:46px;box-shadow:0 12px 26px -10px rgba(0,0,0,.45)}
+.bubble::after{content:"";position:absolute;right:-9px;bottom:18px;border:10px solid transparent;border-left-color:#fff;border-right:0}
+#tiktak{width:118px;height:auto;flex-shrink:0;filter:drop-shadow(0 12px 14px rgba(0,0,0,.35))}
+.sandstream{stroke-dasharray:2 4;animation:flow .7s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-6}}
+.tabs{position:relative;display:flex;gap:8px;margin-top:24px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
+.tab{border:0;cursor:pointer;white-space:nowrap;font-weight:600;font-size:15px;padding:12px 18px;border-radius:16px 16px 0 0;background:rgba(255,255,255,.1);color:#CDD1F0}
+.tab .tnr{opacity:.65;margin-right:6px;font-weight:500}
+.tab.active{background:var(--bg);color:var(--ink)}
+.tab.locked{opacity:.6;cursor:not-allowed}
+
+/* ---------- INTRO DZIAŁU ---------- */
+.intro{display:flex;gap:22px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:26px;padding:22px 24px;margin:26px 0 6px;box-shadow:0 5px 0 var(--line)}
+.bignr{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:104px;line-height:.75;color:var(--sand);text-shadow:5px 5px 0 #FFE2A0;padding-top:10px}
+.intro h2{margin:0;font-size:32px;line-height:1.1}
+.intro .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px;padding:0;list-style:none}
+.intro .meta li{font-size:13.5px;font-weight:600;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:2px 10px}
+.howto{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none;counter-reset:s}
+.howto li{counter-increment:s;background:#FFF6E0;border:1px solid #F6DFA6;border-radius:99px;padding:5px 12px 5px 6px;font-size:14px;font-weight:600}
+.howto li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;margin-right:7px}
+
+/* ---------- PASEK POSTĘPU ---------- */
+.status{position:sticky;top:0;z-index:30;background:rgba(241,239,250,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 0 8px}
+.srow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.prog{flex:1 1 250px}
+.ptop{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:600}
+.rank{color:#5638D8}
+.bar{height:12px;border-radius:99px;background:#E1DCF2;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#FFD36B,var(--sand) 60%,#F59E0B);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{cursor:pointer;border:2px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-weight:600;font-size:13.5px}
+.tool:hover{border-color:#C9C2E6}
+.tool[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:9px 0 2px;scrollbar-width:none}
+.chip{white-space:nowrap;text-decoration:none;color:var(--dark);background:var(--soft);font-weight:600;font-size:13px;padding:5px 11px;border-radius:99px;border:1.5px solid transparent}
+.chip small{opacity:.75;margin-left:5px;font-size:12px}
+.chip.done{background:var(--dark);color:#fff}
+
+/* ---------- KATEGORIE ---------- */
+.cat{margin:40px 0 8px}
+.cat-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.cat-ico{flex-shrink:0;width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:27px;background:var(--soft);box-shadow:inset 0 -4px 0 rgba(0,0,0,.06)}
+.cat-head h2{margin:0;font-size:27px;line-height:1.1}
+.cat-head p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.cat-cnt{margin-left:auto;flex-shrink:0;font-weight:600;font-size:13px;color:var(--dark);background:var(--soft);padding:5px 11px;border-radius:99px}
+.cards{display:grid;gap:18px}
+
+/* ---------- KARTA PYTANIA ---------- */
+.card{position:relative;background:#fff;border:2px solid var(--line);border-top:7px solid var(--c);border-radius:22px;padding:16px 22px 20px;box-shadow:0 5px 0 var(--soft)}
+.ctop{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.qnr{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--dark);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:18px;padding-top:2px}
+.qtype{font-size:13px;font-weight:600;color:var(--dark);background:var(--soft);padding:4px 10px;border-radius:99px}
+.qmark{margin-left:auto;font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px;display:none}
+.card.is-ok{border-color:#A7E3C4;box-shadow:0 5px 0 #C9EFDA}
+.card.is-ok .qmark{display:inline-block;background:#E2F6EB;color:#11774A}
+.card.is-rep .qmark{display:inline-block;background:#FFF0D1;color:#935600}
+.qtext{font-family:'Lexend',sans-serif;font-weight:600;font-size:18.5px;line-height:1.45;margin:8px 0 12px}
+.qbody{margin-bottom:16px}
+.btn{cursor:pointer;border:0;border-radius:14px;padding:11px 18px;font-weight:600;font-size:15.5px;box-shadow:0 4px 0 rgba(0,0,0,.22);transition:transform .08s,box-shadow .08s,filter .15s}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.22)}
+.btn-reveal{background:var(--dark);color:#fff}
+.answer{display:grid;gap:12px;margin-top:16px}
+.answer[hidden]{display:none}
+.answer:not([hidden]){animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.985)}to{opacity:1;transform:none}}
+.abox{background:#EAF8F0;border:2px solid #BEE8D1;border-radius:16px;padding:12px 16px}
+.xbox{background:#FFF6DD;border:2px dashed #F0C65C;border-radius:16px;padding:12px 16px}
+.lbl{display:block;font-size:14px;font-weight:700;margin-bottom:4px}
+.abox .lbl{color:#11774A}
+.xbox .lbl{color:#935600}
+.abox ul,.abox ol,.xbox ul{margin:4px 0 0;padding-left:20px}
+.abox li,.xbox li{margin:3px 0}
+.abox p,.xbox p{margin:0 0 6px}
+.abox p:last-child,.xbox p:last-child{margin-bottom:0}
+.score{font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
+.selfcheck{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:2px}
+.selfcheck span{font-weight:600;color:var(--muted);font-size:14.5px}
+.btn-ok{background:var(--good);color:#fff}
+.btn-rep{background:#fff;color:var(--ink);border:2px solid #E6D3A8;box-shadow:0 4px 0 #E6D3A8;padding:9px 16px}
+.btn-ok.on{box-shadow:0 0 0 3px #A7E3C4,0 4px 0 rgba(0,0,0,.22)}
+.btn-rep.on{background:#FFF0D1}
+.card.pulse{animation:pulse 1s ease 2}
+@keyframes pulse{0%,100%{transform:none}50%{transform:scale(1.012);box-shadow:0 0 0 7px var(--soft)}}
+
+/* elementy w treści pytań */
+.dates{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.dates li{background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:6px 13px;font-weight:600}
+.hint{font-size:14px;color:var(--muted);margin:0 0 9px}
+
+/* dopasowanie */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mcol{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:start}
+.mcol li{display:flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:8px 10px;font-size:15px;line-height:1.35}
+.ix{flex-shrink:0;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-size:14px}
+.ix-n{background:var(--soft);color:var(--dark)}
+.ix-l{background:var(--ink);color:#fff}
+.mcol select{margin-left:auto;flex-shrink:0;font:inherit;font-weight:700;font-size:15px;border:2px solid #D8D2EC;border-radius:10px;padding:3px 6px;background:#fff;cursor:pointer}
+li.right{background:#E3F6EC!important;border-color:#8ED6B1!important}
+li.wrong{background:#FFECE9!important;border-color:#F2A398!important}
+
+/* prawda / fałsz */
+.pf{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pf li{display:flex;align-items:center;gap:12px;background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:9px 12px}
+.pf .t{flex:1}
+.pfb{display:flex;gap:6px;flex-shrink:0}
+.pfb button{cursor:pointer;width:42px;height:38px;border-radius:10px;border:2px solid #D8D2EC;background:#fff;font-weight:700}
+.pfb button.sel[data-v="P"]{background:var(--good);border-color:var(--good);color:#fff}
+.pfb button.sel[data-v="F"]{background:#EE5A47;border-color:#EE5A47;color:#fff}
+
+/* kolejność */
+.opool{display:flex;flex-wrap:wrap;gap:8px}
+.ochip{cursor:pointer;border:2px solid var(--c);background:#fff;border-radius:12px;padding:7px 13px;font-weight:600;font-size:15px;box-shadow:0 3px 0 var(--soft)}
+.ochip:disabled{opacity:.28;cursor:default;box-shadow:none}
+.oseq{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;align-items:center;margin-top:10px;padding:8px;border:2px dashed #D8D2EC;border-radius:14px;background:var(--paper)}
+.oseq:empty::before{content:"Klikaj daty po kolei, a pojawią się tutaj";color:var(--muted);font-size:14px;padding:0 6px}
+.oseq span{background:var(--dark);color:#fff;border-radius:10px;padding:6px 10px;font-weight:600;font-size:14.5px}
+.oseq span em{font-style:normal;opacity:.7;margin-right:5px;font-size:12px}
+.oclear{margin-top:6px;cursor:pointer;background:none;border:0;padding:4px 0;color:var(--muted);font-weight:600;font-size:13.5px;text-decoration:underline}
+
+/* ---------- ŚCIĄGAWKA ---------- */
+.cheat{margin:48px 0 18px;background:#fff;border:2px solid var(--line);border-radius:26px;box-shadow:0 5px 0 var(--line);overflow:hidden}
+.cheat summary{cursor:pointer;list-style:none;padding:16px 22px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;gap:10px}
+.cheat summary::-webkit-details-marker{display:none}
+.cheat summary::after{content:"+";margin-left:auto;font-size:26px;line-height:1;color:var(--muted)}
+.cheat[open] summary::after{content:"–"}
+.cheat-body{padding:0 22px 22px;display:grid;gap:16px}
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.tl .seg{padding:12px 6px;text-align:center;font-weight:700;font-size:13.5px;line-height:1.2;border-radius:10px;color:#4A2C00}
+.tl .seg small{display:block;font-weight:500;font-size:11.5px;margin-top:4px;opacity:.85}
+.tl .era{text-align:center;font-weight:600;font-size:13px;color:var(--muted);border-top:3px solid #E5DDC6;padding-top:5px}
+.tl .era.h{border-color:#F2A05A;color:#A4520E}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.rule h4{margin:0 0 4px;font-size:18px;font-weight:700}
+.rule p{margin:0;font-size:14.5px}
+.roman{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-size:13px}
+.roman span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 0;text-align:center}
+.roman b{color:#5638D8}
+
+footer{color:var(--muted);font-size:13.5px;text-align:center;padding:6px 18px 44px}
+
+/* ---------- POWIADOMIENIA I KONFETTI ---------- */
+.tool .sm{display:none}
+.toast{opacity:0;visibility:hidden}
+.toast.show{opacity:1;visibility:visible}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140px);background:var(--ink);color:#fff;font-weight:600;padding:12px 18px;border-radius:14px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);z-index:100;transition:transform .35s cubic-bezier(.2,.9,.3,1.2),opacity .25s,visibility .35s;max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;top:-20px;width:10px;height:14px;border-radius:3px;z-index:99;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),112vh,0) rotate(var(--rot))}}
+
+@media (max-width:680px){
+  body{font-size:16px}
+  html{scroll-padding-top:150px}
+  .status{padding:8px 0 6px}
+  .srow{gap:8px}
+  .tools{width:100%;flex-wrap:nowrap}
+  .tool{flex:1;font-size:13px;padding:6px 8px;white-space:nowrap}
+  .tool .lg{display:none}
+  .tool .sm{display:inline}
+  .match,.rules{grid-template-columns:1fr}
+  .roman{grid-template-columns:repeat(4,1fr)}
+  .tl{grid-template-columns:1fr}
+  .tl .era{display:none}
+  .intro{gap:14px;padding:18px}
+  .intro h2{font-size:26px}
+  .bignr{font-size:68px}
+  .card{padding:14px 16px 18px}
+  .qtext{font-size:17px}
+  .cat-head h2{font-size:23px}
+  .cat-cnt{display:none}
+  .mascot{width:100%;justify-content:space-between}
+  .bubble{max-width:none;flex:1;margin-bottom:30px}
+  #tiktak{width:96px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="sub">Historia – pytania do powtórki</p>
+        <h1>Kapsuła Czasu</h1>
+        <p class="lead">Przeczytaj pytanie, odpowiedz na głos albo na kartce i dopiero wtedy zajrzyj do odpowiedzi. Uczciwie! 😉</p>
+      </div>
+      <div class="mascot">
+        <div class="bubble" id="bubble" aria-live="polite"></div>
+        <svg id="tiktak" viewBox="0 0 100 100" role="img" aria-label="Klepsydra Tik-Tak">
+          <defs>
+            <clipPath id="clipTop"><path d="M22 14H78C78 38 56 44 53 50H47C44 44 22 38 22 14Z"/></clipPath>
+            <clipPath id="clipBot"><path d="M47 50H53C56 56 78 62 78 86H22C22 62 44 56 47 50Z"/></clipPath>
+          </defs>
+          <rect x="16" y="12" width="5" height="76" rx="2" fill="#A8692F"/>
+          <rect x="79" y="12" width="5" height="76" rx="2" fill="#A8692F"/>
+          <path d="M22 14H78C78 38 56 44 53 50C56 56 78 62 78 86H22C22 62 44 56 47 50C44 44 22 38 22 14Z" fill="rgba(255,255,255,.2)"/>
+          <rect id="sandTop" x="18" y="22" width="64" height="28" fill="#FFB938" clip-path="url(#clipTop)"/>
+          <rect id="sandBot" x="18" y="82" width="64" height="4" fill="#FFB938" clip-path="url(#clipBot)"/>
+          <line class="sandstream" id="stream" x1="50" y1="49" x2="50" y2="85" stroke="#FFB938" stroke-width="1.6"/>
+          <path d="M22 14H78C78 38 56 44 53 50C56 56 78 62 78 86H22C22 62 44 56 47 50C44 44 22 38 22 14Z" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2"/>
+          <circle cx="40" cy="27" r="4" fill="#1D2347"/><circle cx="60" cy="27" r="4" fill="#1D2347"/>
+          <circle cx="41.4" cy="25.6" r="1.3" fill="#fff"/><circle cx="61.4" cy="25.6" r="1.3" fill="#fff"/>
+          <circle cx="33" cy="33" r="3" fill="#FF7E7E" opacity=".55"/><circle cx="67" cy="33" r="3" fill="#FF7E7E" opacity=".55"/>
+          <path d="M44 33Q50 39 56 33" fill="none" stroke="#1D2347" stroke-width="2.4" stroke-linecap="round"/>
+          <rect x="11" y="5" width="78" height="10" rx="5" fill="#C98A4B"/>
+          <rect x="11" y="85" width="78" height="10" rx="5" fill="#C98A4B"/>
+        </svg>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Działy"></nav>
+  </div>
+</header>
+
+<div class="status">
+  <div class="wrap">
+    <div class="srow">
+      <div class="prog">
+        <div class="ptop"><span id="pcount"></span><span class="rank" id="rank"></span></div>
+        <div class="bar" id="bar" role="progressbar" aria-label="Pytania, które umiesz" aria-valuemin="0"><i id="barfill"></i></div>
+      </div>
+      <div class="tools">
+        <button type="button" class="tool" id="t-random">🎲 Losuj<span class="lg"> pytanie</span></button>
+        <button type="button" class="tool" id="t-rep" aria-pressed="false">🔁 <span class="lg">Tylko do powtórki</span><span class="sm">Powtórki</span></button>
+        <button type="button" class="tool" id="t-reset">↺ <span class="lg">Zacznij od nowa</span><span class="sm">Od nowa</span></button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Rodzaje pytań"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer id="footer"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   DANE. Każdy dział to jeden obiekt w tablicy DZIALY.
+   Kolejny dział = dopisanie obiektu (bez "locked") z kategoriami i pytaniami.
+   Typy pytań: opis, regula, krotka, policz, daty, kolejnosc, dopasuj, wymien, pf
+   ===================================================================== */
+
+function rzym(n){var m=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']],s='';m.forEach(function(p){while(n>=p[0]){s+=p[1];n-=p[0];}});return s;}
+function siatkaRzymska(){var h='';for(var i=1;i<=20;i++)h+='<span>'+i+' = <b>'+rzym(i)+'</b></span>';return h;}
+
+var TYPY={
+  opis:'🗣️ Opisz słowami', regula:'📐 Podaj regułę', krotka:'✏️ Krótka odpowiedź',
+  policz:'🧮 Policz', daty:'📅 Daty i liczby', kolejnosc:'🔢 Ułóż w kolejności',
+  dopasuj:'🔗 Dopasuj w pary', wymien:'📋 Wymień po kolei', pf:'⚖️ Prawda czy fałsz'
+};
+
+var DZIALY=[
+{
+  id:'d1', nr:1, tytul:'Czas w historii', zakres:'podręcznik s. 6–9',
+  kategorie:[
+  /* ---------------------------------------------------------------- */
+  { id:'slowa', ikona:'🗣️', nazwa:'Wyjaśnij własnymi słowami', krotko:'Słowami',
+    opis:'Tu nie wystarczy jedna data. Opowiedz pełnym zdaniem, o co chodzi.',
+    c:'#FF6B5B', soft:'#FFE7E2', dark:'#C4382A',
+    pytania:[
+    { typ:'opis', q:'Czym zajmuje się chronologia?',
+      odp:'<p>Chronologia to nauka, która zajmuje się dwiema rzeczami:</p><ol><li><b>mierzeniem czasu w przeszłości</b>,</li><li><b>ustalaniem, co wydarzyło się najpierw, a co potem</b>.</li></ol>',
+      extra:'<p>Słowo pochodzi z greki: <i>chronos</i> to „czas”, a <i>logos</i> to „nauka, słowo”. Ten sam „chronos” siedzi w słowie <b>chronometr</b>. Tak nazywa się bardzo dokładny zegar, który dawniej żeglarze zabierali na statki, żeby ustalić, gdzie są na morzu.</p><p>Gdy nauczyciel prosi: „opowiedz chronologicznie”, chodzi o to, żeby zacząć od tego, co wydarzyło się najwcześniej.</p>' },
+    { typ:'opis', q:'Czym różni się historia od prehistorii?',
+      odp:'<p>Granicą jest <b>wynalezienie pisma, ok. 3500 r. p.n.e.</b></p><ul><li><b>Historia</b> to dzieje ludzkości od wynalezienia pisma.</li><li><b>Prehistoria</b> to wszystko, co wydarzyło się w dziejach ludzkości wcześniej, zanim ludzie zaczęli pisać.</li></ul>',
+      extra:'<p>O prehistorii nie przeczytamy w żadnym dokumencie. Wiemy o niej z tego, co ludzie po sobie zostawili: z narzędzi, kości, ozdób i malowideł. Bada je <b>archeologia</b>.</p><p>Słynne malowidła w jaskini <b>Lascaux</b> (czytaj: lasko) we Francji mają ok. 17 tysięcy lat. Odkryli je przypadkiem w 1940 r. francuscy nastolatkowie. Ludzie malowali na ścianach to, co było dla nich ważne, np. zwierzęta, na które polowali.</p>' },
+    { typ:'opis', q:'Czym jest epoka?',
+      odp:'<p>Epoka to <b>długi okres w historii lub prehistorii</b>. Każda epoka ma swój <b>początek i koniec</b> oraz <b>różni się od innych epok</b>.</p>',
+      extra:'<p>Słowo pochodzi od greckiego <i>epoché</i>, czyli „zatrzymanie”, „punkt zwrotny”. Stąd powiedzenie <b>„epokowe wydarzenie”</b>: coś tak ważnego, że zmienia bieg dziejów i od tego momentu zaczyna się coś nowego. Takim wydarzeniem było np. wynalezienie pisma.</p>' },
+    { typ:'opis', q:'Co to znaczy, że podział na epoki jest umowny? Podaj przykład.',
+      odp:'<p>Historycy musieli przyjąć jakieś <b>daty graniczne</b>, więc <b>umówili się</b> co do nich. Za koniec jednej epoki i początek następnej uważa się jakieś <b>przełomowe wydarzenie</b>. Nie wszyscy jednak zgadzają się, które wydarzenie było najważniejsze, dlatego w różnych książkach można spotkać różne daty epok.</p><p><b>Przykład:</b> zwykle przyjmuje się, że nowożytność zaczęła się w 1492 r. od odkrycia Ameryki. Niektórzy historycy uważają jednak, że ważniejszy był <b>wynalazek druku w połowie XV w.</b> i to od niego należy liczyć epokę nowożytną.</p>',
+      extra:'<p>Druk z ruchomych czcionek wynalazł <b>Jan Gutenberg</b> w Moguncji (Niemcy) ok. 1450 r. Wcześniej każdą książkę trzeba było przepisywać ręcznie, więc książki były bardzo drogie i rzadkie.</p><p>Ludzie żyjący w 1492 r. nie obudzili się z myślą „hurra, od dziś nowożytność!”. Epoki są jak szuflady, które historycy wymyślili dużo później, żeby łatwiej porządkować wiedzę o przeszłości.</p>' },
+    { typ:'opis', q:'Czy był rok 0? Wyjaśnij.',
+      odp:'<p><b>Nie, roku 0 nie było w ogóle.</b> Po 2 r. p.n.e. był 1 r. p.n.e., a zaraz po nim <b>1 r. n.e.</b></p>',
+      extra:'<p>Nasz sposób liczenia lat wymyślił w VI w. mnich <b>Dionizy Mały</b>. W jego czasach Europejczycy nie używali zera. Zobacz: cyfry rzymskie w ogóle go nie mają! Zero przywędrowało do Europy z Indii, przez kraje arabskie, dopiero kilkaset lat później.</p><p>Ciekawostka dla wytrwałych: dzisiejsi historycy uważają, że Dionizy pomylił się o kilka lat i Jezus urodził się prawdopodobnie ok. 6–4 r. p.n.e.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'skroty', ikona:'🔤', nazwa:'Skróty i cyfry rzymskie', krotko:'Skróty i cyfry',
+    opis:'Rozszyfruj, jak historycy zapisują czas.',
+    c:'#7C5CFF', soft:'#EDE9FF', dark:'#5536D6',
+    pytania:[
+    { typ:'krotka', q:'Co oznaczają te skróty?',
+      body:'<ul class="dates"><li>r.</li><li>w.</li><li>n.e.</li><li>p.n.e.</li><li>po Chr.</li><li>przed Chr.</li></ul>',
+      odp:'<ul><li><b>r.</b> – rok</li><li><b>w.</b> – wiek</li><li><b>n.e.</b> – naszej ery</li><li><b>p.n.e.</b> – przed naszą erą</li><li><b>po Chr.</b> – po Chrystusie (to samo co n.e.)</li><li><b>przed Chr.</b> – przed Chrystusem (to samo co p.n.e.)</li></ul>',
+      extra:'<p>Lata liczymy od narodzenia Jezusa Chrystusa. Po angielsku zobaczysz skróty <b>AD</b> (łac. <i>Anno Domini</i>, „roku Pańskiego”, czyli n.e.) i <b>BC</b> (<i>Before Christ</i>, czyli p.n.e.).</p><p>Na starych budynkach i pomnikach bywa napisane np. „A.D. 1750”. Teraz już wiesz, co to znaczy!</p>' },
+    { typ:'opis', q:'Dlaczego przy datach średniowiecza (476–1492) nie trzeba dopisywać „n.e.”?',
+      odp:'<p>Bo średniowiecze <b>zaczęło się w naszej erze</b>. A skoro zaczęło się w naszej erze, to <b>nie mogło się skończyć przed naszą erą</b>. Wiadomo więc, że obie daty są n.e.</p>',
+      extra:'<p>Tak samo jest na co dzień: piszemy po prostu „1410 r.” (bitwa pod Grunwaldem) albo „2026 r.”, bez „n.e.”, bo nie ma wątpliwości.</p><p>Za to dopisek <b>p.n.e. jest zawsze obowiązkowy</b>! Bez niego „776 r.” oznaczałoby zupełnie inny rok niż 776 r. p.n.e. Różnica to ponad 1500 lat.</p>' },
+    { typ:'krotka', q:'Zapisz cyframi rzymskimi liczby: 4, 9, 14, 16, 19 i 20. A jaką liczbę oznacza XVIII?',
+      odp:'<ul><li>4 = <b>IV</b>, 9 = <b>IX</b>, 14 = <b>XIV</b></li><li>16 = <b>XVI</b>, 19 = <b>XIX</b>, 20 = <b>XX</b></li><li>XVIII = <b>18</b></li></ul>',
+      extra:'<p>Sekret cyfr rzymskich: I = 1, V = 5, X = 10. Gdy mniejsza cyfra stoi <b>przed</b> większą, odejmujemy (IV = 5 − 1 = 4). Gdy stoi <b>za</b> nią, dodajemy (VI = 5 + 1 = 6).</p><p>Są też większe cyfry: <b>L = 50, C = 100, D = 500, M = 1000</b>. Rok 2026 zapiszesz jako <b>MMXXVI</b>, a nasz wiek to <b>XXI</b>.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'wieki', ikona:'🧮', nazwa:'Liczymy wieki', krotko:'Wieki',
+    opis:'Trochę matematyki w służbie historii. Licz krok po kroku.',
+    c:'#14A39F', soft:'#DBF3F1', dark:'#0A736F',
+    pytania:[
+    { typ:'regula', q:'Jak obliczyć, w którym wieku był dany rok? Podaj regułę i wyjątek od niej.',
+      odp:'<p><b>Reguła:</b> skreślamy dwie ostatnie cyfry roku i do tego, co zostało, dodajemy 1. Wynik zapisujemy cyframi rzymskimi.</p><ul><li>776 r. p.n.e. → 7 + 1 = 8 → <b>VIII w. p.n.e.</b></li><li>1370 r. n.e. → 13 + 1 = 14 → <b>XIV w. n.e.</b></li></ul><p><b>Wyjątek:</b> lata, które mają na końcu <b>dwa lub trzy zera</b>. Wtedy nie dodajemy jedynki: 1500 r. → <b>XV w.</b>, 2000 r. → <b>XX w.</b></p>',
+      extra:'<p>Skąd ten wyjątek? Pierwszy wiek trwał od roku 1 do roku <b>100</b>. Rok 100 to więc <b>ostatni</b> rok I wieku, a nie pierwszy rok II wieku. Tak samo rok 1500 zamyka XV wiek, a rok 2000 zamyka XX wiek.</p><p>Daty z przykładów są prawdziwe: w 776 r. p.n.e. odbyły się pierwsze znane igrzyska olimpijskie w Olimpii, a w 1370 r. zmarł król Kazimierz Wielki.</p>' },
+    { typ:'policz', q:'Który to wiek? Zapisz go cyframi rzymskimi.',
+      body:'<ul class="dates"><li>1800 r. p.n.e.</li><li>399 r. p.n.e.</li><li>64 r. n.e.</li><li>1001 r. n.e.</li></ul>',
+      odp:'<ul><li>1800 r. p.n.e. → <b>XVIII w. p.n.e.</b> (dwa zera na końcu, więc nie dodajemy 1)</li><li>399 r. p.n.e. → 3 + 1 = 4 → <b>IV w. p.n.e.</b></li><li>64 r. n.e. → 0 + 1 = 1 → <b>I w. n.e.</b></li><li>1001 r. n.e. → 10 + 1 = 11 → <b>XI w. n.e.</b></li></ul>',
+      extra:'<p>Pułapka w 1001 r.: to tylko rok po 1000, a już nowy wiek. To pierwszy rok XI wieku!</p><p>Przy 64 r. pomaga wyobrazić sobie zapis „0064”: po skreśleniu dwóch cyfr zostaje 0, a 0 + 1 = I wiek. W 64 r. n.e. wybuchł wielki pożar Rzymu, za panowania cesarza Nerona.</p>' },
+    { typ:'policz', q:'Do którego wieku należą te lata? To ważne daty z dziejów Polski i świata.',
+      body:'<ul class="dates"><li>966</li><li>1000</li><li>1410</li><li>1492</li><li>2026</li></ul>',
+      odp:'<ul><li>966 → 9 + 1 → <b>X w.</b></li><li>1000 → trzy zera, bez dodawania → <b>X w.</b></li><li>1410 → 14 + 1 → <b>XV w.</b></li><li>1492 → 14 + 1 → <b>XV w.</b></li><li>2026 → 20 + 1 → <b>XXI w.</b></li></ul>',
+      extra:'<p>Co się wtedy wydarzyło? <b>966</b> – chrzest Polski, <b>1000</b> – zjazd w Gnieźnie, <b>1410</b> – bitwa pod Grunwaldem, <b>1492</b> – Krzysztof Kolumb dopływa do Ameryki, <b>2026</b> – to Ty uczysz się historii!</p><p>Zauważ: chrzest Polski i zjazd gnieźnieński dzieli 34 lata, a oba wydarzenia należą do <b>tego samego</b> X wieku.</p>' },
+    { typ:'daty', q:'Które lata to <b>pierwsza połowa II wieku n.e.</b>, a które <b>pierwsza połowa II wieku p.n.e.</b>?',
+      odp:'<ul><li>I połowa II w. n.e. = lata <b>101–150</b> (a II połowa: 151–200)</li><li>I połowa II w. p.n.e. = lata <b>200–151 p.n.e.</b> (a II połowa: 150–101 p.n.e.)</li></ul><p>Przed naszą erą połowy liczymy odwrotnie: <b>pierwsza jest zawsze ta, która była wcześniej</b>.</p>',
+      extra:'<p>Lata przed naszą erą działają jak <b>odliczanie przed startem rakiety</b>: 200, 199, 198… 3, 2, 1 i start naszej ery! Im większa liczba p.n.e., tym dawniej. Dlatego pierwsza, czyli wcześniejsza, połowa wieku p.n.e. ma większe liczby.</p><p>Sprawdź się: II połowa I w. p.n.e. to lata 50–1 p.n.e.</p>' },
+    { typ:'daty', q:'Od 1 stycznia 2001 r. trwa trzecie tysiąclecie. Kiedy dobiegnie końca?',
+      odp:'<p><b>31 grudnia 3000 r.</b> Tysiąclecie to pełne 1000 lat: od 1 stycznia 2001 r. do 31 grudnia 3000 r.</p>',
+      extra:'<p>Tysiąclecia liczymy tak samo jak wieki: I tysiąclecie n.e. to lata 1–1000, II to lata 1001–2000, a III to lata 2001–3000.</p><p>Dlatego XXI wiek i III tysiąclecie <b>naprawdę</b> zaczęły się 1 stycznia 2001 r. A większość ludzi na świecie hucznie świętowała „nowe tysiąclecie” w sylwestra 1999 r., czyli o rok za wcześnie!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'os', ikona:'📅', nazwa:'Oś czasu: co było wcześniej?', krotko:'Oś czasu',
+    opis:'Ustaw daty w kolejności i policz, ile czasu minęło.',
+    c:'#3B82F6', soft:'#E1EBFF', dark:'#1E5CC8',
+    pytania:[
+    { typ:'daty', q:'Który rok był wcześniej: <b>87 r. p.n.e.</b> czy <b>78 r. n.e.</b>?',
+      odp:'<p><b>87 r. p.n.e.</b> Każdy rok przed naszą erą był wcześniej niż każdy rok naszej ery. Tu nie decyduje wielkość liczby, tylko dopisek p.n.e. albo n.e.</p>',
+      extra:'<p>A ile lat minęło między tymi datami? Uwaga, pułapka! Nie 87 + 78 = 165, tylko <b>164 lata</b>, bo nie było roku 0.</p><p>Zasada dla mistrzów: gdy liczysz lata „przez granicę” między p.n.e. a n.e., dodaj obie liczby i odejmij 1.</p>' },
+    { typ:'kolejnosc', q:'Ułóż te daty w kolejności chronologicznej, od najdawniejszej do najpóźniejszej.',
+      elementy:['1 r. n.e.','200 r. p.n.e.','1370 r.','2 r. p.n.e.','776 r. p.n.e.','1 r. p.n.e.'],
+      kolejnosc:[4,1,3,5,0,2],
+      odp:'<p><b>776 r. p.n.e. → 200 r. p.n.e. → 2 r. p.n.e. → 1 r. p.n.e. → 1 r. n.e. → 1370 r.</b></p>',
+      extra:'<p>Przed naszą erą działa „odliczanie rakiety”: im większa liczba, tym dawniej. Po starcie naszej ery wszystko jest zwyczajnie: im większa liczba, tym później.</p><p>A między 1 r. p.n.e. a 1 r. n.e. nie ma nic, bo roku 0 nie było.</p>' },
+    { typ:'policz', q:'Ile lat trwało średniowiecze? A ile mniej więcej trwała starożytność?',
+      odp:'<ul><li><b>Średniowiecze:</b> 1492 − 476 = <b>1016 lat</b>.</li><li><b>Starożytność:</b> od ok. 3500 r. p.n.e. do 476 r. n.e., czyli <b>prawie 4000 lat</b>. Dokładniej: 3500 + 476 − 1 = 3975 lat (odejmujemy 1, bo nie było roku 0).</li></ul>',
+      extra:'<p>Starożytność to najdłuższa epoka historyczna. Trwała dłużej niż średniowiecze i nowożytność razem wzięte!</p><p>Nowożytność trwa od 1492 r., więc w 2026 r. ma już 534 lata. A prehistoria była jeszcze dłuższa niż wszystkie epoki historyczne razem.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'pary', ikona:'🔗', nazwa:'Dopasuj w pary', krotko:'Dopasuj',
+    opis:'Połącz to, co do siebie pasuje: daty, wydarzenia i pojęcia.',
+    c:'#E8579B', soft:'#FCE4EF', dark:'#AD2966',
+    pytania:[
+    { typ:'dopasuj', q:'Dopasuj datę do wydarzenia.',
+      lewa:['ok. 8000 r. p.n.e.','ok. 3500 r. p.n.e.','476 r.','1492 r.'],
+      prawa:['Koniec średniowiecza i początek nowożytności (odkrycie Ameryki)','Koniec starszej i początek młodszej epoki kamiennej','Koniec starożytności i początek średniowiecza','Wynalezienie pisma, czyli początek historii i starożytności'],
+      klucz:['B','D','C','A'],
+      extra:'<p>Co się stało w <b>476 r.</b>? Upadło cesarstwo zachodniorzymskie. Germański wódz Odoaker odebrał władzę ostatniemu cesarzowi, Romulusowi Augustulusowi. Jego przydomek znaczy „mały August”, bo cesarz był jeszcze nastolatkiem.</p><p>A w <b>1492 r.</b> Krzysztof Kolumb płynął na zachód, szukając drogi do Indii, i dotarł do wysp Ameryki. Do końca życia był przekonany, że to Azja!</p>' },
+    { typ:'dopasuj', q:'Dopasuj środek podróży z ilustracji w podręczniku do czasu, z którego pochodzi obrazek.',
+      lewa:['Przejażdżka rydwanem na rzymskiej mozaice','Europejskie okręty na Oceanie Indyjskim','Start pierwszego w dziejach balonu na ogrzewane powietrze','Wesoły rysunek „podróże przyszłości”','Pociąg Pendolino na stacji Warszawa Zachodnia'],
+      prawa:['1829 r.','XV w.','2015 r.','III w. n.e.','XVIII w.'],
+      klucz:['D','B','E','A','C'],
+      extra:'<p>Przypisz obrazki jeszcze do epok: mozaika z III w. n.e. to <b>starożytność</b>, okręty z XV w. to koniec <b>średniowiecza</b> i początek <b>nowożytności</b>, a balon (XVIII w.), rysunek z 1829 r. i Pendolino to <b>nowożytność</b>.</p><p>Pierwszy balon na ogrzewane powietrze zbudowali we Francji bracia Montgolfier w 1783 r. <b>Rydwan</b> to dwukołowy wóz ciągnięty przez konie, a <b>rycina</b> to odbitka rysunku, drzeworytu lub zdjęcia.</p>' },
+    { typ:'dopasuj', q:'Dopasuj pojęcie do jego znaczenia.',
+      lewa:['chronologia','epoka','wiek (stulecie)','tysiąclecie','prehistoria'],
+      prawa:['pełne 100 lat','dzieje ludzkości sprzed wynalezienia pisma','nauka o mierzeniu czasu w przeszłości i ustalaniu, co było najpierw, a co potem','pełne 1000 lat','długi okres w historii lub prehistorii, który ma początek i koniec'],
+      klucz:['C','E','A','D','B'],
+      extra:'<p>Kilka innych miar czasu do kolekcji: <b>dekada</b> to 10 lat, <b>półwiecze</b> to 50 lat, a <b>era</b> to bardzo długi okres liczony od jakiegoś ważnego wydarzenia. Stąd właśnie „nasza era”.</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'epoki', ikona:'🏺', nazwa:'Epoki i dzieje Ziemi', krotko:'Epoki',
+    opis:'Wielki obraz: od powstania Ziemi do dzisiaj.',
+    c:'#F59E0B', soft:'#FFEFCC', dark:'#9A5B00',
+    pytania:[
+    { typ:'wymien', q:'Wymień po kolei epoki prehistoryczne i historyczne. Podaj daty, które je oddzielają.',
+      odp:'<p><b>Prehistoria</b></p><ol><li>Starsza epoka kamienna: do ok. 8000 r. p.n.e.</li><li>Młodsza epoka kamienna: ok. 8000 – ok. 3500 r. p.n.e.</li></ol><p><b>Historia</b></p><ol start="3"><li>Starożytność: ok. 3500 r. p.n.e. – 476 r. n.e.</li><li>Średniowiecze: 476–1492</li><li>Nowożytność (epoka nowożytna): od 1492 r. do dziś</li></ol>',
+      extra:'<p>W niektórych książkach spotkasz jeszcze jedną epokę: <b>współczesność</b>, czyli czasy najnowsze. Różni autorzy zaczynają ją od różnych dat w XX w., np. od 1918 r. albo od 1945 r. To kolejny dowód, że podział na epoki jest umowny!</p>' },
+    { typ:'opis', q:'Skąd pochodzą nazwy epok prehistorycznych?',
+      odp:'<p>Od <b>kamiennych narzędzi</b>, którymi posługiwali się wtedy ludzie. Stąd nazwy: <b>starsza</b> i <b>młodsza epoka kamienna</b>.</p>',
+      extra:'<p>Naukowcy nazywają je po grecku: <b>paleolit</b> (<i>palaios</i> – stary, <i>lithos</i> – kamień) i <b>neolit</b> (<i>neos</i> – nowy).</p><p>W paleolicie narzędzia robiono, odłupując kawałki kamienia. W neolicie ludzie nauczyli się je szlifować i gładzić, a do tego zaczęli uprawiać rośliny i hodować zwierzęta.</p>' },
+    { typ:'daty', q:'Dzieje Ziemi na spirali: ile lat ma Ziemia? Kiedy pojawiły się pierwsze rośliny lądowe, a kiedy ludzie rozumni?',
+      odp:'<ul><li>Ziemia ma ok. <b>4 miliardy 600 milionów lat</b>.</li><li>Pierwsze rośliny lądowe pojawiły się ok. <b>450 milionów lat temu</b>.</li><li>Ludzie rozumni pojawili się ok. <b>200 tysięcy lat temu</b>.</li></ul><p>Gdyby całe dzieje Ziemi zmieścić w 24 godzinach, nasz gatunek istniałby zaledwie ok. <b>2 sekundy</b>.</p>',
+      extra:'<p>„Człowiek rozumny” to po łacinie <b><i>Homo sapiens</i></b>. Tak naukowcy nazywają nasz gatunek.</p><p>Pobawmy się tą „dobą Ziemi”: pierwsze rośliny lądowe pojawiłyby się ok. godz. 21:40, a dinozaury wymarłyby (66 mln lat temu) ok. 20 minut przed północą. Cała historia od wynalezienia pisma trwałaby mniej więcej jedną dziesiątą sekundy, czyli tyle co mrugnięcie okiem!</p>' }
+    ]},
+  /* ---------------------------------------------------------------- */
+  { id:'pf', ikona:'⚖️', nazwa:'Prawda czy fałsz?', krotko:'Prawda / fałsz',
+    opis:'Zdecyduj przy każdym zdaniu. A zdania fałszywe popraw!',
+    c:'#16A063', soft:'#DFF5E9', dark:'#11774A',
+    pytania:[
+    { typ:'pf', q:'Które zdania są prawdziwe, a które fałszywe?',
+      zdania:[
+        {t:'Rok 1500 należał do XVI wieku.', p:false, fix:'należał do <b>XV wieku</b> (dwa zera na końcu, więc nie dodajemy 1).'},
+        {t:'Po 1 r. p.n.e. nastąpił rok 0.', p:false, fix:'roku 0 nie było, po 1 r. p.n.e. od razu nastąpił <b>1 r. n.e.</b>'},
+        {t:'Druga połowa I wieku p.n.e. to lata 50–1 p.n.e.', p:true, fix:'pierwsza połowa to lata 100–51 p.n.e., a druga 50–1 p.n.e.'},
+        {t:'Historia zaczęła się wraz z wynalezieniem druku.', p:false, fix:'historia zaczęła się wraz z wynalezieniem <b>pisma</b>, ok. 3500 r. p.n.e. Druk wynaleziono dopiero w połowie XV w.'},
+        {t:'Najstarszym znanym nam pismem świata jest pismo Sumerów.', p:true, fix:''},
+        {t:'XX wiek to lata 1901–2000.', p:true, fix:'rok 2000 zamyka XX wiek, a XXI wiek zaczął się w 2001 r.'}
+      ],
+      extra:'<p>Pismo Sumerów nazywamy <b>pismem klinowym</b>. Znaki wyciskano zaostrzonym patyczkiem (rylcem) w mokrej glinie, więc miały kształt małych klinów. Tabliczki suszono albo wypalano i dzięki temu przetrwały tysiące lat.</p><p>Sumerowie mieszkali w <b>Mezopotamii</b>, czyli w krainie między rzekami Eufrat i Tygrys (dziś to głównie Irak).</p>' }
+    ]}
+  ],
+  sciagawka:
+    '<div class="tl">'+
+      '<div class="seg" style="background:#FFF1D2">Starsza epoka kamienna<small>do ok. 8000 p.n.e.</small></div>'+
+      '<div class="seg" style="background:#FFE2A6">Młodsza epoka kamienna<small>ok. 8000–3500 p.n.e.</small></div>'+
+      '<div class="seg" style="background:#FFC966">Starożytność<small>ok. 3500 p.n.e. – 476</small></div>'+
+      '<div class="seg" style="background:#F8A23F;color:#fff">Średniowiecze<small>476–1492</small></div>'+
+      '<div class="seg" style="background:#E8701D;color:#fff">Nowożytność<small>od 1492 do dziś</small></div>'+
+      '<div class="era" style="grid-column:span 2">Prehistoria</div>'+
+      '<div class="era h" style="grid-column:span 3">Historia (od wynalezienia pisma)</div>'+
+    '</div>'+
+    '<div class="rules">'+
+      '<div class="rule"><h4>🧮 Który to wiek?</h4><p>Skreśl dwie ostatnie cyfry i dodaj 1: <b>1370 → 13 + 1 = XIV w.</b><br>Gdy na końcu są dwa lub trzy zera, nie dodajesz 1: <b>1500 → XV w.</b>, <b>2000 → XX w.</b></p></div>'+
+      '<div class="rule"><h4>🚀 Przed naszą erą liczymy w dół</h4><p>…3, 2, 1 p.n.e., a potem 1, 2, 3 n.e.… <b>Roku 0 nie było.</b><br>I poł. II w. p.n.e. = 200–151 p.n.e., I poł. II w. n.e. = 101–150.</p></div>'+
+      '<div class="rule"><h4>📏 Miary czasu</h4><p>wiek (stulecie) = 100 lat<br>tysiąclecie = 1000 lat<br>III tysiąclecie trwa od 2001 do 3000 r.</p></div>'+
+      '<div class="rule"><h4>🏛️ Cyfry rzymskie</h4><div class="roman">'+siatkaRzymska()+'</div></div>'+
+    '</div>'
+},
+{ id:'d2', nr:2, tytul:'Następny dział', locked:true }
+];
+
+/* ===================================================================== */
+
+var $=function(s){return document.querySelector(s);};
+var LIT='ABCDEFGH';
+var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function plural(n,a,b,c){if(n===1)return a;var d=n%10,dd=n%100;return (d>=2&&d<=4&&!(dd>=12&&dd<=14))?b:c;}
+
+var dz=DZIALY.filter(function(d){return !d.locked;})[0];
+var ALL=[],BY={},nr=0;
+dz.kategorie.forEach(function(k){k.pytania.forEach(function(p){p.nr=++nr;p.uid=dz.id+'-'+p.nr;p.k=k;ALL.push(p);BY[p.uid]=p;});});
+var TOTAL=ALL.length;
+
+var KEY='kapsula-czasu-v1',store={};
+try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+var RANGI=[
+  {od:0,  e:'🧭', n:'Podróżnik w czasie', msg:'Piasek zaczął się sypać! Każde pytanie, które umiesz, to krok w podróży przez czas. ⏳'},
+  {od:.25,e:'📅', n:'Strażnik kalendarza', msg:'Brawo! Zostajesz Strażnikiem Kalendarza. Daty już Cię słuchają!'},
+  {od:.5, e:'🏹', n:'Łowca dat', msg:'Ponad połowa za Tobą! Łowca Dat w akcji, żadna data się nie ukryje. 😎'},
+  {od:.75,e:'🏛️', n:'Znawca epok', msg:'Znawca Epok! Jeszcze tylko kilka pytań do tytułu Mistrza…'},
+  {od:1,  e:'🏆', n:'Mistrz chronologii', msg:'MISTRZ CHRONOLOGII! Cały piasek przesypany, cały dział opanowany! 🏆'}
+];
+var START='Cześć! Jestem Tik-Tak, klepsydra, która kocha historię. Za każde pytanie, które umiesz, przesypie się trochę mojego piasku!';
+var POCHWALY=['Brawo! 🎉','Super, tak trzymaj! 💪','Mistrzowsko! ⭐','Świetnie, piasek leci! ⏳','Ekstra! Kolejne ziarenko wiedzy 🌟','Pięknie! Historia nie ma przed Tobą tajemnic 😎'];
+var DOPING=['Powtarzanie to matka wiedzy! 💪','Zapisane do powtórki. Wrócimy tu! 🔁','Każdy mistrz kiedyś zaczynał. Do dzieła! 🚀'];
+
+function vars(k){return '--c:'+k.c+';--soft:'+k.soft+';--dark:'+k.dark;}
+
+/* ---------- budowanie HTML ---------- */
+function matchHTML(p){
+  var opts='<option value="">?</option>'+p.prawa.map(function(_,j){return '<option value="'+LIT[j]+'">'+LIT[j]+'</option>';}).join('');
+  var L=p.lewa.map(function(t,i){return '<li><span class="ix ix-n">'+(i+1)+'</span><span>'+t+'</span><select aria-label="Litera dla pozycji '+(i+1)+'">'+opts+'</select></li>';}).join('');
+  var R=p.prawa.map(function(t,j){return '<li><span class="ix ix-l">'+LIT[j]+'</span><span>'+t+'</span></li>';}).join('');
+  return '<p class="hint">Przy każdym numerze wybierz literę albo zapisz pary na kartce, np. 1–B.</p><div class="match"><ol class="mcol ml">'+L+'</ol><ul class="mcol mr">'+R+'</ul></div>';
+}
+function matchAnswer(p){
+  return '<ul>'+p.lewa.map(function(t,i){var j=LIT.indexOf(p.klucz[i]);return '<li><b>'+(i+1)+' – '+p.klucz[i]+'</b>: '+t+' → '+p.prawa[j]+'</li>';}).join('')+'</ul>';
+}
+function pfHTML(p){
+  return '<p class="hint">Przy każdym zdaniu kliknij P (prawda) albo F (fałsz).</p><ol class="pf">'+p.zdania.map(function(z,i){
+    var l=LIT[i].toLowerCase();
+    return '<li><span class="t"><b>'+l+')</b> '+z.t+'</span><span class="pfb" role="group" aria-label="Zdanie '+l+'"><button type="button" data-v="P" aria-pressed="false">P</button><button type="button" data-v="F" aria-pressed="false">F</button></span></li>';
+  }).join('')+'</ol>';
+}
+function pfAnswer(p){
+  return '<ul>'+p.zdania.map(function(z,i){return '<li><b>'+LIT[i].toLowerCase()+') '+(z.p?'✅ Prawda':'❌ Fałsz')+'</b>'+(z.fix?': '+z.fix:'')+'</li>';}).join('')+'</ul>';
+}
+function orderHTML(p){
+  return '<p class="hint">Klikaj daty od najdawniejszej do najpóźniejszej.</p><div class="opool">'+p.elementy.map(function(t,i){return '<button type="button" class="ochip" data-i="'+i+'">'+t+'</button>';}).join('')+'</div><div class="oseq" aria-live="polite"></div><button type="button" class="oclear">Wyczyść i ułóż jeszcze raz</button>';
+}
+function bodyHTML(p){
+  if(p.typ==='dopasuj')return matchHTML(p);
+  if(p.typ==='pf')return pfHTML(p);
+  if(p.typ==='kolejnosc')return orderHTML(p);
+  return p.body||'';
+}
+function cardHTML(p){
+  var ans=p.typ==='dopasuj'?matchAnswer(p):p.typ==='pf'?pfAnswer(p):p.odp;
+  var body=bodyHTML(p);
+  return '<article class="card" id="q'+p.nr+'" data-uid="'+p.uid+'" style="'+vars(p.k)+'">'+
+    '<div class="ctop"><span class="qnr">'+p.nr+'</span><span class="qtype">'+TYPY[p.typ]+'</span><span class="qmark"></span></div>'+
+    '<h3 class="qtext">'+p.q+'</h3>'+
+    (body?'<div class="qbody">'+body+'</div>':'')+
+    '<button type="button" class="btn btn-reveal" aria-expanded="false" aria-controls="a'+p.nr+'">👀 Pokaż odpowiedź</button>'+
+    '<div class="answer" id="a'+p.nr+'" hidden>'+
+      '<div class="score hide"></div>'+
+      '<div class="abox"><span class="lbl">✔ Odpowiedź</span>'+ans+'</div>'+
+      (p.extra?'<div class="xbox"><span class="lbl">⭐ Zabłyśnij na lekcji</span>'+p.extra+'</div>':'')+
+      '<div class="selfcheck"><span>Jak Ci poszło?</span><button type="button" class="btn btn-ok">✅ Umiem!</button><button type="button" class="btn btn-rep">🔁 Muszę powtórzyć</button></div>'+
+    '</div></article>';
+}
+function catHTML(k){
+  return '<section class="cat" id="k-'+k.id+'" style="'+vars(k)+'">'+
+    '<div class="cat-head"><div class="cat-ico" aria-hidden="true">'+k.ikona+'</div><div><h2>'+k.nazwa+'</h2><p>'+k.opis+'</p></div><span class="cat-cnt" data-cnt="'+k.id+'"></span></div>'+
+    '<div class="cards">'+k.pytania.map(cardHTML).join('')+'</div></section>';
+}
+
+/* ---------- render ---------- */
+$('#tabs').innerHTML=DZIALY.map(function(d){
+  if(d.locked)return '<button type="button" class="tab locked" data-locked="1"><span class="tnr">Dział '+d.nr+'</span>🔒 wkrótce</button>';
+  return '<button type="button" class="tab'+(d===dz?' active':'')+'"'+(d===dz?' aria-current="page"':'')+'><span class="tnr">Dział '+d.nr+'</span>'+d.tytul+'</button>';
+}).join('');
+
+$('#main').innerHTML=
+  '<section class="intro"><div class="bignr" aria-hidden="true">'+dz.nr+'</div><div>'+
+    '<h2>'+dz.tytul+'</h2>'+
+    '<ul class="meta"><li>'+dz.zakres+'</li><li>'+TOTAL+' '+plural(TOTAL,'pytanie','pytania','pytań')+'</li><li>'+dz.kategorie.length+' '+plural(dz.kategorie.length,'rodzaj','rodzaje','rodzajów')+' zadań</li></ul>'+
+    '<ol class="howto"><li>Przeczytaj pytanie</li><li>Odpowiedz na głos lub na kartce</li><li>Kliknij „Pokaż odpowiedź”</li><li>Oceń się uczciwie</li></ol>'+
+  '</div></section>'+
+  dz.kategorie.map(catHTML).join('')+
+  (dz.sciagawka?'<details class="cheat"><summary>📜 Ściągawka: otwórz, gdy skończysz pytania</summary><div class="cheat-body">'+dz.sciagawka+'</div></details>':'');
+
+$('#chips').innerHTML=dz.kategorie.map(function(k){return '<a class="chip" href="#k-'+k.id+'" data-chip="'+k.id+'" style="'+vars(k)+'">'+k.ikona+' '+k.krotko+'<small></small></a>';}).join('');
+$('#footer').textContent='Pytania do działu „'+dz.tytul+'” ('+dz.zakres+'). Twoje oceny „Umiem” i „Muszę powtórzyć” zapisują się w tej przeglądarce.';
+$('#bar').setAttribute('aria-valuemax',TOTAL);
+
+/* ---------- logika kart ---------- */
+function cardOf(p){return document.getElementById('q'+p.nr);}
+function isOpen(card){return !card.querySelector('.answer').hidden;}
+function getSeq(card){return card.dataset.seq?card.dataset.seq.split(',').map(Number):[];}
+function renderSeq(card,p){card.querySelector('.oseq').innerHTML=getSeq(card).map(function(i,n){return '<span><em>'+(n+1)+'.</em>'+p.elementy[i]+'</span>';}).join('');}
+function clearOrder(card,p){card.dataset.seq='';card.querySelectorAll('.ochip').forEach(function(b){b.disabled=false;});renderSeq(card,p);if(isOpen(card))evaluate(card,p);}
+
+function scoreMsg(h,n,what){
+  if(h===n)return '🎯 Bezbłędnie! '+what+': '+h+' z '+n+'.';
+  return '🔎 '+what+': '+h+' z '+n+'. Porównaj z odpowiedzią poniżej.';
+}
+function evaluate(card,p){
+  var sc=card.querySelector('.score'),msg='';
+  if(p.typ==='dopasuj'){
+    var hit=0,tried=0;
+    card.querySelectorAll('.ml li').forEach(function(li,i){var v=li.querySelector('select').value;li.classList.remove('right','wrong');if(!v)return;tried++;if(v===p.klucz[i]){hit++;li.classList.add('right');}else li.classList.add('wrong');});
+    if(tried)msg=scoreMsg(hit,p.klucz.length,'Dobrze dopasowane');
+  }else if(p.typ==='pf'){
+    var h2=0,t2=0;
+    card.querySelectorAll('.pf li').forEach(function(li,i){var s=li.querySelector('button.sel');li.classList.remove('right','wrong');if(!s)return;t2++;if((s.dataset.v==='P')===p.zdania[i].p){h2++;li.classList.add('right');}else li.classList.add('wrong');});
+    if(t2)msg=scoreMsg(h2,p.zdania.length,'Dobre odpowiedzi');
+  }else if(p.typ==='kolejnosc'){
+    var seq=getSeq(card);
+    if(seq.length){var h3=0;seq.forEach(function(v,i){if(v===p.kolejnosc[i])h3++;});msg=scoreMsg(h3,p.kolejnosc.length,'Daty na właściwym miejscu');}
+  }
+  sc.classList.toggle('hide',!msg);sc.textContent=msg;
+}
+function toggle(card,p){
+  var a=card.querySelector('.answer'),b=card.querySelector('.btn-reveal'),open=a.hidden;
+  a.hidden=!open;b.setAttribute('aria-expanded',String(open));
+  b.textContent=open?'🙈 Schowaj odpowiedź':'👀 Pokaż odpowiedź';
+  if(open)evaluate(card,p);
+  else card.querySelectorAll('li.right,li.wrong').forEach(function(li){li.classList.remove('right','wrong');});
+}
+function paintCard(card,p){
+  var m=store[p.uid];
+  card.classList.toggle('is-ok',m==='ok');card.classList.toggle('is-rep',m==='rep');
+  card.querySelector('.qmark').textContent=m==='ok'?'✅ Umiem':m==='rep'?'🔁 Do powtórki':'';
+  card.querySelector('.btn-ok').classList.toggle('on',m==='ok');
+  card.querySelector('.btn-rep').classList.toggle('on',m==='rep');
+}
+function countOk(list){return (list||ALL).filter(function(p){return store[p.uid]==='ok';}).length;}
+function catDone(k){return countOk(k.pytania)===k.pytania.length;}
+
+function sand(f){
+  var hT=28*(1-f),hB=4+26*f,t=$('#sandTop'),b=$('#sandBot');
+  t.setAttribute('y',50-hT);t.setAttribute('height',hT);
+  b.setAttribute('y',86-hB);b.setAttribute('height',hB);
+  $('#stream').style.opacity=f>=1?0:1;
+}
+function rankFor(f){var r=RANGI[0];RANGI.forEach(function(x){if(f>=x.od)r=x;});return r;}
+function refresh(){
+  var ok=countOk(),f=ok/TOTAL,r=rankFor(f);
+  $('#pcount').textContent='Umiem: '+ok+' / '+TOTAL;
+  $('#barfill').style.width=(f*100)+'%';
+  $('#bar').setAttribute('aria-valuenow',ok);
+  $('#rank').textContent=r.e+' '+r.n;
+  var msg=ok===0?START:r.msg;
+  if($('#bubble').textContent!==msg)$('#bubble').textContent=msg;
+  sand(f);
+  dz.kategorie.forEach(function(k){
+    var c=countOk(k.pytania),n=k.pytania.length;
+    var chip=document.querySelector('[data-chip="'+k.id+'"]');
+    chip.querySelector('small').textContent=c+'/'+n;
+    chip.classList.toggle('done',c===n);
+    document.querySelector('[data-cnt="'+k.id+'"]').textContent=(c===n?'🌟 ':'')+'Umiem '+c+' z '+n;
+  });
+}
+
+var repOnly=false;
+function applyFilter(){
+  ALL.forEach(function(p){cardOf(p).classList.toggle('hide',repOnly&&store[p.uid]!=='rep');});
+  document.querySelectorAll('.cat').forEach(function(s){s.classList.toggle('hide',repOnly&&!s.querySelector('.card:not(.hide)'));});
+}
+function setRepOnly(v){repOnly=v;$('#t-rep').setAttribute('aria-pressed',String(v));applyFilter();}
+
+function setMark(card,p,m){
+  var wasCat=catDone(p.k),wasAll=countOk()===TOTAL;
+  if(store[p.uid]===m)delete store[p.uid];else store[p.uid]=m;
+  save();paintCard(card,p);refresh();
+  if(store[p.uid]==='ok'){
+    if(countOk()===TOTAL&&!wasAll){celebrate();toast('🏆 Cały dział opanowany! Zostajesz Mistrzem Chronologii!');}
+    else if(catDone(p.k)&&!wasCat){toast('🌟 Kategoria „'+p.k.nazwa+'” zaliczona!');}
+    else toast(pick(POCHWALY));
+  }else if(store[p.uid]==='rep')toast(pick(DOPING));
+  if(repOnly){
+    if(!ALL.some(function(x){return store[x.uid]==='rep';})){setRepOnly(false);toast('Wszystkie powtórki zrobione! 🎉');}
+    else applyFilter();
+  }
+}
+
+$('#main').addEventListener('click',function(e){
+  var card=e.target.closest('.card');if(!card)return;
+  var p=BY[card.dataset.uid];
+  if(e.target.closest('.btn-reveal'))return toggle(card,p);
+  if(e.target.closest('.btn-ok'))return setMark(card,p,'ok');
+  if(e.target.closest('.btn-rep'))return setMark(card,p,'rep');
+  var pb=e.target.closest('.pfb button');
+  if(pb){pb.parentNode.querySelectorAll('button').forEach(function(b){var on=b===pb;b.classList.toggle('sel',on);b.setAttribute('aria-pressed',String(on));});if(isOpen(card))evaluate(card,p);return;}
+  var oc=e.target.closest('.ochip');
+  if(oc){var s=getSeq(card);s.push(+oc.dataset.i);card.dataset.seq=s.join(',');oc.disabled=true;renderSeq(card,p);if(isOpen(card))evaluate(card,p);return;}
+  if(e.target.closest('.oclear'))clearOrder(card,p);
+});
+$('#main').addEventListener('change',function(e){
+  if(!e.target.matches('select'))return;
+  var card=e.target.closest('.card');if(isOpen(card))evaluate(card,BY[card.dataset.uid]);
+});
+
+$('#tabs').addEventListener('click',function(e){if(e.target.closest('[data-locked]'))toast('Ten dział jeszcze się szykuje. Wkrótce tu będzie! 🔒');});
+
+$('#t-random').addEventListener('click',function(){
+  var pool=ALL.filter(function(p){return store[p.uid]!=='ok'&&!cardOf(p).classList.contains('hide');});
+  if(!pool.length){toast('Umiesz wszystko! 🏆 Kliknij „Zacznij od nowa”, żeby sprawdzić się jeszcze raz.');return;}
+  var c=cardOf(pick(pool));
+  c.scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});
+  c.classList.remove('pulse');void c.offsetWidth;c.classList.add('pulse');
+});
+$('#t-rep').addEventListener('click',function(){
+  if(!repOnly&&!ALL.some(function(p){return store[p.uid]==='rep';})){toast('Nie masz jeszcze pytań do powtórki. Tak trzymaj! 👍');return;}
+  setRepOnly(!repOnly);
+  if(repOnly){var n=ALL.filter(function(p){return store[p.uid]==='rep';}).length;toast('Pokazuję '+n+' '+plural(n,'pytanie','pytania','pytań')+' do powtórki 🔁');}
+});
+$('#t-reset').addEventListener('click',function(){
+  if(!confirm('Zacząć od nowa? Oceny „Umiem” i „Muszę powtórzyć” w tym dziale zostaną wyczyszczone.'))return;
+  ALL.forEach(function(p){
+    delete store[p.uid];
+    var c=cardOf(p);
+    if(isOpen(c))toggle(c,p);
+    c.querySelectorAll('select').forEach(function(s){s.value='';});
+    c.querySelectorAll('.pfb button').forEach(function(b){b.classList.remove('sel');b.setAttribute('aria-pressed','false');});
+    if(p.typ==='kolejnosc')clearOrder(c,p);
+    paintCard(c,p);
+  });
+  save();setRepOnly(false);refresh();
+  window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+  toast('Czysta karta! Ruszamy od początku 🚀');
+});
+
+var toastT;
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},2400);}
+function celebrate(){
+  if(reduced)return;
+  var cols=['#FF6B5B','#FFB938','#14A39F','#7C5CFF','#3B82F6','#16A063','#E8579B'];
+  for(var i=0;i<110;i++){
+    var d=document.createElement('i');d.className='confetti';
+    d.style.left=Math.random()*100+'vw';d.style.background=cols[i%cols.length];
+    d.style.setProperty('--dx',(Math.random()*160-80)+'px');d.style.setProperty('--rot',(Math.random()*900-450)+'deg');
+    d.style.animationDuration=(2.4+Math.random()*2)+'s';d.style.animationDelay=(Math.random()*.6)+'s';
+    document.body.appendChild(d);
+    (function(el){setTimeout(function(){el.remove();},5600);})(d);
+  }
+}
+
+ALL.forEach(function(p){paintCard(cardOf(p),p);});
+refresh();
+})();
+</script>
+</body>
+</html>
